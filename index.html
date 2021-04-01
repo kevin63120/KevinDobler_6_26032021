@@ -6,51 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="/style.css" rel="stylesheet">
+    <link href="./public/css/style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f80ec18dc5.js" crossorigin="anonymous"></script>
     <title>Accueil</title>
 </head>
 <body>
-    <header>
-        <div class="logo"><img href='\Sample Photos\logo.svg' class="logo-text" alt="image du logo du site - lien de navigation pour l'index"></img></div> 
-        <nav aria-label="photograpers_categories">
+    <div class="return_main" ><a  href="main" id="main_return" aria-label="lien de retour au contenut">retour au contenut</a></div>
+    <header class="header_page-index">
+        <div class="logo"><a href="index.html" class="logo-txt" alt="Fisheye home page"><img src="Sample Photos/imageOfModel/Grouplogo.svg" alt="logo du site"></a></div> 
+        <nav aria-label="photograpers_tags">
             <ul class="nav-list " >
-                <li class="nav-Item photograph_tag-item"><a>portrait</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Art</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Fashion</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Architecture</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Travel</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Sports</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Animals</a></li>
-                <li class="nav-Item photograph_tag-item"><a>#Events</a></li>
+                <li class="nav-item photograph_tag-item">#portrait</li>
+                <li class="nav-item photograph_tag-item">#Art</li>
+                <li class="nav-item photograph_tag-item">#Fashion</li>
+                <li class="nav-item photograph_tag-item">#Architecture</li>
+                <li class="nav-item photograph_tag-item">#Travel</li>
+                <li class="nav-item photograph_tag-item">#Sports</li>
+                <li class="nav-item photograph_tag-item">#Animals</li>
+                <li class="nav-item photograph_tag-item">#Events</li>
             </ul>
         </nav>       
     </header>
     <main>
-        <h1>Nos photographes</h1>
+        <h1 class="title_index">Nos photographes</h1>
 
-        <section class="container_photographs_profils">
+        <article class="container_photographs_profils">
             <a href="">
                 <img src="Sample Photos\Photographers ID Photos\EllieRoseWilkens.jpg" alt="photo de profile photographe">
-                <h2>nom</h2>
+                <h2 class="name">nom</h2>
             </a>
-            <article class="photograph_description">
+            <div class="photograph_description">
                 <p class="photograph_location">ville et pays de residence</p>
                 <p class="photograph_description-text">description de la personne</p> 
                 <p class="photograph_pricePerDay">prix par jour</p>  
-            </article>
-            <aside class="photograph_tag">
-                <ul class="photograph_tag-list">
-                    <li class="photograph_tag-item"><a>#portrait</a></li>
-                    <li class="photograph_tag-item"><a>#Architecture</a></li>
-                    <li class="photograph_tag-item"><a>#Events</a></li>
-                    <li class="photograph_tag-item"><a>#Fashion</a></li>
+            </div>
+            <footer class="photograph_tag">
+                <ul arialabel="photograph_tag-list" class="photograph_tag-list">
+                    <li class="photograph_tag-item personal">#portrait</li>
+                    <li class="photograph_tag-item personal">#Architecture</li>
+                    <li class="photograph_tag-item personal">#Events</li>
+                    <li class="photograph_tag-item personal">#Fashion</li>
 
                 </ul>
-            </aside>
+            </footer>
 
             
 
-        </section>
+        </article>
 
     </main>
     
@@ -58,6 +60,6 @@
 
     </footer>
 
-    
+    <script type="text/javascript" src="script.js"></script>  
 </body>
 </html>
