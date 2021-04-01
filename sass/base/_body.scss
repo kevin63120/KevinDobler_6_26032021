@@ -1,0 +1,23 @@
+
+.title_index{
+    position: relative;
+    bottom: 70px;
+    left: 70%;
+    @media screen and (max-width: 700px){
+        
+        position: relative;
+        bottom: 157px;
+        left: 60%;
+        font-size: 0.875em;
+    }
+}
+
+.return_main{
+    z-index: 2;
+    width: 100%;
+    position: fixed;
+    #main_return{
+        background-color: $color_primary;
+        position: fixed ;
+    }
+}

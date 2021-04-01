@@ -1,0 +1,64 @@
+
+.container_photographs_profils{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem 0;
+    //width: 30%;
+}
+.container_photographs_profils  a{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #d3573c;
+    font-weight: 500;
+    font-size: 2.25em;
+    
+}
+.container_photographs_profils img{
+    width: 200px;
+    object-fit: cover;
+    height: 200px;
+    border-radius: 50%;
+}
+.photograph_description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.photograph_location{
+    color:#901c1c;
+    font-weight: 400;
+    font-size: 0.81em;
+    margin: 0.1rem 0;
+}
+.photograph_description-text{
+    color: #000000;
+    font-weight: 400;
+    font-size: 0.625em;
+    margin: 0.1rem 0;
+
+}
+.photograph_pricePerDay{
+    color: #757575;
+    font-weight: 400;
+    font-size: 0.562em;
+    margin: 0.1rem 0;
+}
+.photograph_tag-list{
+    display: flex;
+}
+.photograph_tag-item {
+    font-size: 12px;
+    color: #901c1c;
+    font-weight: 500;
+    border: 0.5px solid #c4c4c4;
+    border-radius: 1.187em;
+    padding: 0 0.2 rem;
+    line-height: 1.85em;
+    padding: 0 0.5em;
+}
+.personal{
+    margin: 0 0.2rem ;
+}
