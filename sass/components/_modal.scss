@@ -1,0 +1,67 @@
+.modal{
+    display: none;
+    
+}
+.form_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 2em;
+    font-weight: 700;
+    .X{
+      font-size: 2em; 
+      background:  rgba(219,136,118,1) ;
+      border: none;
+      
+    }
+    h1{
+        width: 100%;
+    }
+}
+.modal-active{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 1em;
+    background-color: rgba(219,136,118,1) ;
+    @media screen and(min-width:700px) {
+        width:50% ;
+        margin: 0 25%;
+    }
+    
+    input{
+        width: 100%;
+        
+        margin-top: 0.5em;
+        font-size: 1.2em;
+        padding: 0;
+    }
+    .form_item{
+        margin: 1em 0  ;
+        font-size: 1.5em;
+        label{
+            font-weight: 400;
+            
+        }
+
+    }
+    #message{
+        height: 6em;
+        display: flex;
+        text-overflow: clip;
+
+    }
+}
+#submit{
+    border-radius: 5px;
+    font-weight: 700;
+    background:$color_primary;
+    color: azure;
+}

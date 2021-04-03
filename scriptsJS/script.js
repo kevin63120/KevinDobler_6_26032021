@@ -1,4 +1,4 @@
-// je dois recupéré les éléments sur les photographes qui sont stockées dans le fichier JSON 
+
 
 // retrieved an items in the DOM for photograph card
 
@@ -11,8 +11,8 @@ const photographTagItems = document.querySelectorAll('.personal');
 console.log(photographLocation, photographName, photographPricePerDay , photographTagItems, photograph_description);
 
 
-// i want retrieved the elements of data-photographs.json and take data for create the photograph cart dynamics and create dynamics new webpage per photograph
 
 
-fetch('https://s3-eu-west-1.amazonaws.com/course.oc-static.com/projects/Front-End+V2/P5+Javascript+%26+Accessibility/FishEyeDataFR.json', {mode : 'no-cors'}).then((response)=>response.json()).then((json)=>console.log(json));
-  
+fetch("https://jsonplaceholder.typicode.com/comments")
+.then((response)=>response.json())
+.then((eltJson)=>{console.log(eltJson)})

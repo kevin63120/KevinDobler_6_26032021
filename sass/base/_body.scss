@@ -1,8 +1,10 @@
 
 .title_index{
+    color: $color_primary;
     position: relative;
     bottom: 70px;
     left: 70%;
+    
     @media screen and (max-width: 700px){
         
         position: relative;
@@ -10,9 +12,12 @@
         left: 60%;
         font-size: 0.875em;
     }
+    
 }
-
 .return_main{
+    display: none;
+}
+.return_main + .active{
     z-index: 2;
     width: 100%;
     position: fixed;
