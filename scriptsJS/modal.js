@@ -1,4 +1,5 @@
 const butonModalStart = document.querySelector(".btn-contact");
+
 const X = document.querySelector(".X");
 const modal = document.querySelector(".modal")
 

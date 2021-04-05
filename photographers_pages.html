@@ -19,10 +19,10 @@
             <p>location</p>
             <p>description</p>
         </div>
-        <button class="btn-contact btn-contact-1²" aria-label="contact-me">Contactez-moi</button>
+        <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
         <img src="/Sample Photos/Photographers ID Photos/NabeelBrandford.jpg" alt="" class="profil_picture">
-        <div>
-            <ul class="photograph_tag-list">
+        <div class="container_photograph_tag-list">
+            <ul class="photograph_tag-list" role="">
                 <li class="photograph_tag-item ">#portrait</li>
                 <li class="photograph_tag-item ">#event</li>
                 <li class="photograph_tag-item ">#travel</li>
@@ -35,10 +35,10 @@
     <main class="container_media">
         <header class="header_media">
             <p class="header_media-txt">Trier par</p>
-            <ul class="header_media_container-selected active">
-                <li class="header_media-select " id="popularity" aria-ac><span>Popularité</span></li>
-                <li class="header_media-select" id="date"><span>Date</span></li>
-                <li class="header_media-select" id="title"><span>Titre</span></li>
+            <ul class="header_media_container-selected " role="menubar" aria-label="choix de préférences d'affichage">
+                <li class="header_media-select " id="popularity" role="menuitem" tabindex="0"><span>Popularité</span></li>
+                <li class="header_media-select" id="date" role="menuitem" tabindex="-1"><span>Date</span></li>
+                <li class="header_media-select" id="title" role="menuitem" tabindex="0"><span>Titre</span></li>
             </ul>
         </header>
 
@@ -56,7 +56,7 @@
             </footer>
         </article>
         
-     <button class="btn-contact btn-contact-2" aria-label="Contact Me" >Contactez-moi</button>
+     <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me" >Contactez-moi</button></div>
 
      <div class="modal modal-active">
          <form action="" method="post" class="form">
