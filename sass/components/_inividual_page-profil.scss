@@ -74,7 +74,7 @@
     .header_media_container-selected{
    display: flex;
    flex-direction: column;
-    height: 100px;
+    height: max-content;
     width: 170px;
     overflow: hidden;
     color: azure;
@@ -82,16 +82,12 @@
     padding: 0 1em;
     
     opacity: 1;
-    background: $color_primary;
-    .header_media_container-selected:active{
-        z-index: 2;
+    background: $color_primary;    
     }
-    
-    
 
     
     .header_media-select{
-        display: flex;
+        display: none;
         align-items: center;
         justify-content: center;
         background: $color_primary;
@@ -100,16 +96,25 @@
        
         
     }
+    .active{
+            display: block;
+        }
     
 
     
 
-    }
+    
     
     
 }
 .media_box{
-    width: 100%;
+    width: 100%; 
+    margin-top: 2em;
+    @media screen and(min-width:500px) {
+       
+        width: 200px;
+        
+    }
     .media_item{
        
         img{
