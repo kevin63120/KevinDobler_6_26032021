@@ -1,8 +1,12 @@
-let counterBtn = document.querySelector(".counter-btn");
-let countHeart = document.querySelector(".counter")
+let counterBtns = document.querySelectorAll(".counter-btn");
+let countHearts = document.querySelectorAll(".counter")
 let heartCount = 0;
-counterBtn.addEventListener('click',()=>{
+counterBtns.forEach(button=>{
+   button.addEventListener('click',(e)=>{
     heartCount++;
-    countHeart.innerHTML=heartCount;
+    countHearts.forEach(heart=>{
+        heart.innerHTML=heartCount;
+    })
   
-});
+}); 
+})

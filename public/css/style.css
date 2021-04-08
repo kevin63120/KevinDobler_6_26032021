@@ -157,6 +157,9 @@ nav {
 .photograph_profil_container .photograph_tag-list {
   margin-top: 1em;
 }
+.photograph_profil_container .photograph_tag-list li {
+  margin: 0.5em 0.5em 0.5em 0;
+}
 
 .profil_picture {
   width: 100px;

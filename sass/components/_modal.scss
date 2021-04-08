@@ -2,6 +2,8 @@
     display: none;
     
 }
+
+
 .form_header{
     display: flex;
     justify-content: space-between;
@@ -32,9 +34,11 @@
     padding: 1em;
     background-color: rgba(219,136,118,1) ;
     @media screen and(min-width:700px) {
-        width:50% ;
-        margin: 0 25%;
+        width:600px ;
+        height: 900px;
+        margin: 0 25%;   
     }
+
     
     input{
         width: 100%;
@@ -60,6 +64,8 @@
     }
 }
 #submit{
+    width: 150px;
+    height: 50px;
     border-radius: 5px;
     font-weight: 700;
     background:$color_primary;

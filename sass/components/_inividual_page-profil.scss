@@ -6,6 +6,26 @@
  z-index: 1;
 }
 
+@media screen and(min-width:700px){
+    .photograph_profil_container{
+        margin-top: 5em;
+        background: aliceblue;
+        padding: 2em;
+    }
+
+    #name_personal_page{
+        font-size: 4em;
+    }
+    #location_personal_page{
+        font-size: 1.5em;
+    }
+    #description_personal_page{
+        font-size: 1.13em;
+        color: rgba(82,82,82,1);
+    }
+
+    }
+    
 
 
 .photograph_profil_container{
@@ -14,6 +34,9 @@
     flex-wrap: wrap;
     .photograph_tag-list{
         margin-top: 1em;
+        li{
+            margin: 0.5em 0.5em 0.5em 0;
+        }
     }
 }
 .profil_picture{
@@ -21,8 +44,14 @@
     object-fit: cover;
     height: 100px;
     border-radius: 50%;
+    @media screen and(min-width:779px) {
+        width: 150px;
+        height: 150px;
+    
+    }
 }
 .container_photograph_tag-list{
+   
     width: 80%;
 }
 .btn-contact{
@@ -33,12 +62,12 @@
 }
 .btn-contact-1{
     width: 170px;
-    height: 69px;
+    height: 55px;
     
     display: none;
     @media screen and(min-width:700px) {
         display: block;
-        
+        margin: 23px 40% 0 0;
         
     }
     
@@ -60,8 +89,14 @@
         }
     }
 .header_media{
+    display: none;
+}
+
+    @media screen and(min-width:700px) {
+        .header_media{
     display: flex;
      margin-top: 2em;
+     width: 100%;
      
     .header_media-txt{
         margin-right: 1rem;
@@ -96,11 +131,25 @@
        
         
     }
+    .header_media_container-selected:focus{
+        .header_media-select{
+            display: block;
+        }
+    }
     .active{
             display: block;
         }
-    
+    }
 
+
+    
+.container_media{
+    @media screen and (min-width:700px) {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
     
 
     
@@ -115,17 +164,31 @@
         width: 200px;
         
     }
+    @media screen and(min-width:700px) {
+            
+        width: 20%;
+        margin: 2% 5%;
+    
+        }
     .media_item{
+        
        
         img{
              width: 100%;
             object-fit: contain;
+            @media screen and(min-width:700px) {
+                width: 100%;
+                
+                
+            }
         }
     }
     .media_item-descripton{
         display: flex;
         width: 100%;
         justify-content: space-between;
+        font-size: 1.5em;
+        color: $color_primary;
     }
     
 }
@@ -135,4 +198,34 @@
     .counter{
         margin-right: 1em;
     }
+}
+.counter{
+    color: $color_primary;
+}
+.container_reputation{
+    display: none;
+}
+@media screen and(min-width:700px) {
+    .container_reputation{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 376px;
+    height: 89px;
+    background-color: rgba(219,136,118,1);
+    color: black;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    p{
+        font-size: 1.5em;
+        color: black;
+        font-weight: 700;
+        #counter-all{
+            color: black;
+        }
+    }
+
+}
 }

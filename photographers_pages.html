@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="./public/css/style.css" rel="stylesheet">
+    <link href="./sass/main.scss" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f80ec18dc5.js" crossorigin="anonymous"></script>
     <title>photograph</title>
 </head>
@@ -15,19 +15,20 @@
 
     <section class="photograph_profil_container">
         <div class="photograph_profil-reference">
-            <h1>name name</h1>
-            <p>location</p>
-            <p>description</p>
+            <h1 class="name" id="name_personal_page">name name</h1>
+            <p class="photograph_location" id="location_personal_page">location</p>
+            <p class="photograph_description-text" id="description_personal_page">description</p>
         </div>
         <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
         <img src="/Sample Photos/Photographers ID Photos/NabeelBrandford.jpg" alt="" class="profil_picture">
         <div class="container_photograph_tag-list">
+           
             <ul class="photograph_tag-list" role="">
                 <li class="photograph_tag-item ">#portrait</li>
-                <li class="photograph_tag-item ">#event</li>
-                <li class="photograph_tag-item ">#travel</li>
+                <li class="photograph_tag-item ">#portrait</li>
+                <li class="photograph_tag-item ">#portrait</li>
                 <li class="photograph_tag-item ">#animals</li>
-            </ul>
+            </ul> 
         </div>
        
         
@@ -35,11 +36,12 @@
     <main class="container_media">
         <header class="header_media">
             <p class="header_media-txt">Trier par</p>
-            <ul class="header_media_container-selected " role="menubar" aria-label="choix de préférences d'affichage">
-                <li class="header_media-select active" id="popularity" role="menuitem" tabindex="0"><span>Popularité</span></li>
-                <li class="header_media-select" id="date" role="menuitem" tabindex="-1"><span>Date</span></li>
-                <li class="header_media-select" id="title" role="menuitem" tabindex="0"><span>Titre</span></li>
-            </ul>
+            <select name="header_media_container-selected " class="header_media_container-selected "  id="header_media_container-selected " >
+                <option value="header_media-select">Popularité</option>
+                <option value="header_media-select">Date</option>
+                <option value="header_media-select">Titre</option>    
+            </select>
+            
         </header>
 
         <article class="media_box">
@@ -55,9 +57,78 @@
                 </div>
             </footer>
         </article>
-        
-     <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me" >Contactez-moi</button></div>
+        <article class="media_box">
+            <div class="media_item">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                </div>
+            </footer>
+        </article>
+        <article class="media_box">
+            <div class="media_item">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                </div>
+            </footer>
+        </article>
+        <article class="media_box">
+            <div class="media_item">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                </div>
+            </footer>
+        </article>
+        <article class="media_box">
+            <div class="media_item">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                </div>
+            </footer>
+        </article>
+        <article class="media_box">
+            <div class="media_item">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                </div>
+            </footer>
+        </article>
 
+     <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me" >Contactez-moi</button></div>
+    <div class="container_reputation">
+        <p id="total-heart">total de coeur<img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>
+        
+        <p class="photograph_pricePerDay">330/jour</p>
+    </div>
      <div class="modal modal-active">
          <form action="" method="post" class="form">
             <header class="form_header">
@@ -86,8 +157,9 @@
          </form>
 
      </div>
-     <script src="/scriptsJS/scriptCounterHeart.js" type="text/javascript"></script>
-     <script src="/scriptsJS/modal.js" type="text/javascript"></script>
+     <script src="/scriptsJS/scriptCounterHeart.js" ></script>
+     <script src="/scriptsJS/modal.js" ></script>
+     <script src="/scriptsJS/photographers.js"></script>
     </main>
 </body>
 </html>
