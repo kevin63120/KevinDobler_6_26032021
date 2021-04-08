@@ -74,13 +74,9 @@ fetch("/data-profils/data-photographers.json")
         const pictures = data.media;
        console.log(pictures)
      for ( photographer of photographers){
-         
-       let profils = {
-            name: photographer.name,
-
-       } 
+          
        
-      const article =  mainIndex.appendChild(document.createElement("article"));
+    const article =  mainIndex.appendChild(document.createElement("article"));
     const a = document.createElement("a");
     const containerDescription = document.createElement("div");
     const footerProfil =document.createElement("footer");
