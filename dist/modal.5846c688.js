@@ -118,8 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/modal.js":[function(require,module,exports) {
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
 var buttonModalStart = document.querySelectorAll(".btn-contact");
 var buttonModalClose = document.querySelector(".close-modal");
 var modal = document.querySelector(".modal");
@@ -128,15 +126,9 @@ var modalActive = false;
 var openModal = function openModal(button) {
   button.addEventListener("click", function (e) {
     modal.classList.replace('modal', "modal-active");
-    modalActive = (_readOnlyError("modalActive"), true);
+    modalActive = true;
     e.preventDefault();
     e.stopPropagation();
-
-    if (modalActive) {
-      var main = document.querySelector(".container_media");
-      main.style.opacity = "0.5";
-      modal.childNodes.style.opacity = "1";
-    }
   });
 };
 
@@ -176,7 +168,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55215" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49385" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

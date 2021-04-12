@@ -1,15 +1,15 @@
-
+body{
+    min-width: 320px;
+}
 .title_index{
     color: $color_primary;
-    position: relative;
-    bottom: 70px;
-    left: 70%;
+    position: absolute;
+    top: 27px;
+    margin-left: 70%;
     
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 961px){
         
-        position: relative;
-        bottom: 157px;
-        left: 60%;
+        margin-left: 70%;
         font-size: 0.875em;
     }
     
@@ -24,5 +24,12 @@
     #main_return{
         background-color: $color_primary;
         position: fixed ;
+    }
+}
+
+.main_index{
+    padding-top: 150px;
+    @media screen and(max-width:367px){
+        padding-top: 190px;
     }
 }

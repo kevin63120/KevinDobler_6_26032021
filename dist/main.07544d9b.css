@@ -119,6 +119,8 @@ nav {
 }
 
 .header_page-index {
+  position: absolute;
+  height: 100px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -138,17 +140,19 @@ nav {
   }
 }
 
+body {
+  min-width: 320px;
+}
+
 .title_index {
   color: #901c1c;
-  position: relative;
-  bottom: 70px;
-  left: 70%;
+  position: absolute;
+  top: 27px;
+  margin-left: 70%;
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 961px) {
   .title_index {
-    position: relative;
-    bottom: 157px;
-    left: 60%;
+    margin-left: 70%;
     font-size: 0.875em;
   }
 }
@@ -165,6 +169,15 @@ nav {
 .return_main + .active #main_return {
   background-color: #901c1c;
   position: fixed;
+}
+
+.main_index {
+  padding-top: 150px;
+}
+@media screen and (max-width: 367px) {
+  .main_index {
+    padding-top: 190px;
+  }
 }
 
 :focus {

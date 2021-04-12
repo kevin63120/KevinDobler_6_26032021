@@ -167,7 +167,7 @@ function createProfilStructure() {
   footerProfil.appendChild(list).classList.add("photograph_tag-list");
   list.appendChild(document.createElement("li")).classList.add("photograph_tag-item");
 }
-/* dataProfil récupère le selecteur ciblé et renvoi les donnée selctionné dans le selcteur*/
+/* dataProfil récupère le selecteur ciblé et renvoi les données selctionnées dans le selecteur*/
 
 
 var dataProfil = function dataProfil(selector, data, data2) {
@@ -175,20 +175,23 @@ var dataProfil = function dataProfil(selector, data, data2) {
 }; //récuperation des données des photographes dans le fichier json et traitement pour les affichées dans le Html
 
 
-fetch("../data-profils\data-photographers.json").then(function (response) {
+fetch("/data-profils/data-photographers.json").then(function (response) {
   return response.json();
 }).then(function (data) {
   var photographers = data.photographers;
   var pictures = data.media;
   photographers.forEach(function (photographer) {
+    // pour chaque element on recupère les données et on les insert dans le selecteur
     dataProfil(photographName, photographer.name);
     dataProfil(photographLocation, photographer.city, photographer.country);
     dataProfil(photographTagItems, photographer.tags);
     dataProfil(photographDescription, photographer.tagline);
     dataProfil(photographPricePerDay, photographer.price);
-    dataProfil(profilsPicture, photographer.portrait);
+    dataProfil(profilsPicture, photographer.portrait); //création d'une structure d'article qui est revoyé dans le fichier html avec les données 
+
     createProfilStructure();
-    console.log(photographers);
+    console.log(photographers); // test de données 
+
     console.log(photographLocation, photographName, photographTagItems, photographDescription, photographPricePerDay, profilsPicture);
   });
 });
@@ -220,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55215" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49385" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
