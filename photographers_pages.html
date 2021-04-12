@@ -46,7 +46,7 @@
 
         <article class="media_box">
             <div class="media_item">
-                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple" class="img-lights">
             </div>
             <footer class="media_item-descripton">
                 <p class="media_item-title">arc-en-ciel</p>
@@ -59,7 +59,7 @@
         </article>
         <article class="media_box">
             <div class="media_item">
-                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
+                <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple" class="img-lights">
             </div>
             <footer class="media_item-descripton">
                 <p class="media_item-title">arc-en-ciel</p>
@@ -129,7 +129,26 @@
         
         <p class="photograph_pricePerDay">330/jour</p>
     </div>
-     <div class="modal modal-active">
+    <!-- create lightbox for see large size picture-->
+    <div class="lightbox">
+        
+        <div class="image_container">
+  
+            <p class="img-only">
+                <img src="/Sample Photos/Marcel/Architecture_Corner_Room.jpg" alt="test de style">
+                <button class="lightbox-btn" id="next" aria-label="next"></button>
+                <button class="lightbox-btn" id="previous" aria-label="previous"></button>
+                <button class="lightbox-btn" id="close-lightbox" aria-label="close-lightbox"></button></p>
+            
+        </div>
+        <footer class="lightbox_footer-txt">
+            <p class="media_item-title" >nom de la photo</p>
+        </footer>
+        
+    </div>
+
+    <!-- create modal contact photographer-->
+     <div class="modal ">
          <form action="" method="post" class="form">
             <header class="form_header">
                 <label>Contactez-moi</label>
@@ -160,6 +179,7 @@
      <script src="/scriptsJS/scriptCounterHeart.js" ></script>
      <script src="/scriptsJS/modal.js" ></script>
      <script src="/scriptsJS/photographers.js"></script>
+     <script src="/scriptsJS/lightBox.js"></script>
     </main>
 </body>
 </html>

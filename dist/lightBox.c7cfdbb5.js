@@ -117,18 +117,17 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scriptsJS/scriptCounterHeart.js":[function(require,module,exports) {
-var counterBtns = document.querySelectorAll(".counter-btn");
-var countHearts = document.querySelectorAll(".counter");
-var heartCount = 0;
-var AllHeartCount = 0;
-counterBtns.forEach(function (button) {
-  button.addEventListener('click', function (e) {
-    heartCount++;
-    countHearts.forEach(function (heart) {
-      heart.innerHTML = heartCount;
-    });
+})({"scriptsJS/lightBox.js":[function(require,module,exports) {
+var imageMini = document.querySelectorAll('.img-lights');
+var lightboxContainer = document.querySelector(".lightbox");
+var lightboxCloseBtn = document.querySelector('#close-lightbox');
+imageMini.forEach(function (image) {
+  image.addEventListener("click", function (e) {
+    lightboxContainer.classList.add("active-lightbox");
   });
+});
+lightboxCloseBtn.addEventListener("click", function (e) {
+  lightboxContainer.classList.replace("active-lightbox", "lightbox");
 });
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -334,5 +333,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scriptsJS/scriptCounterHeart.js"], null)
-//# sourceMappingURL=/scriptCounterHeart.a7d4313b.js.map
+},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scriptsJS/lightBox.js"], null)
+//# sourceMappingURL=/lightBox.c7cfdbb5.js.map

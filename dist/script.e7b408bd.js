@@ -146,7 +146,8 @@ var Profils = function Profils(name, id, city, country, tags, tagline, price, po
   this.tagline = tagline;
   this.price = price;
   this.portrait = portrait;
-};
+}; //creation de la structure de chaque profils de photographes
+
 
 function createProfilStructure() {
   var article = containerArticle.appendChild(document.createElement("article"));
@@ -166,14 +167,15 @@ function createProfilStructure() {
   footerProfil.appendChild(list).classList.add("photograph_tag-list");
   list.appendChild(document.createElement("li")).classList.add("photograph_tag-item");
 }
+/* dataProfil récupère le selecteur ciblé et renvoi les donnée selctionné dans le selcteur*/
+
 
 var dataProfil = function dataProfil(selector, data, data2) {
   selector.innerHtml = data, data2;
-};
+}; //récuperation des données des photographes dans le fichier json et traitement pour les affichées dans le Html
 
-var gars = new Profils("aaaaaaa"); //dataProfil(photographName,gars.name)
 
-fetch("data-profils\data-photographers.json").then(function (response) {
+fetch("../data-profils\data-photographers.json").then(function (response) {
   return response.json();
 }).then(function (data) {
   var photographers = data.photographers;
@@ -186,7 +188,7 @@ fetch("data-profils\data-photographers.json").then(function (response) {
     dataProfil(photographPricePerDay, photographer.price);
     dataProfil(profilsPicture, photographer.portrait);
     createProfilStructure();
-    console.log(photographer);
+    console.log(photographers);
     console.log(photographLocation, photographName, photographTagItems, photographDescription, photographPricePerDay, profilsPicture);
   });
 });
@@ -218,7 +220,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55215" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

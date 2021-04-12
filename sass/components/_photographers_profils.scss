@@ -48,7 +48,13 @@
     margin: 0.1rem 0;
 }
 .photograph_tag-list{
-    display: flex;
+    display: flex;   
+    
+}
+.index_photograph_tag-list{
+    display: flex;   
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .photograph_tag-item {
     font-size: 12px;

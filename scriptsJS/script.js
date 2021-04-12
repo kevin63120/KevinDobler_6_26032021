@@ -37,6 +37,8 @@ class Profils{
     }    
 }
 
+//creation de la structure de chaque profils de photographes
+
 function createProfilStructure (){
     const article =  containerArticle.appendChild(document.createElement("article"));
     const a = document.createElement("a");
@@ -59,24 +61,25 @@ function createProfilStructure (){
       
 }
 
+/* dataProfil récupère le selecteur ciblé et renvoi les donnée selctionné dans le selcteur*/
+
 const dataProfil = (selector , data , data2)=>{selector.innerHtml = data , data2}
 
-let gars = new Profils("aaaaaaa");
+//récuperation des données des photographes dans le fichier json et traitement pour les affichées dans le Html
 
 
-//dataProfil(photographName,gars.name)
-
-
-fetch("data-profils\data-photographers.json")
+fetch("../data-profils\data-photographers.json")
 .then((response) => response.json())
-.then(data => {
-        
+
+.then(data =>{
+ 
+       
         const photographers = data.photographers;
         const pictures = data.media;
         
-     photographers.forEach(photographer => {
+    photographers.forEach(photographer => {
       
-        dataProfil(photographName,photographer.name)
+        dataProfil(photographName,photographer.name)  
         dataProfil(photographLocation,photographer.city,photographer.country)
         dataProfil(photographTagItems,photographer.tags)
         dataProfil(photographDescription,photographer.tagline)
@@ -84,13 +87,13 @@ fetch("data-profils\data-photographers.json")
         dataProfil(profilsPicture,photographer.portrait)
          createProfilStructure ()
       
-        
-       console.log(photographer)
+        console.log(photographers) 
+       
       console.log(photographLocation,photographName,photographTagItems,photographDescription,photographPricePerDay,profilsPicture)   
      }); 
      
        
-       
+      
     
       
     });

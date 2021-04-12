@@ -61,6 +61,12 @@
   display: flex;
 }
 
+.index_photograph_tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .photograph_tag-item {
   font-size: 12px;
   color: #901c1c;
@@ -376,6 +382,7 @@ nav {
   }
   .container_reputation p #counter-all {
     color: black;
+    margin: 0 0.5em;
   }
 }
 .modal {
@@ -433,7 +440,7 @@ nav {
   font-weight: 400;
 }
 .modal-active #message {
-  height: 6em;
+  height: 4.5em;
   display: flex;
   text-overflow: clip;
 }
@@ -445,6 +452,64 @@ nav {
   font-weight: 700;
   background: #901c1c;
   color: azure;
+}
+
+.lightbox {
+  display: none;
+}
+
+.active-lightbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.active-lightbox .image_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.active-lightbox .image_container #next {
+  background-image: url("/next.277f0961.svg");
+  background-repeat: no-repeat;
+  position: relative;
+  left: 100%;
+  bottom: 100%;
+  width: 4rem;
+  height: 100%;
+}
+.active-lightbox .image_container #previous {
+  background-image: url("/prev.429d2f2c.svg");
+  background-repeat: no-repeat;
+  position: relative;
+  left: 0;
+  bottom: 100%;
+  width: 4rem;
+  height: 100%;
+}
+.active-lightbox .image_container #close-lightbox {
+  background-image: url("/closebox.9c154355.svg");
+  background-repeat: no-repeat;
+  position: fixed;
+  height: 5em;
+  width: 7em;
+  right: 13%;
+  top: 6%;
+}
+.active-lightbox .image_container .img-only {
+  width: 70%;
+  height: auto;
+}
+.active-lightbox .image_container .img-only img {
+  object-fit: cover;
+  width: 100%;
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */
