@@ -117,13 +117,76 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scriptsJS/script.js":[function(require,module,exports) {
+})({"scriptsJS/profil-photographer.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Profil = void 0;
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//creation de function de creation de profil
+var Profil = /*#__PURE__*/function () {
+  function Profil(photographer) {
+    _classCallCheck(this, Profil);
+
+    this.name = photographer.name;
+    this.id = photographer.id;
+    this.city = photographer.city;
+    this.country = photographer.country;
+    this.tags = photographer.tags;
+    this.tagline = photographer.tagline;
+    this.price = photographer.price;
+    this.portrait = photographer.portrait;
+  } //creation de la structure de chaque profils de photographes
+
+
+  _createClass(Profil, [{
+    key: "createDomCard",
+    value: function createDomCard(rootElement) {
+      var article = rootElement.appendChild(document.createElement("article"));
+      var rootPhoto = "/Sample Photos/Photographers ID Photos/";
+      var tags = this.tags.map(function (tag) {
+        return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
+      });
+      var card = " \n  \n      <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n          <img class=\"profil_picture\" src=\"".concat(rootPhoto + this.portrait, "\" alt=\"photo de profile ").concat(this.name, "\">\n          <h2 class=\"name\">").concat(this.name, "</h2>\n      </a>\n    <div class=\"photograph_description\">\n        <p class=\"photograph_location\">").concat(this.city).concat(this.country ? "," + this.country : '', "</p>\n        <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n        <p class=\"photograph_pricePerDay\">").concat(this.price, "\u20AC</p>  \n    </div>\n    <footer class=\"photograph_tag\">\n        <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list index_photograph_tag-list\">\n            ").concat(tags.join(''), "\n            \n            </ul>\n      </footer>\n  ");
+      article.innerHTML = card;
+      var a = document.createElement("a");
+      var containerDescription = document.createElement("div");
+      var footerProfil = document.createElement("footer");
+      var list = document.createElement("ul"); //article.classList.add("container_photographs_profils");
+      //article.appendChild(a).classList.add("link_photographer-page");
+      //article.appendChild(containerDescription).classList.add("photograph_description");
+      //article.appendChild(footerProfil).classList.add("photograph_tag");
+      //a.appendChild(document.createElement("img")).classList.add("profil_picture");
+      //a.appendChild(document.createElement("h2")).classList.add("name");
+      //containerDescription.appendChild(document.createElement("p")).classList.add("photograph_location");
+      //containerDescription.appendChild(document.createElement("p")).classList.add('photograph_description-text');
+      //containerDescription.appendChild(document.createElement("p")).classList.add('photograph_pricePerDay');
+      //footerProfil.appendChild(list).classList.add("photograph_tag-list");
+      //list.appendChild(document.createElement("li")).classList.add("photograph_tag-item")
+    }
+  }]);
+
+  return Profil;
+}();
+
+exports.Profil = Profil;
+},{}],"scriptsJS/script.js":[function(require,module,exports) {
+"use strict";
+
+var _profilPhotographer = require("./profil-photographer");
 
 // retrieved an items in the DOM for photograph card
 var mainIndex = document.querySelector(".main_index");
 var containerArticle = document.querySelector(".article-container");
-var containerProfil = document.querySelectorAll(".container_photographs_profils");
+var containerProfil = document.querySelector(".container_photographs_profils");
 var linkPhotographerPage = document.querySelectorAll(".link_photographer-page");
 var profilsPicture = document.getElementsByClassName('profil_picture').src = "Sample Photos\Photographers ID Photos\ ";
 var photographName = document.querySelectorAll(".name");
@@ -133,42 +196,8 @@ var photographDescription = document.querySelectorAll(".photograph_description-t
 var photographPricePerDay = document.querySelectorAll(".photograph_pricePerDay");
 var photographFooterProfil = document.querySelectorAll(".photograph-tag");
 var photographTagList = document.querySelectorAll(".photograph_tag-item");
-var photographTagItems = document.querySelectorAll('.personal'); //creation de function de creation de profil
-
-var Profils = function Profils(name, id, city, country, tags, tagline, price, portrait) {
-  _classCallCheck(this, Profils);
-
-  this.name = name;
-  this.id = id;
-  this.city = city;
-  this.country = country;
-  this.tags = tags;
-  this.tagline = tagline;
-  this.price = price;
-  this.portrait = portrait;
-}; //creation de la structure de chaque profils de photographes
-
-
-function createProfilStructure() {
-  var article = containerArticle.appendChild(document.createElement("article"));
-  var a = document.createElement("a");
-  var containerDescription = document.createElement("div");
-  var footerProfil = document.createElement("footer");
-  var list = document.createElement("ul");
-  article.classList.add("container_photographs_profils");
-  article.appendChild(a).classList.add("link_photographer-page");
-  article.appendChild(containerDescription).classList.add("photograph_description");
-  article.appendChild(footerProfil).classList.add("photograph_tag");
-  a.appendChild(document.createElement("img")).classList.add("profil_picture");
-  a.appendChild(document.createElement("h2")).classList.add("name");
-  containerDescription.appendChild(document.createElement("p")).classList.add("photograph_location");
-  containerDescription.appendChild(document.createElement("p")).classList.add('photograph_description-text');
-  containerDescription.appendChild(document.createElement("p")).classList.add('photograph_pricePerDay');
-  footerProfil.appendChild(list).classList.add("photograph_tag-list");
-  list.appendChild(document.createElement("li")).classList.add("photograph_tag-item");
-}
+var photographTagItems = document.querySelectorAll('.personal');
 /* dataProfil récupère le selecteur ciblé et renvoi les données selctionnées dans le selecteur*/
-
 
 var dataProfil = function dataProfil(selector, data, data2) {
   selector.innerHtml = data, data2;
@@ -181,21 +210,13 @@ fetch("/data-profils/data-photographers.json").then(function (response) {
   var photographers = data.photographers;
   var pictures = data.media;
   photographers.forEach(function (photographer) {
-    // pour chaque element on recupère les données et on les insert dans le selecteur
-    dataProfil(photographName, photographer.name);
-    dataProfil(photographLocation, photographer.city, photographer.country);
-    dataProfil(photographTagItems, photographer.tags);
-    dataProfil(photographDescription, photographer.tagline);
-    dataProfil(photographPricePerDay, photographer.price);
-    dataProfil(profilsPicture, photographer.portrait); //création d'une structure d'article qui est revoyé dans le fichier html avec les données 
+    new _profilPhotographer.Profil(photographer).createDomCard(containerArticle); //création d'une structure d'article qui est revoyé dans le fichier html avec les données 
 
-    createProfilStructure();
-    console.log(photographers); // test de données 
-
-    console.log(photographLocation, photographName, photographTagItems, photographDescription, photographPricePerDay, profilsPicture);
+    console.log(photographer); // test de données 
+    //console.log(photographLocation,photographName,photographTagItems,photographDescription,photographPricePerDay,profilsPicture)   
   });
 });
-},{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./profil-photographer":"scriptsJS/profil-photographer.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -223,7 +244,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49385" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

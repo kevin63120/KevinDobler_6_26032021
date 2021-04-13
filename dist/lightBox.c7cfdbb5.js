@@ -122,11 +122,12 @@ var imageMini = document.querySelectorAll('.img-lights');
 var lightboxContainer = document.querySelector(".lightbox");
 var lightboxCloseBtn = document.querySelector('#close-lightbox');
 imageMini.forEach(function (image) {
-  image.addEventListener("click", function (e) {
+  image.addEventListener("click", function () {
     lightboxContainer.classList.add("active-lightbox");
+    console.log(lightboxContainer);
   });
 });
-lightboxCloseBtn.addEventListener("click", function (e) {
+lightboxCloseBtn.addEventListener("click", function () {
   lightboxContainer.classList.replace("active-lightbox", "lightbox");
 });
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
@@ -157,7 +158,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49385" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

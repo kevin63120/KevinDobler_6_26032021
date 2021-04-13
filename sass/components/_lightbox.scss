@@ -3,10 +3,7 @@
 }
 
 .active-lightbox{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    display: block;
     width: 100%;
     height: 100%;
     z-index: 10;
@@ -14,60 +11,25 @@
     top:0;
     left: 0;
     background-color: rgba($color: #000000, $alpha: 0.6);
-    .image_container{
-        
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        
-        
-        .lightbox-btn{
-    
-     
-    
-     
-    }
-    #next{
-        background-image: url("/Sample Photos/imageOfModel/next.svg");
-        background-repeat: no-repeat;
-        position: relative;
-    left: 100%;
-    bottom: 100%;
-    width: 4rem;
-    height: 100%;
-    }
-    #previous{
-        background-image: url("/Sample Photos/imageOfModel/prev.svg");
-        background-repeat: no-repeat;
-        position: relative;
-        left: 0;
-        bottom: 100%;
-        width: 4rem;
-        height: 100%;
-    }
-    #close-lightbox{
-        background-image: url("/Sample Photos/imageOfModel\closebox.svg");
-        background-repeat: no-repeat;
-        position: fixed;
-        height: 5em;
-        width: 7em;
-        right: 13%;
-        top: 6%;
-    }
-    .img-only{
-        width: 70%;
-        
-    
-    height:auto;
-    img{
-        object-fit: cover;
-        width: 100%;
-    }
-    
-    }
-    }
-    footer{
 
+    .button-next,
+    .button-previous{
+        width: 14px;
+        height: 8px;
+        border: none
+        
     }
+
+    .button-next{
+        background: url() center center / 100% 100%;
+    }
+
+    .button-previous{
+        background: url("C:\Users\kevin\Desktop\Formation developpeur FRONT-END OPEN CLASSROOMS\livrables\P6_ALL\P6_Kevin_Dobler_Project\assets\Sample Photos\imageOfModel\prev.svg") center center / 100% 100%;
+        width: 4em;
+    }
+    .image_container{
+    }
+
     
 }

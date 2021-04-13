@@ -1,5 +1,5 @@
 
-.container_photographs_profils{
+.article-container article{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -7,7 +7,7 @@
     //width: 30%;
     
 }
-.container_photographs_profils  a{
+.article-container article  a{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -17,7 +17,7 @@
     font-size: 2.25em;
     
 }
-.container_photographs_profils img{
+.article-container article img{
     width: 200px;
     object-fit: cover;
     height: 200px;
@@ -72,7 +72,7 @@
 .name{
     color: #d3573c;
     font-weight: 500;
-    font-size: 2.25em;
+    font-size: 1.25em;
 }
 .article-container{
     display: flex;
@@ -81,7 +81,7 @@
         flex-direction: row;
         justify-content: center;
         flex-wrap: wrap;
-        .container_photographs_profils{
+        article{
             width: 30%;
 
         }

@@ -4,9 +4,10 @@ const lightboxCloseBtn =document.querySelector('#close-lightbox');
 
 
 imageMini.forEach(image =>{
-    image.addEventListener("click",(e)=>{
-    lightboxContainer.classList.add("active-lightbox");
+    image.addEventListener("click",()=>{
+lightboxContainer.classList.add("active-lightbox");
+    console.log(lightboxContainer)
 });
 } )
 
-lightboxCloseBtn.addEventListener("click",(e)=>{lightboxContainer.classList.replace("active-lightbox","lightbox")});
+lightboxCloseBtn.addEventListener("click",()=>{lightboxContainer.classList.replace("active-lightbox","lightbox")});
