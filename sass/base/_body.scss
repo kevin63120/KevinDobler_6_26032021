@@ -3,13 +3,13 @@
     color: $color_primary;
     position: relative;
     bottom: 70px;
-    left: 70%;
+    margin-left: 70%;
     
     @media screen and (max-width: 700px){
         
         position: relative;
         bottom: 157px;
-        left: 60%;
+        margin-left: 60%;
         font-size: 0.875em;
     }
     

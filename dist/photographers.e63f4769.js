@@ -118,16 +118,52 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/photographers.js":[function(require,module,exports) {
-var containerSelected = document.querySelector(".header_media_container-selected");
-containerSelected.addEventListener('click', function (e) {
-  var items = document.querySelectorAll('.photograph_tag-item');
+"use strict";
 
-  if (e) {
-    items.forEach(function (item) {
-      item.style.display = "block";
-    });
-  }
+Object.defineProperty(exports, "__esModule", {
+  value: true
 });
+exports.Profil = void 0;
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+//creation de function de creation de profil
+var Profil = /*#__PURE__*/function () {
+  function Profil(photographer) {
+    _classCallCheck(this, Profil);
+
+    this.name = photographer.name;
+    this.id = photographer.id;
+    this.city = photographer.city;
+    this.country = photographer.country;
+    this.tags = photographer.tags;
+    this.tagline = photographer.tagline;
+    this.price = photographer.price;
+    this.portrait = photographer.portrait;
+  }
+
+  _createClass(Profil, [{
+    key: "createProfilStructure",
+    value: function createProfilStructure(rootElement) {
+      var article = rootElement.appendChild(document.createElement("article"));
+      var tags = this.tags.map(function (tag) {
+        return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
+      });
+      var rootPhoto = 'assets/Sample Photos/Photographers ID Photos';
+      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\"src=\"".concat(rootPhoto + this.name, ".jpg\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
+      article.classList.add("container_photographs_profils");
+      article.innerHTML = card;
+    }
+  }]);
+
+  return Profil;
+}();
+
+exports.Profil = Profil;
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -156,7 +192,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58750" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58342" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
