@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="for">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -36,10 +36,12 @@
     <main class="container_media">
         <header class="header_media">
             <p class="header_media-txt">Trier par</p>
-            <select name="header_media_container-selected " class="header_media_container-selected "  id="header_media_container-selected " >
-                <option value="header_media-select">Popularité</option>
-                <option value="header_media-select">Date</option>
-                <option value="header_media-select">Titre</option>    
+            <select name="header_media_container-selected " class="header_media_container-selected " aria-label="trier par" id="header_media_container-selected " >
+                <option value="header_media-select" aria-label="Popularité">Popularité</option>
+                <option value="header_media-select" aria-label="Date">Date</option>
+                <option value="header_media-select" aria-label="Titre" >Titre</option>    
+                  
+                  
             </select>
             
         </header>
@@ -129,7 +131,19 @@
         
         <p class="photograph_pricePerDay">330/jour</p>
     </div>
-     <div class="modal modal-active">
+    <!--lightbox -->
+    <div class="lightbox">
+        <button class="lightbox_button_prev" aria-label="prècedent"></button>
+        <button class="lightbox_button_close" aria-label="fermer"></button>
+        <button class="lightbox_button_next" aria-label="suivant"></button>
+        <div class="lightbox_container_image">
+            <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="">
+        </div>
+        <p class="lightbox_title_img" aria-label="titre d'image"></p>
+    </div>
+
+    <!-- modal  -->
+     <div class="modal">
          <form action="" method="post" class="form">
             <header class="form_header">
                 <label>Contactez-moi</label>
@@ -142,24 +156,26 @@
              </div>
              <div class="form_item">
                  <label for="lastName" aria-labelledby="lastName" >nom</label>
-                 <input type="text" name="lastName" id="lastName" required>
+                 <input type="text" aria-label="nom de famille"name="lastName" id="lastName" required>
              </div>
              <div class="form_item">
                  <label for="email" aria-labelledby="email">email</label>
-                 <input type="email" name="email" id="email">
+                 <input type="email" aria-label="email" name="email" id="email">
              </div>
              <div class="form_item">
                  <label for="message" aria-labelledby="message">Votre message</label>
-                <input type="text" name="message" id="message">
+                <input type="text" aria-label="votre message" name="message" id="message">
              </div>
              <input id="submit" type="submit" value="Envoyer">
 
          </form>
 
      </div>
+
      <script src="/scriptsJS/scriptCounterHeart.js" ></script>
      <script src="/scriptsJS/modal.js" ></script>
      <script src="/scriptsJS/photographers.js"></script>
+     <script src="/scriptsJS/lightBox.js"></script>
     </main>
 </body>
 </html>

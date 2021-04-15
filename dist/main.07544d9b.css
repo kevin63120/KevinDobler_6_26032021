@@ -421,7 +421,9 @@ nav {
   .modal-active {
     width: 600px;
     height: 900px;
-    margin: 0 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
 .modal-active input {
@@ -450,6 +452,33 @@ nav {
   font-weight: 700;
   background: #901c1c;
   color: azure;
+}
+
+.lightbox {
+  display: none;
+}
+
+.lightbox-active {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.lightbox-active .lightbox_button_prev .lightbox_button_next {
+  background: url();
+}
+.lightbox-active .lightbox_container_image {
+  display: flex;
+  justify-content: center;
+}
+.lightbox-active .lightbox_container_image img {
+  object-fit: contain;
+  width: 50%;
+  height: 80%;
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

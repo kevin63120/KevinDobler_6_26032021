@@ -153,8 +153,8 @@ var Profil = /*#__PURE__*/function () {
       var tags = this.tags.map(function (tag) {
         return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
       });
-      var rootPhoto = 'assets/Sample Photos/Photographers ID Photos';
-      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\"src=\"".concat(rootPhoto + this.name, ".jpg\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
+      var rootPhoto = 'Sample Photos\Photographers ID Photos\'';
+      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\" src=\"".concat(rootPhoto + this.name, ".jpg\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
       article.classList.add("container_photographs_profils");
       article.innerHTML = card;
     }
@@ -192,7 +192,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58342" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

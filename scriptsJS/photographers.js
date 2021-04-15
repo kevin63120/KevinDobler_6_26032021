@@ -20,11 +20,11 @@ export class Profil{
         return `<li class="photograph_tag-item personal">#${tag}</li>`
     })
 
-    const rootPhoto ='assets/Sample Photos/Photographers ID Photos';
+    const rootPhoto ='Sample Photos\Photographers ID Photos\'';
 
     const card = `
         <a class="link_photographer-page"href="/photographers_pages.html">
-            <img class="profil_picture"src="${rootPhoto + this.name}.jpg" alt="photo de profil">
+            <img class="profil_picture" src="${rootPhoto + this.name}.jpg" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>
         <div class="photograph_description">

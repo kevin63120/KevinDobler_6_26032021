@@ -118,36 +118,32 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/modal.js":[function(require,module,exports) {
-function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
-
+//Dom elements for the modal 
 var buttonModalStart = document.querySelectorAll(".btn-contact");
 var buttonModalClose = document.querySelector(".close-modal");
-var modal = document.querySelector(".modal");
-var modalActive = false;
+var modal = document.querySelector(".modal"); // fuction to open and close modal 
 
-var openModal = function openModal(button) {
-  button.addEventListener("click", function (e) {
-    modal.classList.replace('modal', "modal-active");
-    modalActive = (_readOnlyError("modalActive"), true);
-    e.preventDefault();
-    e.stopPropagation();
-
-    if (modalActive) {
-      var main = document.querySelector(".container_media");
-      main.style.opacity = "0.5";
-      modal.childNodes.style.opacity = "1";
-    }
-  });
+var openModal = function openModal(e) {
+  modal.classList.replace('modal', "modal-active");
+  e.preventDefault();
+  e.stopPropagation();
 };
 
-console.log(buttonModalClose, buttonModalStart); // function to open modal 
-
-buttonModalStart.forEach(openModal);
-var closeModal = buttonModalClose.addEventListener("click", function (e) {
+var closeModal = function closeModal(e) {
   modal.classList.remove('modal-active');
   modal.classList.add('modal');
   e.preventDefault();
-});
+}; //event to opens every modals
+
+
+var openModals = function openModals(e) {
+  return e.addEventListener("click", openModal);
+}; // function to open each modal 
+
+
+buttonModalStart.forEach(openModals); //Event to close modal 
+
+var close = buttonModalClose.addEventListener("click", closeModal);
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -176,7 +172,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58342" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -117,73 +117,34 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"scriptsJS/photographers.js":[function(require,module,exports) {
-"use strict";
+})({"scriptsJS/lightBox.js":[function(require,module,exports) {
+//DOM Elements
+var lightbox = document.querySelector(".lightbox");
+var pictures = document.querySelectorAll(".media_item");
+var closeButton = document.querySelector(".lightbox_button_close"); //function open or close lightbox if click to pictures nodes
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Profil = void 0;
+console.log(pictures);
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-//creation de function de creation de profil
-var Profil = /*#__PURE__*/function () {
-  function Profil(photographer) {
-    _classCallCheck(this, Profil);
-
-    this.name = photographer.name;
-    this.id = photographer.id;
-    this.city = photographer.city;
-    this.country = photographer.country;
-    this.tags = photographer.tags;
-    this.tagline = photographer.tagline;
-    this.price = photographer.price;
-    this.portrait = photographer.portrait;
+var OpenOrCloseLightbox = function OpenOrCloseLightbox() {
+  if (lightbox.classList.contains("lightbox")) {
+    lightbox.classList.replace("lightbox", "lightbox-active");
+  } else {
+    lightbox.classList.replace("lightbox-active", "lightbox");
   }
+}; //function close or close lightbox if click to button close nodes
 
-  _createClass(Profil, [{
-    key: "createProfilStructure",
-    value: function createProfilStructure(rootElement) {
-      var article = rootElement.appendChild(document.createElement("article"));
-      var tags = this.tags.map(function (tag) {
-        return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
-      });
-      var rootPhoto = 'Sample Photos\Photographers ID Photos\'';
-      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\" src=\"".concat(rootPhoto + this.name, ".jpg\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
-      article.classList.add("container_photographs_profils");
-      article.innerHTML = card;
-    }
-  }]);
 
-  return Profil;
-}();
+var CloseLightboxWithButton = function CloseLightboxWithButton() {
+  lightbox.classList.replace("lightbox-active", "lightbox");
+}; // event to open or close lightbox if click to pictures nodes
 
-exports.Profil = Profil;
-},{}],"scriptsJS/script.js":[function(require,module,exports) {
-"use strict";
 
-var _photographers = require("./photographers");
+pictures.forEach(function (picture) {
+  return picture.addEventListener("click", OpenOrCloseLightbox);
+}); // event to close lightbox if click to button close
 
-// retrieved an items in the DOM for photograph card
-var containerArticle = document.querySelector(".article-container"); //let gars = new Profils("aaaaaaa");
-//dataProfil(photographName,gars.name)
-
-fetch("/data-profils/data-photographers.json").then(function (response) {
-  return response.json();
-}).then(function (data) {
-  var photographers = data.photographers;
-  var pictures = data.media;
-  photographers.forEach(function (photographer) {
-    new _photographers.Profil(photographer).createProfilStructure(containerArticle);
-    console.log(_photographers.Profil);
-  });
-});
-},{"./photographers":"scriptsJS/photographers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+closeButton.addEventListener("click", CloseLightboxWithButton);
+},{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -387,5 +348,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scriptsJS/script.js"], null)
-//# sourceMappingURL=/script.e7b408bd.js.map
+},{}]},{},["../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","scriptsJS/lightBox.js"], null)
+//# sourceMappingURL=/lightBox.c7cfdbb5.js.map
