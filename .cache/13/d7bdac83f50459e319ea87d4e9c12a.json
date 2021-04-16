@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"id":"Sample Photos/Photographers ID Photos/NabeelBrandford.jpg","dependencies":[{"name":"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\package.json","includedInParent":true,"mtime":1618232336936}],"generated":{"js":"module.exports = \"/a0c028adc058a95fbe3d72944a614ef9.jpg\";"},"sourceMaps":null,"error":null,"hash":"56f6d44697e6764d58ef568a19af8776","cacheData":{"env":{}}}
+=======
+{"id":"Sample Photos/Photographers ID Photos/NabeelBrandford.jpg","dependencies":[{"name":"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\package.json","includedInParent":true,"mtime":1618394160207}],"generated":{"js":"module.exports = \"/a0c028adc058a95fbe3d72944a614ef9.jpg\";"},"sourceMaps":null,"error":null,"hash":"56f6d44697e6764d58ef568a19af8776","cacheData":{"env":{}}}
+>>>>>>> dynamiqueCarte

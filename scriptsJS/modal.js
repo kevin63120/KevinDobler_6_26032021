@@ -1,7 +1,8 @@
+//Dom elements for the modal 
 const buttonModalStart = document.querySelectorAll(".btn-contact");
-
 const buttonModalClose = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal")
+<<<<<<< HEAD
 let modalActive = false;
 const openModal = (button)=>{ 
     button.addEventListener("click",(e)=>{
@@ -12,16 +13,26 @@ const openModal = (button)=>{
     e.stopPropagation()
 });
 }
+=======
+>>>>>>> dynamiqueCarte
 
-console.log(buttonModalClose , buttonModalStart );
+// fuction to open and close modal 
+ const openModal =(e)=>{
+        modal.classList.replace('modal',"modal-active");
+        e.preventDefault()
+        e.stopPropagation()
+    }
 
-// function to open modal 
-buttonModalStart.forEach(openModal)
+const closeModal = (e)=>{
+    modal.classList.remove('modal-active');
+    modal.classList.add('modal')
+    e.preventDefault()
+ }
 
 
-
-let closeModal = buttonModalClose.addEventListener("click",(e)=>{
-   modal.classList.remove('modal-active');
-   modal.classList.add('modal')
-   e.preventDefault()
-});
+ //event to opens every modals
+const openModals = (e)=> e.addEventListener("click",openModal);
+// function to open each modal 
+buttonModalStart.forEach(openModals)
+//Event to close modal 
+const close = buttonModalClose.addEventListener("click", closeModal);

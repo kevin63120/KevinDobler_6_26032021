@@ -20,7 +20,12 @@
   text-decoration: none;
   color: #d3573c;
   font-weight: 500;
-  font-size: 2.25em;
+  font-size: 1.25em;
+}
+@media screen and (max-width: 700px) {
+  .container_photographs_profils a {
+    font-size: 0.85em;
+  }
 }
 @media screen and (max-width: 400px) {
   .article-container article a {
@@ -151,13 +156,24 @@ body {
 
 .title_index {
   color: #901c1c;
+<<<<<<< HEAD
   position: absolute;
   top: 27px;
+=======
+  position: relative;
+  bottom: 70px;
+>>>>>>> dynamiqueCarte
   margin-left: 70%;
 }
 @media screen and (max-width: 961px) {
   .title_index {
+<<<<<<< HEAD
     margin-left: 70%;
+=======
+    position: relative;
+    bottom: 157px;
+    margin-left: 60%;
+>>>>>>> dynamiqueCarte
     font-size: 0.875em;
   }
 }
@@ -441,7 +457,9 @@ body {
   .modal-active {
     width: 600px;
     height: 900px;
-    margin: 0 25%;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
 }
 .modal-active input {
@@ -476,6 +494,7 @@ body {
   display: none;
 }
 
+<<<<<<< HEAD
 .active-lightbox {
   display: block;
   width: 50%;
@@ -521,6 +540,29 @@ body {
   right: 0;
   top: 0;
   z-index: 11;
+=======
+.lightbox-active {
+  display: block;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.lightbox-active .lightbox_button_prev .lightbox_button_next {
+  background: url();
+}
+.lightbox-active .lightbox_container_image {
+  display: flex;
+  justify-content: center;
+}
+.lightbox-active .lightbox_container_image img {
+  object-fit: contain;
+  width: 50%;
+  height: 80%;
+>>>>>>> dynamiqueCarte
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

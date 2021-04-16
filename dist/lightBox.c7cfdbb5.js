@@ -118,6 +118,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/lightBox.js":[function(require,module,exports) {
+<<<<<<< HEAD
 var imageMini = document.querySelectorAll('.img-lights');
 var lightboxContainer = document.querySelector(".lightbox");
 var lightboxCloseBtn = document.querySelector('#close-lightbox');
@@ -130,6 +131,34 @@ imageMini.forEach(function (image) {
 lightboxCloseBtn.addEventListener("click", function () {
   lightboxContainer.classList.replace("active-lightbox", "lightbox");
 });
+=======
+//DOM Elements
+var lightbox = document.querySelector(".lightbox");
+var pictures = document.querySelectorAll(".media_item");
+var closeButton = document.querySelector(".lightbox_button_close"); //function open or close lightbox if click to pictures nodes
+
+console.log(pictures);
+
+var OpenOrCloseLightbox = function OpenOrCloseLightbox() {
+  if (lightbox.classList.contains("lightbox")) {
+    lightbox.classList.replace("lightbox", "lightbox-active");
+  } else {
+    lightbox.classList.replace("lightbox-active", "lightbox");
+  }
+}; //function close or close lightbox if click to button close nodes
+
+
+var CloseLightboxWithButton = function CloseLightboxWithButton() {
+  lightbox.classList.replace("lightbox-active", "lightbox");
+}; // event to open or close lightbox if click to pictures nodes
+
+
+pictures.forEach(function (picture) {
+  return picture.addEventListener("click", OpenOrCloseLightbox);
+}); // event to close lightbox if click to button close
+
+closeButton.addEventListener("click", CloseLightboxWithButton);
+>>>>>>> dynamiqueCarte
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -158,7 +187,11 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
+>>>>>>> dynamiqueCarte
 
   ws.onmessage = function (event) {
     checkedAssets = {};
