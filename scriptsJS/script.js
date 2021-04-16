@@ -22,14 +22,30 @@ fetch("/data-profils/data-photographers.json")
     photographers.forEach(photographer => {
      
         new Profil(photographer).createProfilStructure(containerArticle);
-
         
-        console.log(Profil)
+        let links =  document.querySelectorAll(".link_photographer-page");
+        
     
-     }); 
-      
+        /*links.forEach(link =>{
+            link.addEventListener("click",(e)=>{
+                e.preventDefault();
+                e.stopPropagation;
+                const URLProfilDefault = new URL("/", "http://localhost:1234/photographers_pages.html");
+                const URLProfilDefaultSlash = new URL("http://localhost:1234/photographers_pages.html");
+                const URLProfilPhotographer = new URL(photographer,URLProfilDefaultSlash);
+                try{
+                    URLProfilPhotographer;
+                }catch(err)
+                    {console.error(err);
+                    }
+        })
+        
     
-      
-    }); 
+     }); */
+        
+   
+    })
+     
+    });
 
  

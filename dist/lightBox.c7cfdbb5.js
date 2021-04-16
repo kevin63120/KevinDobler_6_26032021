@@ -118,20 +118,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/lightBox.js":[function(require,module,exports) {
-<<<<<<< HEAD
-var imageMini = document.querySelectorAll('.img-lights');
-var lightboxContainer = document.querySelector(".lightbox");
-var lightboxCloseBtn = document.querySelector('#close-lightbox');
-imageMini.forEach(function (image) {
-  image.addEventListener("click", function () {
-    lightboxContainer.classList.add("active-lightbox");
-    console.log(lightboxContainer);
-  });
-});
-lightboxCloseBtn.addEventListener("click", function () {
-  lightboxContainer.classList.replace("active-lightbox", "lightbox");
-});
-=======
 //DOM Elements
 var lightbox = document.querySelector(".lightbox");
 var pictures = document.querySelectorAll(".media_item");
@@ -158,7 +144,6 @@ pictures.forEach(function (picture) {
 }); // event to close lightbox if click to button close
 
 closeButton.addEventListener("click", CloseLightboxWithButton);
->>>>>>> dynamiqueCarte
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -188,9 +173,13 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
 <<<<<<< HEAD
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
 =======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
+>>>>>>> dynamiqueCarte
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
 >>>>>>> dynamiqueCarte
 
   ws.onmessage = function (event) {

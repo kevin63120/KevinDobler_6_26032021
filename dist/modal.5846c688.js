@@ -118,26 +118,10 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"scriptsJS/modal.js":[function(require,module,exports) {
-<<<<<<< HEAD
-var buttonModalStart = document.querySelectorAll(".btn-contact");
-var buttonModalClose = document.querySelector(".close-modal");
-var modal = document.querySelector(".modal");
-var modalActive = false;
-
-var openModal = function openModal(button) {
-  button.addEventListener("click", function (e) {
-    modal.classList.replace('modal', "modal-active");
-    modalActive = true;
-    e.preventDefault();
-    e.stopPropagation();
-  });
-};
-=======
 //Dom elements for the modal 
 var buttonModalStart = document.querySelectorAll(".btn-contact");
 var buttonModalClose = document.querySelector(".close-modal");
 var modal = document.querySelector(".modal"); // fuction to open and close modal 
->>>>>>> dynamiqueCarte
 
 var openModal = function openModal(e) {
   modal.classList.replace('modal', "modal-active");
@@ -189,9 +173,13 @@ if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
 <<<<<<< HEAD
+<<<<<<< HEAD
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
 =======
   var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
+>>>>>>> dynamiqueCarte
+=======
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
 >>>>>>> dynamiqueCarte
 
   ws.onmessage = function (event) {

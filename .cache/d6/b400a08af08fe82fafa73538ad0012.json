@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 {"id":"Sample Photos/imageOfModel/x.svg","dependencies":[{"name":"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\package.json","includedInParent":true,"mtime":1618232336936}],"generated":{"js":"module.exports = \"/8aec5de9cbaf6047160e93bb659771a1.svg\";"},"sourceMaps":null,"error":null,"hash":"85a0c0a181f63fd58b32666cee397a86","cacheData":{"env":{}}}
 =======
 {"id":"Sample Photos/imageOfModel/x.svg","dependencies":[{"name":"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\package.json","includedInParent":true,"mtime":1618394160207}],"generated":{"js":"module.exports = \"/8aec5de9cbaf6047160e93bb659771a1.svg\";"},"sourceMaps":null,"error":null,"hash":"48ede61dba374f6d22533aca221a9d0a","cacheData":{"env":{}}}
+>>>>>>> dynamiqueCarte
+=======
+{"id":"Sample Photos/imageOfModel/x.svg","dependencies":[{"name":"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\package.json","includedInParent":true,"mtime":1618569036245}],"generated":{"js":"module.exports = \"/8aec5de9cbaf6047160e93bb659771a1.svg\";"},"sourceMaps":null,"error":null,"hash":"48ede61dba374f6d22533aca221a9d0a","cacheData":{"env":{}}}
 >>>>>>> dynamiqueCarte
