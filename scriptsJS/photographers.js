@@ -26,7 +26,7 @@ export class Profil{
     // create card for 
 
     const card = `
-        <a class="link_photographer-page"href="/photographers_pages.html${this.name}">
+        <a class="link_photographer-page"href="/photographers_pages.html">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>
