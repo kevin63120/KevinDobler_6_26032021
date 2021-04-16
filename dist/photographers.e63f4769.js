@@ -123,7 +123,23 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Profil = void 0;
+exports.ProfilMedia = exports.Profil = void 0;
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -156,9 +172,9 @@ var Profil = /*#__PURE__*/function () {
         return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
       }); // url for picture profil photographer
 
-      var rootPhoto = 'Sample Photos/Photographers ID Photos/'; // create card for 
+      var rootPhoto = 'Sample Photos/Photographers ID Photos/'; // create card for index page 
 
-      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html".concat(this.name, "\">\n            <img class=\"profil_picture\" src=\"").concat(rootPhoto + this.portrait, "\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
+      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\" src=\"".concat(rootPhoto + this.portrait, "\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ', ' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
       article.classList.add("container_photographs_profils");
       article.innerHTML = card;
     } // method for create a personal page for photographers
@@ -175,14 +191,8 @@ var Profil = /*#__PURE__*/function () {
       }); // url for picture profil photographer
 
       var rootPhoto = 'Sample Photos/Photographers ID Photos/';
-      var headerProfil = "\n            <div class=\"photograph_profil-reference\">\n                <h1 class=\"name\" id=\"name_personal_page\">".concat(this.name, "</h1>\n                <p class=\"photograph_location\" id=\"location_personal_page\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n                <p class=\"photograph_description-text\" id=\"description_personal_page\">").concat(this.tagline, "</p>\n            </div>\n            <button class=\"btn-contact btn-contact-1\" aria-label=\"contact-me\">Contactez-moi</button>\n            <img src=\"").concat(rootPhoto + this.portrait, "\" alt=\"\" class=\"profil_picture\">\n            <div class=\"container_photograph_tag-list\">\n                <ul class=\"photograph_tag-list\" role=\"\">\n                    ").concat(tags.join(''), "\n                </ul> \n            </div>    \n            ");
+      var headerProfil = "\n            <div class=\"photograph_profil-reference\">\n                <h1 class=\"name\" id=\"name_personal_page\">".concat(this.name, "</h1>\n                <p class=\"photograph_location\" id=\"location_personal_page\">").concat(this.city).concat(this.country ? ', ' + this.country : '', "</p>\n                <p class=\"photograph_description-text\" id=\"description_personal_page\">").concat(this.tagline, "</p>\n            </div>\n            <button class=\"btn-contact btn-contact-1\" aria-label=\"contact-me\">Contactez-moi</button>\n            <img src=\"").concat(rootPhoto + this.portrait, "\" alt=\"\" class=\"profil_picture\">\n            <div class=\"container_photograph_tag-list\">\n                <ul class=\"photograph_tag-list\" role=\"\">\n                    ").concat(tags.join(''), "\n                </ul> \n            </div>    \n            ");
       header.innerHTML = headerProfil;
-    }
-  }, {
-    key: "personalPageMedia",
-    value: function personalPageMedia() {
-      var containerMedia = document.createElement("div").classList.add("media_item");
-      var media = "\n            <article class=\"media_box\">\n                <div class=\"media_item\">\n                    <img src=\"/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg\" alt=\"image exemple\">\n                </div>\n                <footer class=\"media_item-descripton\">\n                    <p class=\"media_item-title\">arc-en-ciel</p>\n                    <p class=\"media_item-price\">70$</p>\n                    <div class=\"media_item_likes_container\">\n                        <p class=\"counter\"></p>\n                        <img src=\"/Sample Photos/imageOfModel/Vectorheart.svg\" alt=\"like\" class=\"counter-btn\" aria-pressed=\"true\">\n                    </div>\n                </footer>\n            </article>";
     }
   }, {
     key: "personalPageModal",
@@ -195,6 +205,41 @@ var Profil = /*#__PURE__*/function () {
 }();
 
 exports.Profil = Profil;
+
+var ProfilMedia = /*#__PURE__*/function (_Profil) {
+  _inherits(ProfilMedia, _Profil);
+
+  var _super = _createSuper(ProfilMedia);
+
+  function ProfilMedia(photographerMedia) {
+    var _this;
+
+    _classCallCheck(this, ProfilMedia);
+
+    _this.idPhoto = photographerMedia.id;
+    _this.image = photographerMedia.image;
+    _this.tags = photographerMedia.tags;
+    _this.likes = photographerMedia.likes;
+    _this.date = photographerMedia.date;
+    _this.price = photographerMedia.price;
+    return _possibleConstructorReturn(_this);
+  }
+
+  _createClass(ProfilMedia, [{
+    key: "personalPageMedia",
+    value: function personalPageMedia(containerArticles) {
+      var containerMedia = document.createElement("div");
+      containerMedia.classList.add("media_item");
+      containerArticles.appendChild(containerMedia);
+      var media = "\n            <article class=\"media_box\">\n                <div class=\"media_item\">\n                    <img src=\"/Sample Photos/".concat(this.name, "/").concat(this.image, "\" alt=\"photographie de ").concat(this.name, "\">\n                </div>\n                <footer class=\"media_item-descripton\">\n                    <p class=\"media_item-title\">").concat(this.tags, "</p>\n                    <p class=\"media_item-price\">").concat(this.price, "</p>\n                    <div class=\"media_item_likes_container\">\n                        <p class=\"counter\">").concat(this.likes, "</p>\n                        <img src=\"/Sample Photos/imageOfModel/Vectorheart.svg\" alt=\"like\" class=\"counter-btn\" aria-pressed=\"true\">\n                    </div>\n                </footer>\n            </article>");
+      containerMedia.innerHTML = media;
+    }
+  }]);
+
+  return ProfilMedia;
+}(Profil);
+
+exports.ProfilMedia = ProfilMedia;
 },{}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -223,7 +268,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51232" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

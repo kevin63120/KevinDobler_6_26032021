@@ -11,7 +11,9 @@ export class Profil{
         this.price = photographer.price;
         this.portrait = photographer.portrait;
         
-    }    
+    } 
+    
+   
 
     //mehtod for index on website 
     createProfilStructure (rootElement){
@@ -23,15 +25,15 @@ export class Profil{
     })
     // url for picture profil photographer
     const rootPhoto ='Sample Photos/Photographers ID Photos/';
-    // create card for 
+    // create card for index page 
 
     const card = `
-        <a class="link_photographer-page"href="/photographers_pages.html${this.name}">
+        <a class="link_photographer-page"href="/photographers_pages.html">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>
         <div class="photograph_description">
-            <p class="photograph_location">${this.city}${this.country?  ',' + this.country : '' }</p>
+            <p class="photograph_location">${this.city}${this.country?  ', ' + this.country : '' }</p>
             <p class="photograph_description-text">${this.tagline}</p> 
             <p class="photograph_pricePerDay">${this.price}</p>  
         </div>
@@ -65,7 +67,7 @@ export class Profil{
         const headerProfil = `
             <div class="photograph_profil-reference">
                 <h1 class="name" id="name_personal_page">${this.name}</h1>
-                <p class="photograph_location" id="location_personal_page">${this.city}${this.country?  ',' + this.country : '' }</p>
+                <p class="photograph_location" id="location_personal_page">${this.city}${this.country?  ', ' + this.country : '' }</p>
                 <p class="photograph_description-text" id="description_personal_page">${this.tagline}</p>
             </div>
             <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
@@ -80,22 +82,7 @@ export class Profil{
         header.innerHTML = (headerProfil)
     }
     
-    personalPageMedia (){
-        const containerMedia = document.createElement("div").classList.add("media_item") ;
-        const media = `
-            <article class="media_box">
-                <div class="media_item">
-                    <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
-                </div>
-                <footer class="media_item-descripton">
-                    <p class="media_item-title">arc-en-ciel</p>
-                    <p class="media_item-price">70$</p>
-                    <div class="media_item_likes_container">
-                        <p class="counter"></p>
-                        <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
-                    </div>
-                </footer>
-            </article>`;}
+    
     personalPageModal (containerModal){
         const modalForm = `
             <form action="" method="post" class="form">
@@ -131,3 +118,37 @@ export class Profil{
     
 }
 
+export class ProfilMedia extends Profil{
+    constructor(photographerMedia){
+        
+        this.idPhoto = photographerMedia.id;
+        this.image = photographerMedia.image;
+        this.tags = photographerMedia.tags;
+        this.likes = photographerMedia.likes;
+        this.date = photographerMedia.date;
+        this.price = photographerMedia.price;
+    }
+
+    
+
+    personalPageMedia (containerArticles){
+        const containerMedia = document.createElement("div");
+        containerMedia.classList.add("media_item");
+        containerArticles.appendChild(containerMedia);
+        const media = `
+            <article class="media_box">
+                <div class="media_item">
+                    <img src="/Sample Photos/${this.name}/${this.image}" alt="photographie de ${this.name}">
+                </div>
+                <footer class="media_item-descripton">
+                    <p class="media_item-title">${this.tags}</p>
+                    <p class="media_item-price">${this.price}</p>
+                    <div class="media_item_likes_container">
+                        <p class="counter">${this.likes}</p>
+                        <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                    </div>
+                </footer>
+            </article>`;
+        containerMedia.innerHTML=(media)}
+
+}
