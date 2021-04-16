@@ -144,19 +144,50 @@ var Profil = /*#__PURE__*/function () {
     this.tagline = photographer.tagline;
     this.price = photographer.price;
     this.portrait = photographer.portrait;
-  }
+  } //mehtod for index on website 
+
 
   _createClass(Profil, [{
     key: "createProfilStructure",
     value: function createProfilStructure(rootElement) {
-      var article = rootElement.appendChild(document.createElement("article"));
+      var article = rootElement.appendChild(document.createElement("article")); //tags array chang for return new array on desktop list 
+
       var tags = this.tags.map(function (tag) {
         return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
-      });
-      var rootPhoto = 'Sample Photos\Photographers ID Photos\'';
-      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html\">\n            <img class=\"profil_picture\" src=\"".concat(rootPhoto + this.name, ".jpg\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
+      }); // url for picture profil photographer
+
+      var rootPhoto = 'Sample Photos/Photographers ID Photos/'; // create card for 
+
+      var card = "\n        <a class=\"link_photographer-page\"href=\"/photographers_pages.html".concat(this.name, "\">\n            <img class=\"profil_picture\" src=\"").concat(rootPhoto + this.portrait, "\" alt=\"photo de profil\">\n            <h2 class=\"name\">").concat(this.name, "</h2>\n        </a>\n        <div class=\"photograph_description\">\n            <p class=\"photograph_location\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n            <p class=\"photograph_description-text\">").concat(this.tagline, "</p> \n            <p class=\"photograph_pricePerDay\">").concat(this.price, "</p>  \n        </div>\n        <footer class=\"photograph_tag\">\n            <ul aria-label=\"photograph_tag-list\" class=\"photograph_tag-list\">\n              ").concat(tags.join(''), "\n            </ul>\n        </footer>");
       article.classList.add("container_photographs_profils");
       article.innerHTML = card;
+    } // method for create a personal page for photographers
+
+  }, {
+    key: "personalPageHeader",
+    value: function personalPageHeader(rootElement) {
+      var header = document.createElement("article");
+      header.classList.add("photograph_profil_container");
+      rootElement.appendChild(header); //tags array chang for return new array on desktop list 
+
+      var tags = this.tags.map(function (tag) {
+        return "<li class=\"photograph_tag-item personal\">#".concat(tag, "</li>");
+      }); // url for picture profil photographer
+
+      var rootPhoto = 'Sample Photos/Photographers ID Photos/';
+      var headerProfil = "\n            <div class=\"photograph_profil-reference\">\n                <h1 class=\"name\" id=\"name_personal_page\">".concat(this.name, "</h1>\n                <p class=\"photograph_location\" id=\"location_personal_page\">").concat(this.city).concat(this.country ? ',' + this.country : '', "</p>\n                <p class=\"photograph_description-text\" id=\"description_personal_page\">").concat(this.tagline, "</p>\n            </div>\n            <button class=\"btn-contact btn-contact-1\" aria-label=\"contact-me\">Contactez-moi</button>\n            <img src=\"").concat(rootPhoto + this.portrait, "\" alt=\"\" class=\"profil_picture\">\n            <div class=\"container_photograph_tag-list\">\n                <ul class=\"photograph_tag-list\" role=\"\">\n                    ").concat(tags.join(''), "\n                </ul> \n            </div>    \n            ");
+      header.innerHTML = headerProfil;
+    }
+  }, {
+    key: "personalPageMedia",
+    value: function personalPageMedia() {
+      var containerMedia = document.createElement("div").classList.add("media_item");
+      var media = "\n            <article class=\"media_box\">\n                <div class=\"media_item\">\n                    <img src=\"/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg\" alt=\"image exemple\">\n                </div>\n                <footer class=\"media_item-descripton\">\n                    <p class=\"media_item-title\">arc-en-ciel</p>\n                    <p class=\"media_item-price\">70$</p>\n                    <div class=\"media_item_likes_container\">\n                        <p class=\"counter\"></p>\n                        <img src=\"/Sample Photos/imageOfModel/Vectorheart.svg\" alt=\"like\" class=\"counter-btn\" aria-pressed=\"true\">\n                    </div>\n                </footer>\n            </article>";
+    }
+  }, {
+    key: "personalPageModal",
+    value: function personalPageModal(containerModal) {
+      var modalForm = "\n            <form action=\"\" method=\"post\" class=\"form\">\n                    <header class=\"form_header\">\n                        <label>Contactez-moi</label>\n                        <button type=\"button\" class=\"close-modal\" aria-label=\"close-modal\"><img src=\"/Sample Photos/imageOfModel/x.svg\"></img></button>\n                        <h1 id=\"photographer-name\">test test</h1>\n                    </header>\n                     <div class=\"form_item\">\n                         <label for=\"name\" aria-labelledby=\"name\">Pr\xE9nom</label>\n                         <input type=\"text\" name=\"name\" id=\"name\" required>\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"lastName\" aria-labelledby=\"lastName\" >nom</label>\n                         <input type=\"text\" aria-label=\"nom de famille\"name=\"lastName\" id=\"lastName\" required>\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"email\" aria-labelledby=\"email\">email</label>\n                         <input type=\"email\" aria-label=\"email\" name=\"email\" id=\"email\">\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"message\" aria-labelledby=\"message\">Votre message</label>\n                        <input type=\"text\" aria-label=\"votre message\" name=\"message\" id=\"message\">\n                     </div>\n                     <input id=\"submit\" type=\"submit\" value=\"Envoyer\">\n\n                 </form>\n            ";
     }
   }]);
 
@@ -192,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
