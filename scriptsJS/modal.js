@@ -2,19 +2,6 @@
 const buttonModalStart = document.querySelectorAll(".btn-contact");
 const buttonModalClose = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal")
-<<<<<<< HEAD
-let modalActive = false;
-const openModal = (button)=>{ 
-    button.addEventListener("click",(e)=>{
-    modal.classList.replace('modal',"modal-active");
-    
-    modalActive= true;
-    e.preventDefault()
-    e.stopPropagation()
-});
-}
-=======
->>>>>>> dynamiqueCarte
 
 // fuction to open and close modal 
  const openModal =(e)=>{

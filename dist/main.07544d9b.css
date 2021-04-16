@@ -23,13 +23,8 @@
   font-size: 1.25em;
 }
 @media screen and (max-width: 700px) {
-  .container_photographs_profils a {
-    font-size: 0.85em;
-  }
-}
-@media screen and (max-width: 400px) {
   .article-container article a {
-    font-size: 1.25em;
+    font-size: 0.85em;
   }
 }
 
@@ -156,24 +151,15 @@ body {
 
 .title_index {
   color: #901c1c;
-<<<<<<< HEAD
-  position: absolute;
-  top: 27px;
-=======
   position: relative;
   bottom: 70px;
->>>>>>> dynamiqueCarte
   margin-left: 70%;
 }
 @media screen and (max-width: 961px) {
   .title_index {
-<<<<<<< HEAD
-    margin-left: 70%;
-=======
     position: relative;
     bottom: 157px;
     margin-left: 60%;
->>>>>>> dynamiqueCarte
     font-size: 0.875em;
   }
 }
@@ -494,53 +480,6 @@ body {
   display: none;
 }
 
-<<<<<<< HEAD
-.active-lightbox {
-  display: block;
-  width: 50%;
-  height: 50%;
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.active-lightbox .button-next,
-.active-lightbox .button-previous {
-  width: 40px;
-  height: 100%;
-  border: none;
-  position: fixed;
-  top: 0;
-  opacity: 0.5;
-  z-index: 11;
-  transition: opacity 0.5s;
-}
-.active-lightbox .button-next:hover,
-.active-lightbox .button-previous:hover {
-  opacity: 1;
-}
-.active-lightbox .button-next {
-  background: url(/next.9dfa8b5b.svg) center center/100% 100%;
-  right: 0;
-  background-color: #E5E5E5;
-}
-.active-lightbox .button-previous {
-  background: url(/prev.b855298a.svg) center center/100% 100%;
-  right: auto;
-  left: 0;
-  background-color: #E5E5E5;
-}
-.active-lightbox .button-close {
-  border: none;
-  background: url(/close-image.16e645d2.svg) center center/100% 100%;
-  width: 40px;
-  height: 10%;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 11;
-=======
 .lightbox-active {
   display: block;
   position: fixed;
@@ -562,7 +501,6 @@ body {
   object-fit: contain;
   width: 50%;
   height: 80%;
->>>>>>> dynamiqueCarte
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

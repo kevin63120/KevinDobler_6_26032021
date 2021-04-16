@@ -3,24 +3,15 @@ body{
 }
 .title_index{
     color: $color_primary;
-<<<<<<< HEAD
-    position: absolute;
-    top: 27px;
-=======
     position: relative;
     bottom: 70px;
->>>>>>> dynamiqueCarte
     margin-left: 70%;
     
     @media screen and (max-width: 961px){
         
-<<<<<<< HEAD
-        margin-left: 70%;
-=======
         position: relative;
         bottom: 157px;
         margin-left: 60%;
->>>>>>> dynamiqueCarte
         font-size: 0.875em;
     }
     

@@ -16,9 +16,5 @@
     "eslint": "^7.23.0",
     "sass": "^1.32.8"
   },
-<<<<<<< HEAD
-  "assetsPath": "assets"
-=======
   "assetsPath":"assets" 
->>>>>>> dynamiqueCarte
 }
