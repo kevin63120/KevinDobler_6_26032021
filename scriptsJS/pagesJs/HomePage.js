@@ -1,12 +1,9 @@
-const linkPhotographerPage = document.querySelectorAll(".link_photographer-page");
+const linkPhotographerPage = [document.getElementsByClassName("link_photographer-page")];
 
-export let activeLinkProfilPage = (AllLiks)=>{
-    linkPhotographerPage.forEach(link => {
-        AllLiks.addEventListener("click",(e=>{
-            e.preventDefault()
-            alert("t'ascliquée")
-            }))
-    })
-}
+let linkForProfilPage = linkPhotographerPage.forEach(link =>{
+        link = document.addEventListener("click",(e)=>{
+             e.preventDefault(); console.log("cliqué")}
+             )
+            })
 
-activeLinkProfilPage(linkPhotographerPage)
+

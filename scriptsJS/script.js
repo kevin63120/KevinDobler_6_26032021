@@ -2,6 +2,11 @@ import { Profil } from "./photographers";
 import './profils-photographers';
 import './pagesJs/HomePage';
 import './pagesJs/pageProfils';
+import './scriptCounterHeart';
+import './modal';
+import './lightBox';
+
+
 
 // retrieved an items in the DOM for photograph card
 const containerArticle = document.querySelector(".article-container");
@@ -15,13 +20,6 @@ const containerArticle = document.querySelector(".article-container");
 
 
 
-class PhotographPage {
-    generatePage() {
-        const root = document.querySelector('#root')
-        // ...
-        root.innerHTML = `ta page photographe...`
-    }
-}
 
 
 
