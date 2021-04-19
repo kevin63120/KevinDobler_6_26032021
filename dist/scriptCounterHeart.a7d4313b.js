@@ -121,7 +121,6 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var counterBtns = document.querySelectorAll(".counter-btn");
 var countHearts = document.querySelectorAll(".counter");
 var heartCount = 0;
-var AllHeartCount = 0;
 counterBtns.forEach(function (button) {
   button.addEventListener('click', function (e) {
     heartCount++;
@@ -158,15 +157,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
->>>>>>> dynamiqueCarte
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
->>>>>>> dynamiqueCarte
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53405" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

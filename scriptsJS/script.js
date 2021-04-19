@@ -5,7 +5,9 @@ import { Profil } from "./photographers";
 const containerArticle = document.querySelector(".article-container");
 
 
-//let gars = new Profils("aaaaaaa");
+//view profil function 
+
+
 
 const dataProfil = (selector , data , data2)=>{selector.innerHtml = data , data2}
 
@@ -16,33 +18,12 @@ fetch("/data-profils/data-photographers.json")
 .then((response) => response.json())
 .then(data => {
         
-    const photographers = data.photographers;
-    const pictures = data.media;
+    const photographers = data;
+   
         
-    photographers.forEach(photographer => {
+    photographers.photographers.forEach(photographer => {
      
-        new Profil(photographer).createProfilStructure(containerArticle);
-        
-        let links =  document.querySelectorAll(".link_photographer-page");
-        
-    
-        /*links.forEach(link =>{
-            link.addEventListener("click",(e)=>{
-                e.preventDefault();
-                e.stopPropagation;
-                const URLProfilDefault = new URL("/", "http://localhost:1234/photographers_pages.html");
-                const URLProfilDefaultSlash = new URL("http://localhost:1234/photographers_pages.html");
-                const URLProfilPhotographer = new URL(photographer,URLProfilDefaultSlash);
-                try{
-                    URLProfilPhotographer;
-                }catch(err)
-                    {console.error(err);
-                    }
-        })
-        
-    
-     }); */
-        
+        new Profil(photographer).createProfilStructure(containerArticle);    
    
     })
      

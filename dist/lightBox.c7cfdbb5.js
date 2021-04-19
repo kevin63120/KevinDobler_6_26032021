@@ -172,15 +172,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-<<<<<<< HEAD
-<<<<<<< HEAD
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56416" + '/');
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55454" + '/');
->>>>>>> dynamiqueCarte
-=======
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58497" + '/');
->>>>>>> dynamiqueCarte
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53831" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

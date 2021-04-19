@@ -483,24 +483,97 @@ body {
 .lightbox-active {
   display: block;
   position: fixed;
-  z-index: 10;
+  z-index: 11;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.lightbox-active .lightbox_button_prev .lightbox_button_next {
-  background: url();
+.lightbox-active .lightbox_title_img {
+  position: fixed;
+  bottom: 0;
+  left: 60%;
+  right: auto;
+}
+.lightbox-active button {
+  position: fixed;
+  z-index: 10;
+  text-indent: -3000px;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: 0.3s;
+  border: none;
+}
+.lightbox-active button:hover {
+  opacity: 1;
+}
+.lightbox-active .lightbox_button_prev {
+  background: url("/prev.429d2f2c.svg") center center/30px 48px no-repeat;
+  width: 50px;
+  height: 100%;
+  top: 0;
+  left: auto;
+  right: 75%;
+}
+@media screen and (max-width: 700px) {
+  .lightbox-active .lightbox_button_prev {
+    left: 0;
+    right: auto;
+    width: 40px;
+  }
+}
+.lightbox-active .lightbox_button_next {
+  background: url("/next.277f0961.svg") center center/30px 48px no-repeat;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  left: 75%;
+  right: auto;
+}
+@media screen and (max-width: 700px) {
+  .lightbox-active .lightbox_button_next {
+    left: auto;
+    right: 0;
+    width: 40px;
+  }
+}
+.lightbox-active .lightbox_button_close {
+  background: url("/close.4d6b865b.svg") center center/42px 48px no-repeat;
+  z-index: 11;
+  width: 50px;
+  height: 42px;
+  left: 75%;
+  right: auto;
+}
+@media screen and (max-width: 700px) {
+  .lightbox-active .lightbox_button_close {
+    left: auto;
+    right: 0;
+    width: 40px;
+  }
 }
 .lightbox-active .lightbox_container_image {
   display: flex;
   justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+@media screen and (max-width: 700px) {
+  .lightbox-active .lightbox_container_image {
+    align-items: center;
+  }
 }
 .lightbox-active .lightbox_container_image img {
   object-fit: contain;
   width: 50%;
   height: 80%;
+}
+@media screen and (max-width: 700px) {
+  .lightbox-active .lightbox_container_image img {
+    width: 80%;
+    height: 100%;
+  }
 }
 
 /*# sourceMappingURL=/main.07544d9b.css.map */

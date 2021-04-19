@@ -11,7 +11,9 @@ export class Profil{
         this.price = photographer.price;
         this.portrait = photographer.portrait;
         
-    }    
+    } 
+    
+   
 
     //mehtod for index on website 
     createProfilStructure (rootElement){
@@ -21,17 +23,18 @@ export class Profil{
     const tags = this.tags.map(tag=>{
         return `<li class="photograph_tag-item personal">#${tag}</li>`
     })
+
     // url for picture profil photographer
     const rootPhoto ='Sample Photos/Photographers ID Photos/';
-    // create card for 
-
+    
+    // create card for index page 
     const card = `
         <a class="link_photographer-page"href="/photographers_pages.html">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>
         <div class="photograph_description">
-            <p class="photograph_location">${this.city}${this.country?  ',' + this.country : '' }</p>
+            <p class="photograph_location">${this.city}${this.country?  ', ' + this.country : '' }</p>
             <p class="photograph_description-text">${this.tagline}</p> 
             <p class="photograph_pricePerDay">${this.price}</p>  
         </div>
@@ -65,7 +68,7 @@ export class Profil{
         const headerProfil = `
             <div class="photograph_profil-reference">
                 <h1 class="name" id="name_personal_page">${this.name}</h1>
-                <p class="photograph_location" id="location_personal_page">${this.city}${this.country?  ',' + this.country : '' }</p>
+                <p class="photograph_location" id="location_personal_page">${this.city}${this.country?  ', ' + this.country : '' }</p>
                 <p class="photograph_description-text" id="description_personal_page">${this.tagline}</p>
             </div>
             <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
@@ -80,29 +83,18 @@ export class Profil{
         header.innerHTML = (headerProfil)
     }
     
-    personalPageMedia (){
-        const containerMedia = document.createElement("div").classList.add("media_item") ;
-        const media = `
-            <article class="media_box">
-                <div class="media_item">
-                    <img src="/Sample Photos/Ellie Rose/Architecture_Horseshoe.jpg" alt="image exemple">
-                </div>
-                <footer class="media_item-descripton">
-                    <p class="media_item-title">arc-en-ciel</p>
-                    <p class="media_item-price">70$</p>
-                    <div class="media_item_likes_container">
-                        <p class="counter"></p>
-                        <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
-                    </div>
-                </footer>
-            </article>`;}
-    personalPageModal (containerModal){
+    
+    /*personalPageModal (containerModal){
+        const rootPhoto ='/Sample Photos/Photographers ID Photos/';
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+
         const modalForm = `
             <form action="" method="post" class="form">
                     <header class="form_header">
                         <label>Contactez-moi</label>
-                        <button type="button" class="close-modal" aria-label="close-modal"><img src="/Sample Photos/imageOfModel/x.svg"></img></button>
-                        <h1 id="photographer-name">test test</h1>
+                        <button type="button" class="close-modal" aria-label="close-modal"><img src="${rootPhoto + this.portrait}"></img></button>
+                        <h1 id="photographer-name">${this.name}</h1>
                     </header>
                      <div class="form_item">
                          <label for="name" aria-labelledby="name">Prénom</label>
@@ -123,11 +115,51 @@ export class Profil{
                      <input id="submit" type="submit" value="Envoyer">
 
                  </form>
-            ` 
-        }       
+            `
+        containerModal.appendChild(modalForm);
+        modal.innerHTML = (modalForm);
+        }   */    
 
 
     
     
+}
+
+export class ProfilMedia extends Profil{
+    constructor(media){
+        
+        this.idPhoto =  media.id;
+        this.idPhotographer = media.photographerId;
+        this.image   =  media.image;
+        this.tags    =  media.tags;
+        this.likes   =  media.likes;
+        this.date    =  media.date;
+        this.price   =  media.price;
+    }
+
+    
+
+    personalPageMedia (containerArticles){
+        const containerMedia = document.createElement("div");
+        containerMedia.classList.add("media_item");
+        containerArticles.appendChild(containerMedia);
+        const mediabox = `
+            <article class="media_box">
+                <div class="media_item">
+                    <img src="/Sample Photos/${this.name}/${this.image}" alt="photographie de ${this.name}">
+                </div>
+                <footer class="media_item-descripton">
+                    <p class="media_item-title">${this.tags}</p>
+                    <p class="media_item-price">${this.price}</p>
+                    <div class="media_item_likes_container">
+                        <p class="counter">${this.likes}</p>
+                        <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                    </div>
+                </footer>
+            </article>`;
+            console.log(mediabox)
+        containerMedia.innerHTML = mediabox;
+    }
+
 }
 

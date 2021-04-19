@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="./sass/main.scss" rel="stylesheet">
+    <link href="sass\main.scss" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f80ec18dc5.js" crossorigin="anonymous"></script>
     <title>Accueil</title>
 </head>
 <body>
+
     <div class="return_main" ><a  href="main" id="main_return" aria-label="lien de retour au contenut" role="navigation-secondary">retour au contenu</a></div>
     <header class="header_page-index">
         <div class="logo"><a href="index.html" class="logo-txt" alt="Fisheye home page"><img src="Sample Photos/imageOfModel/Grouplogo.svg" alt="²"></a></div> 
@@ -28,8 +29,21 @@
         </nav>       
     </header>
     <main class="main_index">
-        <h1 class="title_index">Nos photographes</h1>
-
+       <!-- <h1 class="title_index">Nos photographes</h1>
+        <a class="link_photographer-page"href="assets\photographers_public_page\243.html">
+            <img class="profil_picture" src="./Sample Photos/Marcel/Architecture_Corner_Room.jpg" alt="photo de profil">
+            <h2 class="name">${this.name}</h2>
+        </a>
+        <div class="photograph_description">
+            <p class="photograph_location">${this.city}${this.country?  ', ' + this.country : '' }</p>
+            <p class="photograph_description-text">${this.tagline}</p> 
+            <p class="photograph_pricePerDay">${this.price}</p>  
+        </div>
+        <footer class="photograph_tag">
+            <ul aria-label="photograph_tag-list" class="photograph_tag-list">
+              ${tags.join('')}
+            </ul>
+        </footer>-->
     <div class="article-container">
 
     </div>  
@@ -38,7 +52,10 @@
     <footer>
 
     </footer>
-
+   
+        </main>
+    <script src="/scriptsJS/photographers.js"></script>
+    <script src="/scriptsJS/profils-photographers.js"></script>  
     <script  src="/scriptsJS/script.js"></script>  
 </body>
 </html>
