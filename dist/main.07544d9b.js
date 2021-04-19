@@ -189,7 +189,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\Sample Photos\\imageOfModel\\prev.svg":[["prev.429d2f2c.svg","Sample Photos/imageOfModel/prev.svg"],"Sample Photos/imageOfModel/prev.svg"],"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\Sample Photos\\imageOfModel\\next.svg":[["next.277f0961.svg","Sample Photos/imageOfModel/next.svg"],"Sample Photos/imageOfModel/next.svg"],"C:\\Users\\kevin\\Desktop\\Formation developpeur FRONT-END OPEN CLASSROOMS\\livrables\\P6_ALL\\P6_Kevin_Dobler_Project\\Sample Photos\\imageOfModel\\close.svg":[["close.4d6b865b.svg","Sample Photos/imageOfModel/close.svg"],"Sample Photos/imageOfModel/close.svg"],"_css_loader":"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +217,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51232" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53831" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

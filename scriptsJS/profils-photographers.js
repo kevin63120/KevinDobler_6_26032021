@@ -1,22 +1,36 @@
+//import class from photographer.js
 import {Profil} from "./photographers";
-import{ProfilMedia} from "./photographers"
+import{ProfilMedia} from "./photographers";
+
+//dom elements
 const sectionHeader = document.querySelector('.section_photograph_profil_container');
-const main = document.querySelector('.container_media')
-fetch("/data-profils/data-photographers.json")
-.then(Response=>(Response.json()))
-.then(data =>{
-    const photographers = data;
-    const pictures = data.media;
-    photographers.photographers.forEach(photographer => {
-        new Profil(photographer).personalPageHeader(sectionHeader);
+const containerArticle = document.querySelector('.container_article');
+const containerModal = document.querySelector('.container-modal');
+const photographerName = document.querySelector("#photographer-name")
+
+
+
+const headerProfil = (id) => {
+         fetch("/data-profils/data-photographers.json")
+         .then(Response=>(Response.json()))
+         .then(data =>{
+         
+         const photographers = data;
+         const profil = new Profil(photographers.photographers[id]);
+        // const profilMedia = new ProfilMedia(photographers) 
+       /* if(profil.id === profilMedia.idPhotographer){
+             profilMedia.personalPageMedia(containerArticle)
+         }else{
+             containerArticle.innerHTML = "Aucune photo actuelement disponnible"
+         }*/
+         profil.personalPageHeader(sectionHeader);
+         photographerName.innerHTML= profil.name;
         
-        
+      
     });
-    photographers.photographers.forEach(photographer=>{
-        if (Profil.id == ProfilMedia.idPhoto){
-            ProfilMedia(photographer).personalPageMedia(main)
-        }
-    })
-        
-})
+}
+
+
+headerProfil(4);
+
 

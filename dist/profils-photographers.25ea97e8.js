@@ -194,11 +194,40 @@ var Profil = /*#__PURE__*/function () {
       var headerProfil = "\n            <div class=\"photograph_profil-reference\">\n                <h1 class=\"name\" id=\"name_personal_page\">".concat(this.name, "</h1>\n                <p class=\"photograph_location\" id=\"location_personal_page\">").concat(this.city).concat(this.country ? ', ' + this.country : '', "</p>\n                <p class=\"photograph_description-text\" id=\"description_personal_page\">").concat(this.tagline, "</p>\n            </div>\n            <button class=\"btn-contact btn-contact-1\" aria-label=\"contact-me\">Contactez-moi</button>\n            <img src=\"").concat(rootPhoto + this.portrait, "\" alt=\"\" class=\"profil_picture\">\n            <div class=\"container_photograph_tag-list\">\n                <ul class=\"photograph_tag-list\" role=\"\">\n                    ").concat(tags.join(''), "\n                </ul> \n            </div>    \n            ");
       header.innerHTML = headerProfil;
     }
-  }, {
-    key: "personalPageModal",
-    value: function personalPageModal(containerModal) {
-      var modalForm = "\n            <form action=\"\" method=\"post\" class=\"form\">\n                    <header class=\"form_header\">\n                        <label>Contactez-moi</label>\n                        <button type=\"button\" class=\"close-modal\" aria-label=\"close-modal\"><img src=\"/Sample Photos/imageOfModel/x.svg\"></img></button>\n                        <h1 id=\"photographer-name\">test test</h1>\n                    </header>\n                     <div class=\"form_item\">\n                         <label for=\"name\" aria-labelledby=\"name\">Pr\xE9nom</label>\n                         <input type=\"text\" name=\"name\" id=\"name\" required>\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"lastName\" aria-labelledby=\"lastName\" >nom</label>\n                         <input type=\"text\" aria-label=\"nom de famille\"name=\"lastName\" id=\"lastName\" required>\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"email\" aria-labelledby=\"email\">email</label>\n                         <input type=\"email\" aria-label=\"email\" name=\"email\" id=\"email\">\n                     </div>\n                     <div class=\"form_item\">\n                         <label for=\"message\" aria-labelledby=\"message\">Votre message</label>\n                        <input type=\"text\" aria-label=\"votre message\" name=\"message\" id=\"message\">\n                     </div>\n                     <input id=\"submit\" type=\"submit\" value=\"Envoyer\">\n\n                 </form>\n            ";
-    }
+    /*personalPageModal (containerModal){
+        const rootPhoto ='/Sample Photos/Photographers ID Photos/';
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+          const modalForm = `
+            <form action="" method="post" class="form">
+                    <header class="form_header">
+                        <label>Contactez-moi</label>
+                        <button type="button" class="close-modal" aria-label="close-modal"><img src="${rootPhoto + this.portrait}"></img></button>
+                        <h1 id="photographer-name">${this.name}</h1>
+                    </header>
+                     <div class="form_item">
+                         <label for="name" aria-labelledby="name">Prénom</label>
+                         <input type="text" name="name" id="name" required>
+                     </div>
+                     <div class="form_item">
+                         <label for="lastName" aria-labelledby="lastName" >nom</label>
+                         <input type="text" aria-label="nom de famille"name="lastName" id="lastName" required>
+                     </div>
+                     <div class="form_item">
+                         <label for="email" aria-labelledby="email">email</label>
+                         <input type="email" aria-label="email" name="email" id="email">
+                     </div>
+                     <div class="form_item">
+                         <label for="message" aria-labelledby="message">Votre message</label>
+                        <input type="text" aria-label="votre message" name="message" id="message">
+                     </div>
+                     <input id="submit" type="submit" value="Envoyer">
+                   </form>
+            `
+        containerModal.appendChild(modalForm);
+        modal.innerHTML = (modalForm);
+        }   */
+
   }]);
 
   return Profil;
@@ -211,17 +240,18 @@ var ProfilMedia = /*#__PURE__*/function (_Profil) {
 
   var _super = _createSuper(ProfilMedia);
 
-  function ProfilMedia(photographerMedia) {
+  function ProfilMedia(media) {
     var _this;
 
     _classCallCheck(this, ProfilMedia);
 
-    _this.idPhoto = photographerMedia.id;
-    _this.image = photographerMedia.image;
-    _this.tags = photographerMedia.tags;
-    _this.likes = photographerMedia.likes;
-    _this.date = photographerMedia.date;
-    _this.price = photographerMedia.price;
+    _this.idPhoto = media.id;
+    _this.idPhotographer = media.photographerId;
+    _this.image = media.image;
+    _this.tags = media.tags;
+    _this.likes = media.likes;
+    _this.date = media.date;
+    _this.price = media.price;
     return _possibleConstructorReturn(_this);
   }
 
@@ -231,8 +261,9 @@ var ProfilMedia = /*#__PURE__*/function (_Profil) {
       var containerMedia = document.createElement("div");
       containerMedia.classList.add("media_item");
       containerArticles.appendChild(containerMedia);
-      var media = "\n            <article class=\"media_box\">\n                <div class=\"media_item\">\n                    <img src=\"/Sample Photos/".concat(this.name, "/").concat(this.image, "\" alt=\"photographie de ").concat(this.name, "\">\n                </div>\n                <footer class=\"media_item-descripton\">\n                    <p class=\"media_item-title\">").concat(this.tags, "</p>\n                    <p class=\"media_item-price\">").concat(this.price, "</p>\n                    <div class=\"media_item_likes_container\">\n                        <p class=\"counter\">").concat(this.likes, "</p>\n                        <img src=\"/Sample Photos/imageOfModel/Vectorheart.svg\" alt=\"like\" class=\"counter-btn\" aria-pressed=\"true\">\n                    </div>\n                </footer>\n            </article>");
-      containerMedia.innerHTML = media;
+      var mediabox = "\n            <article class=\"media_box\">\n                <div class=\"media_item\">\n                    <img src=\"/Sample Photos/".concat(this.name, "/").concat(this.image, "\" alt=\"photographie de ").concat(this.name, "\">\n                </div>\n                <footer class=\"media_item-descripton\">\n                    <p class=\"media_item-title\">").concat(this.tags, "</p>\n                    <p class=\"media_item-price\">").concat(this.price, "</p>\n                    <div class=\"media_item_likes_container\">\n                        <p class=\"counter\">").concat(this.likes, "</p>\n                        <img src=\"/Sample Photos/imageOfModel/Vectorheart.svg\" alt=\"like\" class=\"counter-btn\" aria-pressed=\"true\">\n                    </div>\n                </footer>\n            </article>");
+      console.log(mediabox);
+      containerMedia.innerHTML = mediabox;
     }
   }]);
 
@@ -245,22 +276,32 @@ exports.ProfilMedia = ProfilMedia;
 
 var _photographers = require("./photographers");
 
+//import class from photographer.js
+//dom elements
 var sectionHeader = document.querySelector('.section_photograph_profil_container');
-var main = document.querySelector('.container_media');
-fetch("/data-profils/data-photographers.json").then(function (Response) {
-  return Response.json();
-}).then(function (data) {
-  var photographers = data;
-  var pictures = data.media;
-  photographers.photographers.forEach(function (photographer) {
-    new _photographers.Profil(photographer).personalPageHeader(sectionHeader);
+var containerArticle = document.querySelector('.container_article');
+var containerModal = document.querySelector('.container-modal');
+var photographerName = document.querySelector("#photographer-name");
+
+var headerProfil = function headerProfil(id) {
+  fetch("/data-profils/data-photographers.json").then(function (Response) {
+    return Response.json();
+  }).then(function (data) {
+    var photographers = data;
+    var profil = new _photographers.Profil(photographers.photographers[id]); // const profilMedia = new ProfilMedia(photographers) 
+
+    /* if(profil.id === profilMedia.idPhotographer){
+          profilMedia.personalPageMedia(containerArticle)
+      }else{
+          containerArticle.innerHTML = "Aucune photo actuelement disponnible"
+      }*/
+
+    profil.personalPageHeader(sectionHeader);
+    photographerName.innerHTML = profil.name;
   });
-  photographers.photographers.forEach(function (photographer) {
-    if (_photographers.Profil.id == _photographers.ProfilMedia.idPhoto) {
-      (0, _photographers.ProfilMedia)(photographer).personalPageMedia(main);
-    }
-  });
-});
+};
+
+headerProfil(4);
 },{"./photographers":"scriptsJS/photographers.js"}],"../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -289,7 +330,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51232" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53831" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
