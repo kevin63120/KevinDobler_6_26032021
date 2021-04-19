@@ -10,12 +10,13 @@ export class Profil{
         this.tagline = photographer.tagline;
         this.price = photographer.price;
         this.portrait = photographer.portrait;
+    
         
     } 
     
    
 
-    //mehtod for index on website 
+    
     createProfilStructure (rootElement){
 
     const article = rootElement.appendChild(document.createElement("article"));
@@ -27,7 +28,6 @@ export class Profil{
     // url for picture profil photographer
     const rootPhoto ='Sample Photos/Photographers ID Photos/';
     
-    // create card for index page 
     const card = `
         <a class="link_photographer-page"href="/photographers_pages.html">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
@@ -50,7 +50,7 @@ export class Profil{
       
     }
 
-    // method for create a personal page for photographers
+     //method for create a personal page for photographers
     personalPageHeader (rootElement){
 
         const header = document.createElement("article");
@@ -125,9 +125,11 @@ export class Profil{
     
 }
 
+   
+
 export class ProfilMedia extends Profil{
     constructor(media){
-        
+        super();
         this.idPhoto =  media.id;
         this.idPhotographer = media.photographerId;
         this.image   =  media.image;
@@ -162,4 +164,3 @@ export class ProfilMedia extends Profil{
     }
 
 }
-

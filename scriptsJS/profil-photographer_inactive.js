@@ -57,17 +57,6 @@ export class Profil{
    
     
 
-      //article.classList.add("container_photographs_profils");
-      //article.appendChild(a).classList.add("link_photographer-page");
-      //article.appendChild(containerDescription).classList.add("photograph_description");
-      //article.appendChild(footerProfil).classList.add("photograph_tag");
-      //a.appendChild(document.createElement("img")).classList.add("profil_picture");
-      //a.appendChild(document.createElement("h2")).classList.add("name");
-      //containerDescription.appendChild(document.createElement("p")).classList.add("photograph_location");
-      //containerDescription.appendChild(document.createElement("p")).classList.add('photograph_description-text');
-      //containerDescription.appendChild(document.createElement("p")).classList.add('photograph_pricePerDay');
-      //footerProfil.appendChild(list).classList.add("photograph_tag-list");
-      //list.appendChild(document.createElement("li")).classList.add("photograph_tag-item")
       
 } 
 }

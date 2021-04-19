@@ -17,12 +17,6 @@ const headerProfil = (id) => {
          
          const photographers = data;
          const profil = new Profil(photographers.photographers[id]);
-        // const profilMedia = new ProfilMedia(photographers) 
-       /* if(profil.id === profilMedia.idPhotographer){
-             profilMedia.personalPageMedia(containerArticle)
-         }else{
-             containerArticle.innerHTML = "Aucune photo actuelement disponnible"
-         }*/
          profil.personalPageHeader(sectionHeader);
          photographerName.innerHTML= profil.name;
         
@@ -31,6 +25,6 @@ const headerProfil = (id) => {
 }
 
 
-headerProfil(4);
+
 
 
