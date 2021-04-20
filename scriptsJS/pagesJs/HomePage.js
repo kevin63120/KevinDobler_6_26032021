@@ -1,9 +1,19 @@
-const linkPhotographerPage = [document.getElementsByClassName("link_photographer-page")];
+import '../photographers';
+import { ProfilMedia } from '../photographers';
 
-let linkForProfilPage = linkPhotographerPage.forEach(link =>{
-        link = document.addEventListener("click",(e)=>{
-             e.preventDefault(); console.log("cliqué")}
-             )
-            })
+const linkPhotographerPage = document.querySelectorAll(".link_photographer-page");
+
+const goToProfil =(e)=>{
+        let containerPage = document.querySelector("#container_article")
+            e.preventDefault(); 
+            e.stopPropagation()
+            ProfilMedia().personalPageMedia(containerPage)
+            
+            }
+
+const openProfil = (e) => e.addEventListener("click",goToProfil); 
+
+linkPhotographerPage.forEach(openProfil);
+ 
 
 
