@@ -1,7 +1,7 @@
 import "../photographers";
 import { Profil } from "../photographers";
 
-class PhotographPage extends Profil {
+export class PhotographPage extends Profil {
     
    
         personalPageHeader (rootElement)
