@@ -2,10 +2,13 @@ import "../photographers";
 import { Profil } from "../photographers";
 
 export class PhotographPage extends Profil {
-    
+     
+     
+     
    
         personalPageHeader (rootElement)
-        {
+        {   
+           
 
             const header = document.createElement("article");
             header.classList.add("photograph_profil_container");
@@ -36,6 +39,42 @@ export class PhotographPage extends Profil {
     
             header.innerHTML = (headerProfil)
         }
+
+ 
+        createContainerPicture (rootElement, images) {
+           
+            
+            const article =  document.createElement("article");
+            article.classList.add("media_box");
+            let pictures = images.filter(image => image.photographerId == this.id )
+          for (let i=0 ; i<pictures.length;i++){
+                    const container = `
+            
+            <div class="media_item">
+              <img src="../assets/Sample Photos/${this.name}/${pictures[i].image}" alt="like" class="counter-btn" aria-pressed="true">
+            </div>
+            <footer class="media_item-descripton">
+                <p class="media_item-title">arc-en-ciel</p>
+                <p class="media_item-price">70$</p>
+                <div class="media_item_likes_container">
+                    <p class="counter"></p>
+                    
+                </div>
+            </footer>
+        
+            `         
+           rootElement.appendChild(article)
+            article.innerHTML=container;
+              
+          }
+
+            
+                 
+            
+           
+            
+        }
+
     }
 
 

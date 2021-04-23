@@ -1,4 +1,4 @@
-/*//DOM Elements
+//DOM Elements
 const lightbox = document.querySelector(".lightbox");
 const pictures = document.querySelectorAll(".media_item");
 const closeButton = document.querySelector(".lightbox_button_close")
@@ -19,11 +19,5 @@ const CloseLightboxWithButton = () =>{
 pictures.forEach(picture => picture.addEventListener("click", OpenOrCloseLightbox));
 
 // event to close lightbox if click to button close
-closeButton.addEventListener("click",CloseLightboxWithButton);*/
+closeButton.addEventListener("click",CloseLightboxWithButton);
 
-class lightbox{
-    static init (){
-        
-    }
-}
-lightbox.init

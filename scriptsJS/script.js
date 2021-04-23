@@ -45,42 +45,58 @@ const UserIndexProfils = async function(){
         if(response.ok){
             let data = await response.json()
             let photographers = data.photographers;
+            let pictures = data.media;
              
             photographers.forEach(photographer => {
                 
-              new Profil(photographer).createProfilStructure(containerArticle);  
+              new Profil(photographer).createProfilStructure(containerArticle,data);  
                 console.log(photographer)
 
-            // ouverture / fermeture de la page profil
-            let profils = document.querySelectorAll('.link_photographer-page')
-            
-            let profilPage = document.querySelector(".individual_body-close")
-            let linkIndex = document.querySelector(".link-homepage")
-            
-            let profilsPageOpen = (e)=>{
-               
-                e.preventDefault()
-                profilPage.classList.remove("individual_body-close");
-                profilPage.classList.add('individual_body-active')
-                let containerArticle = document.querySelector(".section_photograph_profil_container")
-                new PhotographPage(photographer).personalPageHeader(containerArticle)
-                console.log(photographer)
-               
-            }
-            let openProfils = (e) => e.addEventListener("click",profilsPageOpen)
-            
-            profils.forEach(openProfils)
-
-            let returnHomePage = (e)=>{
-
-                e.preventDefault
-                profilPage.classList.remove('individual_body-active');
-                profilPage.classList.add('individual_body-close')
+                // ouverture / fermeture de la page profil
+                let profils = document.querySelectorAll('.link_photographer-page')
                 
-            }
+                let profilPage = document.querySelector(".individual_body-close")
+                let linkIndex = document.querySelector(".link-homepage")
 
-            linkIndex.addEventListener("click",returnHomePage)
-            //************************************************ */
+                //container article picture 
+                const containerPicturePhotographers = document.querySelector(".container_article"); 
+                
+                let profilsPageOpen = (e)=>{
+                
+                    e.preventDefault()
+                    profilPage.classList.remove("individual_body-close");
+                    profilPage.classList.add('individual_body-active')
+                    let containerArticle = document.querySelector(".section_photograph_profil_container")
+                    new PhotographPage(photographer).personalPageHeader(containerArticle)
+                    console.log(photographer)
+                    new PhotographPage(photographer)
+                    /*creation des filtre */
+                    let images = pictures.filter(image => image.photographerId == photographer.id)
+                     console.log(images)
+                    new PhotographPage(photographer).createContainerPicture(containerPicturePhotographers,images)
+                
+                }
+                let openProfils = (e) => e.addEventListener("click",profilsPageOpen)
+
+                profils.forEach(openProfils)
+
+                let returnHomePage = (e)=>{
+
+                    e.preventDefault
+                    profilPage.classList.remove('individual_body-active');
+                    profilPage.classList.add('individual_body-close');
+
+
+                }
+                /*fin de la page de profils*/
+
+                linkIndex.addEventListener("click",returnHomePage)
+                //************************************************ */
+
+            
+            
+
+
             })
             
             
