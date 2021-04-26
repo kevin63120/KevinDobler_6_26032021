@@ -46,7 +46,7 @@ const UserIndexProfils = async function(){
             let data = await response.json()
             let photographers = data.photographers;
             let pictures = data.media;
-             
+
             photographers.forEach(photographer => {
                 
               new Profil(photographer).createProfilStructure(containerArticle,data);  
@@ -64,21 +64,23 @@ const UserIndexProfils = async function(){
                 let profilsPageOpen = (e)=>{
                 
                     e.preventDefault()
+                    e.stopPropagation()
                     profilPage.classList.remove("individual_body-close");
                     profilPage.classList.add('individual_body-active')
                     let containerArticle = document.querySelector(".section_photograph_profil_container")
                     new PhotographPage(photographer).personalPageHeader(containerArticle)
-                    console.log(photographer)
-                    new PhotographPage(photographer)
+                  
+                    
                     /*creation des filtre */
-                    let images = pictures.filter(image => image.photographerId == photographer.id)
-                     console.log(images)
+                   let images = pictures.filter(image => image.photographerId == photographer.id)
+                    
                     new PhotographPage(photographer).createContainerPicture(containerPicturePhotographers,images)
-                
+                 debugger
                 }
-                let openProfils = (e) => e.addEventListener("click",profilsPageOpen)
+                let openProfils = (e) => e.addEventListener("click",profilsPageOpen )
 
                 profils.forEach(openProfils)
+
 
                 let returnHomePage = (e)=>{
 

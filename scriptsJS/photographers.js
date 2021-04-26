@@ -1,7 +1,7 @@
 //creation de function de creation de profil
 
 export class Profil{
-    constructor  (photographer,){
+    constructor  (photographer, picture){
         this.name = photographer.name;
         this.id = photographer.id;
         this.city = photographer.city;

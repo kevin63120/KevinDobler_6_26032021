@@ -46,19 +46,22 @@ export class PhotographPage extends Profil {
             
             const article =  document.createElement("article");
             article.classList.add("media_box");
-            let pictures = images.filter(image => image.photographerId == this.id )
+            let pictures = images
           for (let i=0 ; i<pictures.length;i++){
-                    const container = `
+            
+            let picture = pictures[i].image 
+             console.log(picture)      
+            const container = `
             
             <div class="media_item">
-              <img src="../assets/Sample Photos/${this.name}/${pictures[i].image}" alt="like" class="counter-btn" aria-pressed="true">
+              <img src="./Sample Photos/${this.name}/${pictures[i].image}" alt="like" class="counter-btn" aria-pressed="true">
             </div>
             <footer class="media_item-descripton">
                 <p class="media_item-title">arc-en-ciel</p>
                 <p class="media_item-price">70$</p>
                 <div class="media_item_likes_container">
-                    <p class="counter"></p>
-                    
+                    <p class="counter">${picture.likes}</p>
+                    <img src="/Vectorheart.91825cf7.svg" alt="like" class="counter-btn" aria-pressed="true">
                 </div>
             </footer>
         
