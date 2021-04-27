@@ -34,7 +34,7 @@ export class Profil{
     const rootPhoto ='Sample Photos/Photographers ID Photos/';
     
     const card = `
-        <a class="link_photographer-page"href="/${this.name}">
+        <a class="link_photographer-page"href="/photographers/${this.id}">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>

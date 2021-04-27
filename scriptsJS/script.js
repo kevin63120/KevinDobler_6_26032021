@@ -1,5 +1,5 @@
 import { Profil } from "./class/profil";
-import './profils-photographers';
+import './tags-selected';
 import {PhotographPage} from "./class/photographerProfilPage";
 import './pagesJs/HomePage';
 import './pagesJs/pageProfils';
@@ -82,43 +82,22 @@ async function displayPhotographerPage(photographerId) {
         console.log(err)
          }
     
-       // ouverture / fermeture de la page profil
-//                let profils = document.querySelectorAll('.link_photographer-page') 
+}
+function selectedPerTags(){
+    try{
+        const tagsMenu = document.querySelectorAll(".nav-item")
+        tagsMenu.forEach(tag=>{
+            tag.addEventListener("click",(e)=>{
+                console.log(e.target)
+            })
+        })
+    }catch(err){
+        console.log(err)
+    }
+}
+selectedPerTags()
 
-//                let linkIndex = document.querySelector(".link-homepage")
-//                
-//
-//                //container article picture 
-//                const containerPicturePhotographers = document.querySelector(".container_article");   
-//                let profilsPageOpen = (e)=>{
-//                
-//                    e.preventDefault()
-//                    e.stopPropagation()
 
-//                    containerArticle = document.querySelector(".section_photograph_profil_container")
-//                    new PhotographPage(photographer).personalPageHeader(containerArticle)
-//                  
-//                    
-//                    /*creation des filtre */
-//                    let images = pictures.filter(image => image.photographerId == photographer.id)
-//                    new PhotographPage(photographer).createContainerPicture(containerPicturePhotographers,images) 
-//                }
-//                let openProfils = (e) => e.addEventListener("click",profilsPageOpen )
-//                profils.forEach(openProfils)
-//                let returnHomePage = (e)=>{
-//                    e.preventDefault
-//                    profilPage.classList.remove('individual_body-active');
-//                    profilPage.classList.add('individual_body-close');
-//
-//
-//                }
-//                /*fin de la page de profils*/
-//
-//                linkIndex.addEventListener("click",returnHomePage)
-//                /************************************************ */
-//
-//   
-      }
         
     
 
