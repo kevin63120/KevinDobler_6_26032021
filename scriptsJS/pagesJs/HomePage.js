@@ -1,5 +1,5 @@
-import '../photographers';
-import { ProfilMedia } from '../photographers';
+import '../class/profil';
+import { ProfilMedia } from '../class/profil';
 
 const linkPhotographerPage = document.querySelectorAll(".link_photographer-page");
 

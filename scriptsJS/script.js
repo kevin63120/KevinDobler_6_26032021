@@ -1,4 +1,4 @@
-import { Profil } from "./photographers";
+import { Profil } from "./class/profil";
 import './profils-photographers';
 import {PhotographPage} from "./class/photographerProfilPage";
 import './pagesJs/HomePage';
@@ -19,131 +19,114 @@ const containerArticle = document.querySelector(".article-container");
 
 //récuperation des données des photographes dans le fichier json et traitement pour les affichées dans le Html
 
+if (window.location.pathname === '/'){
+    UserIndexProfils()
+}else{
+    // /photographers/243
+    const photographerId = window.location.pathname.split("/")[2];
+    console.log({photographerId})
+    displayPhotographerPage(Number(photographerId))
+}
 
-// test de fecth dans une fonction async
-const getUsers = async function () {
+
+async function retrieveData () {
     try{
         let response = await fetch("/data-profils/data-photographers.json")
-    if(response.ok){
-        let data = await response.json()
-    console.log(data)
-    }else{
-        console.error("retour du serveur",response.status)
+        if(!response.ok){
+            throw new Error("quelque chose a planter ")
+        }
+        return response.json()
+    }catch(e){
+        throw new Error(e)
     }
-    
-    } catch(err){
-        console.log(err)
-    }
-    
 }
 
 // profil photographe de la page d'acceuil (recupération et affichage)
 
-const UserIndexProfils = async function(){
+
+async function UserIndexProfils(){
     try{
-        let response = await fetch("/data-profils/data-photographers.json")
-        if(response.ok){
-            let data = await response.json()
+        const data = await retrieveData()          
             let photographers = data.photographers;
-            let pictures = data.media;
-
-            photographers.forEach(photographer => {
-                
+            
+            photographers.forEach(photographer => {  
               new Profil(photographer).createProfilStructure(containerArticle,data);  
-                console.log(photographer)
-
-                // ouverture / fermeture de la page profil
-                let profils = document.querySelectorAll('.link_photographer-page')
-                
-                let profilPage = document.querySelector(".individual_body-close")
-                let linkIndex = document.querySelector(".link-homepage")
-
-                //container article picture 
-                const containerPicturePhotographers = document.querySelector(".container_article"); 
-                
-                let profilsPageOpen = (e)=>{
-                
-                    e.preventDefault()
-                    e.stopPropagation()
-                    profilPage.classList.remove("individual_body-close");
-                    profilPage.classList.add('individual_body-active')
-                    let containerArticle = document.querySelector(".section_photograph_profil_container")
-                    new PhotographPage(photographer).personalPageHeader(containerArticle)
-                  
-                    
-                    /*creation des filtre */
-                   let images = pictures.filter(image => image.photographerId == photographer.id)
-                    
-                    new PhotographPage(photographer).createContainerPicture(containerPicturePhotographers,images)
-                 debugger
-                }
-                let openProfils = (e) => e.addEventListener("click",profilsPageOpen )
-
-                profils.forEach(openProfils)
-
-
-                let returnHomePage = (e)=>{
-
-                    e.preventDefault
-                    profilPage.classList.remove('individual_body-active');
-                    profilPage.classList.add('individual_body-close');
-
-
-                }
-                /*fin de la page de profils*/
-
-                linkIndex.addEventListener("click",returnHomePage)
-                //************************************************ */
-
-            
-            
-
-
             })
             
-            
-            
-            
-
-
-        }else{
-            console.error("retour du serveur",response.status)
-        }
-
-    } catch(err){
+        } catch(err){
         console.log(err)
-    }
-}
+         }
+    }       
 
 
+async function displayPhotographerPage(photographerId) {
+     try{
+        const data = await retrieveData()
+        const photographers = data.photographers;
+        const media = data.media;
 
-//profil de photographe pour la page personel recuperation et renvoi 
+        const profilPage = document.querySelector(".individual_body-close")
+        profilPage.classList.remove("individual_body-close");
+        profilPage.classList.add('individual_body-active')
 
-const UserPersonalPage  = async function(){
-    try{
-        let response= await response.json()
-        if(response.ok){
-            let data = await response.json();
-            let profils = document.querySelectorAll('.link_photographer-page')
-            console.log(profils)
-            
-        }
-    }catch(err){
+        const photographer = photographers.find(p => p.id === photographerId);
+        const container = document.querySelector(".section_photograph_profil_container")
+        const picturesContainer =  document.querySelector(".container_article"); 
+        const photographerMedia = media.filter(m=> m.photographerId === photographerId)
+
+        const photographerPage = new PhotographPage(photographer)
+        photographerPage.personalPageHeader(container)
+        photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
+        console.log({photographer})
+     }catch(err){
         console.log(err)
-    }
-}
+         }
+    
+       // ouverture / fermeture de la page profil
+//                let profils = document.querySelectorAll('.link_photographer-page') 
 
-UserIndexProfils()
+//                let linkIndex = document.querySelector(".link-homepage")
+//                
+//
+//                //container article picture 
+//                const containerPicturePhotographers = document.querySelector(".container_article");   
+//                let profilsPageOpen = (e)=>{
+//                
+//                    e.preventDefault()
+//                    e.stopPropagation()
 
-//fetch("/data-profils/data-photographers.json")
-//.then((response) => response.json())
-//.then(data => {        
-//    const photographers = data.photographers;
-//    
-//     
-//})
+//                    containerArticle = document.querySelector(".section_photograph_profil_container")
+//                    new PhotographPage(photographer).personalPageHeader(containerArticle)
+//                  
+//                    
+//                    /*creation des filtre */
+//                    let images = pictures.filter(image => image.photographerId == photographer.id)
+//                    new PhotographPage(photographer).createContainerPicture(containerPicturePhotographers,images) 
+//                }
+//                let openProfils = (e) => e.addEventListener("click",profilsPageOpen )
+//                profils.forEach(openProfils)
+//                let returnHomePage = (e)=>{
+//                    e.preventDefault
+//                    profilPage.classList.remove('individual_body-active');
+//                    profilPage.classList.add('individual_body-close');
+//
+//
+//                }
+//                /*fin de la page de profils*/
+//
+//                linkIndex.addEventListener("click",returnHomePage)
+//                /************************************************ */
+//
+//   
+      }
+        
+    
 
- 
-    //if (window.location.pathname === '/photographer_pages.html') {
-    //new PhotographPage().generatePage()
-//}
+
+             
+
+    
+
+
+
+

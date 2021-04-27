@@ -21,10 +21,7 @@ export class Profil{
     
         
     } 
-    
    
-
-    
     createProfilStructure (rootElement){
 
     const article = rootElement.appendChild(document.createElement("article"));
@@ -60,47 +57,6 @@ export class Profil{
 
      //method for create a personal page for photographers
    
-    
-    
-    /*personalPageModal (containerModal){
-        const rootPhoto ='/Sample Photos/Photographers ID Photos/';
-        const modal = document.createElement("div");
-        modal.classList.add("modal");
-
-        const modalForm = `
-            <form action="" method="post" class="form">
-                    <header class="form_header">
-                        <label>Contactez-moi</label>
-                        <button type="button" class="close-modal" aria-label="close-modal"><img src="${rootPhoto + this.portrait}"></img></button>
-                        <h1 id="photographer-name">${this.name}</h1>
-                    </header>
-                     <div class="form_item">
-                         <label for="name" aria-labelledby="name">Prénom</label>
-                         <input type="text" name="name" id="name" required>
-                     </div>
-                     <div class="form_item">
-                         <label for="lastName" aria-labelledby="lastName" >nom</label>
-                         <input type="text" aria-label="nom de famille"name="lastName" id="lastName" required>
-                     </div>
-                     <div class="form_item">
-                         <label for="email" aria-labelledby="email">email</label>
-                         <input type="email" aria-label="email" name="email" id="email">
-                     </div>
-                     <div class="form_item">
-                         <label for="message" aria-labelledby="message">Votre message</label>
-                        <input type="text" aria-label="votre message" name="message" id="message">
-                     </div>
-                     <input id="submit" type="submit" value="Envoyer">
-
-                 </form>
-            `
-        containerModal.appendChild(modalForm);
-        modal.innerHTML = (modalForm);
-        }   */    
-
-
-    
-    
 }
 
    

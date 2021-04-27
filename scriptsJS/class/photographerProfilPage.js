@@ -1,26 +1,44 @@
-import "../photographers";
-import { Profil } from "../photographers";
+import "./profil";
+import { Profil } from "./profil";
 
-export class PhotographPage extends Profil {
+export class PhotographPage  {
      
-     
-     
-   
+    constructor  (photographer){
+        this.name = photographer.name;
+        this.id = photographer.id;
+        this.city = photographer.city;
+        this.country = photographer.country;
+        this.tags = photographer.tags;
+        this.tagline = photographer.tagline;
+        this.price = photographer.price;
+        this.portrait = photographer.portrait;
+
+        this.idPhoto =  photographer.id;
+        this.idPhotographer = photographer.photographerId;
+        this.image   =  photographer.image;
+        this.tags    =  photographer.tags;
+        this.likes   =  photographer.likes;
+        this.date    =  photographer.date;
+        this.price   =  photographer.price;
+    }
+
+        createDetailPage(rootElement){
+            this.personalPageHeader(rootElement)
+      
+        }
+        
         personalPageHeader (rootElement)
         {   
-           
-
             const header = document.createElement("article");
             header.classList.add("photograph_profil_container");
             rootElement.appendChild(header);
-            
              //tags array chang for return new array on desktop list 
             const tags = this.tags.map(tag=>{
             return `<li class="photograph_tag-item personal">#${tag}</li>`
             })
     
             // url for picture profil photographer
-            const rootPhoto ='Sample Photos/Photographers ID Photos/';
+            const rootPhoto ='/Sample Photos/Photographers ID Photos/';
     
             const headerProfil = `
                 <div class="photograph_profil-reference">
@@ -41,43 +59,37 @@ export class PhotographPage extends Profil {
         }
 
  
-        createContainerPicture (rootElement, images) {
-           
-            
-            const article =  document.createElement("article");
-            article.classList.add("media_box");
-            let pictures = images
-          for (let i=0 ; i<pictures.length;i++){
-            
-            let picture = pictures[i].image 
-             console.log(picture)      
-            const container = `
-            
-            <div class="media_item">
-              <img src="./Sample Photos/${this.name}/${pictures[i].image}" alt="like" class="counter-btn" aria-pressed="true">
-            </div>
-            <footer class="media_item-descripton">
-                <p class="media_item-title">arc-en-ciel</p>
-                <p class="media_item-price">70$</p>
-                <div class="media_item_likes_container">
-                    <p class="counter">${picture.likes}</p>
-                    <img src="/Vectorheart.91825cf7.svg" alt="like" class="counter-btn" aria-pressed="true">
-                </div>
-            </footer>
-        
-            `         
-           rootElement.appendChild(article)
-            article.innerHTML=container;
-              
-          }
+        createContainerPicture (rootElement, media) {
+            const getMediaSource = (media) =>{
+                return media.image
+                ? `<img src="/Sample Photos/${this.name}/${media.image}" alt="like" class="counter-btn" aria-pressed="true">`
+                : `<video><source src="/Sample Photos/${this.name}/${media.video}"><video>`
 
+            }
             
-                 
+            const article = media.map(singleMedia => {    
+                
+               return   `
+                        <article class="media_box">
+                            <div class="media_item">
+                            ${getMediaSource(singleMedia)}
+                            </div>
+                            <footer class="media_item-descripton">
+                                <p class="media_item-title">la belle photo</p>
+                                <p class="media_item-price">${singleMedia.price}$</p>
+                                <div class="media_item_likes_container">
+                                    <p class="counter">${singleMedia.likes}</p>
+                                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                                </div>
+                            </footer>
+                        </article>
+                
+                    `         
             
+            });
+            rootElement.innerHTML= article.join('')      
            
-            
         }
-
     }
 
 

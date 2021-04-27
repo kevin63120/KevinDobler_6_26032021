@@ -1,6 +1,6 @@
 //import class from photographer.js
-import {Profil} from "./photographers";
-import{ProfilMedia} from "./photographers";
+import {Profil} from "./class/profil";
+import{ProfilMedia} from "./class/profil";
 
 //dom elements
 const sectionHeader = document.querySelector('.section_photograph_profil_container');
