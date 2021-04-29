@@ -6,7 +6,7 @@ import './pagesJs/pageProfils';
 import './scriptCounterHeart';
 import './modal';
 import './lightBox';
-
+import {checkedDataTag} from "./tags-selected";
 
 
 // retrieved an items in the DOM for photograph card
@@ -29,7 +29,7 @@ if (window.location.pathname === '/'){
 }
 
 
-async function retrieveData () {
+export async function retrieveData () {
     try{
         let response = await fetch("/data-profils/data-photographers.json")
         if(!response.ok){
@@ -51,8 +51,8 @@ async function UserIndexProfils(){
             
             photographers.forEach(photographer => {  
               new Profil(photographer).createProfilStructure(containerArticle,data);  
-            })
-            
+              checkedDataTag(photographer.tags)  
+            })     
         } catch(err){
         console.log(err)
          }
@@ -78,31 +78,37 @@ async function displayPhotographerPage(photographerId) {
         photographerPage.personalPageHeader(container)
         photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
         console.log({photographer})
+
+
      }catch(err){
         console.log(err)
          }
     
 }
-function selectedPerTags(){
-    try{
-        const tagsMenu = document.querySelectorAll(".nav-item")
-        tagsMenu.forEach(tag=>{
-            tag.addEventListener("click",(e)=>{
-                console.log(e.target)
-            })
-        })
-    }catch(err){
-        console.log(err)
-    }
-}
-selectedPerTags()
+//async function selectedPerTags(){
+//    try{
+//        const data = await retrieveData()
+//        const photographers = data.photographers;
+//        
+//        const tagsMenu = document.querySelectorAll(".nav-item")
+//        tagsMenu.forEach(tag=>{
+//            tag.addEventListener("click",(e)=>{
+//                
+//                photographers.forEach(photographer => {console.log(photographer.tags)})
+//            })
+//        })
+//    }catch(err){
+//        console.log(err)
+//    }
+//}
+//selectedPerTags()
 
 
         
     
 
 
-             
+
 
     
 

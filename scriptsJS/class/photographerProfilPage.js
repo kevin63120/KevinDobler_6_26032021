@@ -79,7 +79,7 @@ export class PhotographPage  {
                                 <p class="media_item-price">${singleMedia.price}$</p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
-                                    <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                                    <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
                                 </div>
                             </footer>
                         </article>
