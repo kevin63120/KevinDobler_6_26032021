@@ -178,7 +178,7 @@
     margin-top: 2em;
     @media screen and(min-width:700px) {
        
-        width: 200px;
+       // width: 200px;
         
     }
     @media screen and(min-width:700px) {
@@ -188,15 +188,21 @@
     
         }
     .media_item{
-        
+        width: 300px;
+        height: 350px;
        
         img{
-             width: 100%;
-             height: 210px;
-            object-fit: contain;
-            @media screen and(min-width:700px) {
-                width: 100%;
+             //width: 100%;
+            // height: 210px;
+            width: 350px;
+            height: 300px;
+            object-fit: cover;
+            @media screen and(min-width:1100px) {
+                width: 50%;
                 
+            }
+            @media screen and(min-width:800px) {
+                width: 80%;
                 
             }
         }

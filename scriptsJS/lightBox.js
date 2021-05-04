@@ -3,7 +3,7 @@ const lightbox = document.querySelector(".lightbox");
 const pictures = document.querySelectorAll(".media_item");
 const closeButton = document.querySelector(".lightbox_button_close")
 //function open or close lightbox if click to pictures nodes
-console.log(pictures)
+
 const OpenOrCloseLightbox =() => {
     if(lightbox.classList.contains("lightbox")){
           lightbox.classList.replace("lightbox","lightbox-active")

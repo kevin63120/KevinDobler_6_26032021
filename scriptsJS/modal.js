@@ -4,7 +4,7 @@ const buttonModalClose = document.querySelector(".close-modal");
 const modal = document.querySelector(".modal")
 
 // fuction to open and close modal 
- const openModal =(e)=>{
+  openModal =(e)=>{
         modal.classList.replace('modal',"modal-active");
         e.preventDefault()
         e.stopPropagation()
@@ -21,5 +21,7 @@ const closeModal = (e)=>{
 const openModals = (e)=> e.addEventListener("click",openModal);
 // function to open each modal 
 buttonModalStart.forEach(openModals)
+
 //Event to close modal 
 const close = buttonModalClose.addEventListener("click", closeModal);
+
