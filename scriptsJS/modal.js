@@ -25,3 +25,7 @@ buttonModalStart.forEach(openModals)
 //Event to close modal 
 const close = buttonModalClose.addEventListener("click", closeModal);
 
+
+async function modalOpening(){
+    
+}

@@ -51,8 +51,9 @@ async function UserIndexProfils(){
             
             photographers.forEach(photographer => {  
               new Profil(photographer).createProfilStructure(containerArticle,data);  
-              checkedDataTag(photographer.tags)  
-            })     
+              
+            })
+            checkedDataTag()      
         } catch(err){
         console.log(err)
          }
@@ -85,23 +86,7 @@ async function displayPhotographerPage(photographerId) {
          }
     
 }
-//async function selectedPerTags(){
-//    try{
-//        const data = await retrieveData()
-//        const photographers = data.photographers;
-//        
-//        const tagsMenu = document.querySelectorAll(".nav-item")
-//        tagsMenu.forEach(tag=>{
-//            tag.addEventListener("click",(e)=>{
-//                
-//                photographers.forEach(photographer => {console.log(photographer.tags)})
-//            })
-//        })
-//    }catch(err){
-//        console.log(err)
-//    }
-//}
-//selectedPerTags()
+
 
 
         

@@ -1,40 +1,42 @@
 import {UserIndexProfils} from "./script";
 
 
-export async function checkedDataTag(photograph)  {
-    const photographers= await photograph;
-    
+export  function checkedDataTag()  {
+    let previousValue;
     const listSelectorTag = document.querySelectorAll(".nav-item");
-    const listPhotographerSelectorTag = document.querySelectorAll(".photograph_tag-item")
-    const cartPhotographer = document.querySelectorAll(".container_photographs_profils")
-
-    function articleHiden (elem){
-       elem.remove() 
-        console.log()
-    }
-    function articleAppear (elem) {
-        
-    }
+    const cartPhotographer = document.querySelectorAll(".container_photographs_profils");
     
+
     listSelectorTag.forEach(selectorTag => {
         selectorTag.addEventListener("click",(e)=>{
-            let value = e.target.innerHTML
-           
-                if(photographers.find(tag => '#'+tag === value)){
-                console.log("gagné" + " "+ value)
+        
+           listSelectorTag.forEach(tag=>tag.classList.remove("active"))
+           selectorTag.classList.add("active")
+            
+            const value = e.target.innerHTML.replace('#', ''); 
+          
+            if(previousValue === value){
+                cartPhotographer.forEach(article =>{
+                    article.removeAttribute('style')
                     
-                   
-                      
-                }else{
-                    const articles = document.querySelectorAll(".container_photographs_profils")
-                      articles.forEach(article =>{article.style.display="none"})             
-                }
-            })
-           
-        
-        
-    });
-        
+                })
+                return;
+            }
 
+            previousValue = value;
+            console.log(value)
+            cartPhotographer.forEach(article=>{
+                if(article.classList.contains(value)){
+                    
+                    article.removeAttribute("style")
+                    console.log(article)
+                }
+                else{
+                    
+                    article.style.display="none"
+                }
+            })      
+        })    
+    });    
 }
 

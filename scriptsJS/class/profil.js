@@ -50,7 +50,7 @@ export class Profil{
         </footer>`
       
       
-      article.classList.add("container_photographs_profils");
+      article.classList.add("container_photographs_profils", ...this.tags);
       article.innerHTML=(card);
       
     }
