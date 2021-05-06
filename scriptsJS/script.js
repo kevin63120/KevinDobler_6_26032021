@@ -7,6 +7,8 @@ import './scriptCounterHeart';
 import './modal';
 import './lightBox';
 import {checkedDataTag} from "./tags-selected";
+import './filterPictureOnPage';
+import { likes } from "./scriptCounterHeart";
 
 
 // retrieved an items in the DOM for photograph card
@@ -65,7 +67,7 @@ async function displayPhotographerPage(photographerId) {
         const data = await retrieveData()
         const photographers = data.photographers;
         const media = data.media;
-
+        
         const profilPage = document.querySelector(".individual_body-close")
         profilPage.classList.remove("individual_body-close");
         profilPage.classList.add('individual_body-active')
@@ -79,6 +81,7 @@ async function displayPhotographerPage(photographerId) {
         photographerPage.personalPageHeader(container)
         photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
         console.log({photographer})
+        likes({photographer}, media)
 
 
      }catch(err){

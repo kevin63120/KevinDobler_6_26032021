@@ -1,6 +1,8 @@
 import "./profil";
 import { Profil } from "./profil";
 
+
+
 export class PhotographPage  {
      
     constructor  (photographer){
@@ -21,6 +23,9 @@ export class PhotographPage  {
         this.date    =  photographer.date;
         this.price   =  photographer.price;
     }
+
+        
+       
 
         createDetailPage(rootElement){
             this.personalPageHeader(rootElement)
@@ -58,7 +63,7 @@ export class PhotographPage  {
             header.innerHTML = (headerProfil)
         }
 
- 
+      
         createContainerPicture (rootElement, media) {
             const getMediaSource = (media) =>{
                 return media.image
@@ -66,6 +71,9 @@ export class PhotographPage  {
                 : `<video><source src="/Sample Photos/${this.name}/${media.video}"><video>`
 
             }
+        
+            
+        
             
             const article = media.map(singleMedia => {    
                 
@@ -75,7 +83,8 @@ export class PhotographPage  {
                             ${getMediaSource(singleMedia)}
                             </div>
                             <footer class="media_item-descripton">
-                                <p class="media_item-title">la belle photo</p>
+                                <p class="media_item-title">la photo</p>
+                                
                                 <p class="media_item-price">${singleMedia.price}$</p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
