@@ -114,7 +114,36 @@
     display: flex;
      margin-top: 2em;
      width: 100%;
-     
+    a{
+        color: white;
+        text-decoration: none;
+        transition-property: text-decoration;
+        transition-duration: 4s;
+        .chevron{
+            transform: translateZ(360deg);
+            transition-property: transform ;
+            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    }   
+    .visible-options {
+        text-decoration: underline;
+        .chevron{
+            transform: rotateZ(180deg);
+        }
+    }
+   
+    
+    #option_active_container{
+        display: flex;
+        justify-content: space-between;
+    } 
+    .hidden-options{
+        display: none;
+    }
+    .chevron::after {
+        contain: "";
+        transform: rotate(50%);
+    }
     .header_media-txt{
         margin-right: 1rem;
     }

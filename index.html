@@ -82,17 +82,59 @@
            </article>-->
             
         </section>
-        <main class="container_media">
+        <div class="container_media">
             <header class="header_media">
                 <p class="header_media-txt">Trier par</p>
-                <select name="header_media_container-selected " class="header_media_container-selected " aria-label="trier par" id="header_media_container-selected">
-                   <option id="selectorPopularity" value="header_media-select" aria-label="Popularité">Popularité</option>
-                   <option id="selectorDate" value="header_media-select" aria-label="Date">Date</option>
-                   <option id="selectorTitle" value="header_media-select" aria-label="Titre">Titre</option>    
+                <div class="dropdown-filter">
+                    <ul 
+                        aria-label="selection de photo"
+                        class="header_media_container-selected "
+                        role="MenuBar"
+                        id="header_media_container-selected">
+                        
+                            <a    
+                                    aria-controls="option-filter"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                    id="option_active_container"
+                                    role="button"
+                                    tabindex="0"
+                                    href="#"
+                                    aria-label="Popularité">
+                                    <span class="option-active">Popularité</span>
+                                    <div><img src="./assets/image-utils/chevron.svg" class="chevron" alt=""></div>
+                            </a>
+                            <ul id="list-option" class="hidden-options">
+                                <li>
+                                    <a  
+                                    class="option-filter"  
+                                    id="selectorPopularity"
+                                    role="menu-item"
+                                    href="#"
+                                    aria-label="Popularité">Popularité</a>
+                                <li> 
+                                    <a   
+                                        href="#"
+                                        class="option-filter" 
+                                        id="selectorDate"       
+                                        role="menu-item" 
+                                        value="header_media-select" 
+                                        aria-label="Date">Date</a>
+                                </li>
+                                <li>
+                                    <a 
+                                        href="#"
+                                        class="option-filter"
+                                        id="selectorTitle"
+                                        role="menu-item"
+                                        value="header_media-select"
+                                        aria-label="Titre">Titre</a>
+                                </li>  
+                            </ul>
+                         
                     
-                      
-                </select>
-               
+                    </ul>
+                </div>   
             </header>
             <div id="container_article" class="container_article">
                 <article class="media_box">
@@ -119,7 +161,7 @@
                     </div>
                 </footer>
             
-    </main>
+            </div>
     <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me">Contactez-moi</button></div>
     <div class="container_reputation">
         <p id="total-heart">total de coeur<img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>

@@ -1,35 +1,40 @@
+const optionSelectionButton = document.querySelector("#header_media_container-selected");
+const optionSelectionList = document.querySelector("#list-option")
+const options = document.querySelectorAll(".option-filter")
+const optionActive = document.querySelector(".option-active")
+const optionControler = document.querySelector(".option_active_container")
+const dropDown = (e)=>{
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log("ca clique")
+    if(optionSelectionList.classList.contains("hidden-options")){
+        optionSelectionList.classList.replace("hidden-options","visible-options")
+        
+    }
+    options.forEach(option=>{
+        if(option.classList.contains("active")){
+        option.classList.remove("active")
+     } 
+    })
+  
+    
+}
 
-const titleSelector = document.querySelector("#selectorTitle") ;
-const dateSelector = document.querySelector("#selectorDate"); 
-const selector = document.querySelector("option"); 
-const selectorList =  document.querySelector("#header_media_container-selected")
+optionSelectionButton.addEventListener("click",dropDown)
 
-console.log(selectorList.options)
-
-
-//options.forEach(function(element , key){
-//    if(element == "Popularité"){
-//        selectorList[selectorList.options.length] = new Option(element , selectorList.options.length , true , true)
-//    }if(element == "Date"){
-//        selectorList[selectorList.options.length] = new Option(element , selectorList.options.length , false, false)
-//    }if(element == "Titre"){
-//        selectorList[selectorList.options.length] = new Option(element , selectorList.options.length , false , false)
-//    }
-//    
-//    selectorList.childNodes.forEach(selector =>{
-//        selector.addEventListener("click", (e)=>{
-//            
-//        })
-//    })
-//  
-//})
-
-
-
-//const selectFilter = selectorList.addEventListener('click',(e)=>{
-//    options = selectorList.firstChild;
-//    
-//    console.log (options)
-//})
-
-
+options.forEach(option=> {
+ option.addEventListener("click", (e)=>{
+     e.preventDefault()
+     e.stopPropagation()
+     
+  option.classList.add("active") 
+  let ariaLabelValue = option.classList.contains[0]  
+  optionActive.innerHTML = option.innerHTML;
+  optionSelectionList.classList.replace("visible-options","hidden-options")
+  optionSelectionButton.setAttribute("aria-expend", false)
+  optionControler.setAttribute("aria-label", ariaLabelValue)
+  
+  
+ })   
+});
