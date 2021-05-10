@@ -9,6 +9,7 @@ import './lightBox';
 import {checkedDataTag} from "./tags-selected";
 import './filterPictureOnPage';
 import { likes } from "./scriptCounterHeart";
+import {sortPicture} from "./filterPictureOnPage"
 
 
 // retrieved an items in the DOM for photograph card
@@ -80,8 +81,9 @@ async function displayPhotographerPage(photographerId) {
         const photographerPage = new PhotographPage(photographer)
         photographerPage.personalPageHeader(container)
         photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
+        
         console.log({photographer})
-        likes({photographer}, media)
+        sortPicture(media)
 
 
      }catch(err){

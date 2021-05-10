@@ -1,5 +1,5 @@
 :focus{
-    border: 4px red solid;
+    border: 1px black solid;
 }
 .individual_body-close{
     display: none;
@@ -102,7 +102,10 @@
     flex-wrap: wrap;
 
     video{
-        width: 100%;
+        width: 350px;
+        height: 300px;
+        object-fit: cover;
+    
     }
 }
 .header_media{
@@ -114,24 +117,26 @@
     display: flex;
      margin-top: 2em;
      width: 100%;
+     
     a{
+
+        border: none;
+        border-bottom: oldlace 1px;
         color: white;
         text-decoration: none;
-        transition-property: text-decoration;
-        transition-duration: 4s;
+        transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
         .chevron{
-            transform: translateZ(360deg);
-            transition-property: transform ;
-            transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+            transform: rotate(180deg) ;
+            
         }
     }   
-    .visible-options {
+    a:focus {
         text-decoration: underline;
-        .chevron{
-            transform: rotateZ(180deg);
-        }
+        
     }
-   
+    a:focus+.chevron{
+            transform: rotate(180deg);
+        }
     
     #option_active_container{
         display: flex;
