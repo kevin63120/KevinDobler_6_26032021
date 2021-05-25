@@ -10,6 +10,7 @@ import {checkedDataTag} from "./tags-selected";
 import './filterPictureOnPage';
 import { likes } from "./scriptCounterHeart";
 import {sortPicture} from "./filterPictureOnPage"
+import { modal } from "./modal";
 
 
 // retrieved an items in the DOM for photograph card
@@ -83,7 +84,10 @@ async function displayPhotographerPage(photographerId) {
         photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
         
         console.log({photographer})
-        sortPicture(media)
+        sortPicture(photographerMedia)
+        modal(photographer)
+        
+        
 
 
      }catch(err){

@@ -83,9 +83,9 @@ export class PhotographPage  {
                             ${getMediaSource(singleMedia)}
                             </div>
                             <footer class="media_item-descripton">
-                                <p class="media_item-title">la photo</p>
+                                <p class="media_item-title">${singleMedia.title}</p>
                                 
-                                <p class="media_item-price">${singleMedia.price}$</p>
+                                <p class="media_item-price">${singleMedia.price} $</p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
                                     <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">

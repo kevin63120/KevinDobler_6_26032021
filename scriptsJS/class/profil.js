@@ -71,6 +71,7 @@ export class ProfilMedia extends Profil{
         this.likes   =  media.likes;
         this.date    =  media.date;
         this.price   =  media.price;
+        this.title   =  media.title;
     }
 
     
