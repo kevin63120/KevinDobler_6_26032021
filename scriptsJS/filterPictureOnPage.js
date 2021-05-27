@@ -47,72 +47,14 @@ export function optionSelected () {
 
 
    
-    // je récupère toute les image et video , je les place dans un tableau , je verifie les valeur quelle contienent et je les test par rappport a ma demande 
-  
-    const listBoxPicture = document.querySelectorAll(".media_box");
-    const listLikesPictures = document.querySelectorAll(".counter");
-    const listTitlesPictures = document.querySelectorAll(".media_item-title");
-
+    // je récupère toute les image et video , je les place dans un tableau , je verifie les valeur quelle contienent et je les test par rappport a ma demande
    
-    
-    // fonction de trie des donnée par rapport au nombres de coeur
-    //function sortByCounterLikes () {
-    //  //  const listLikesPicturesINT = []
-    //  //  listLikesPictures.forEach(likesPicures => {
-    //  //      listLikesPicturesINT.push(parseInt(likesPicures.innerHTML));   
-    //  //  });
-    //const listLikesPicturesINT = listLikesPictures.map(like => parseInt(like.innerHTML))
-    //    
-    //    const result = listLikesPicturesINT.sort((a,b) => a - b); 
-    //   console.log(result ) ;  
-    //}
-    function sortByLikes (a, b){
-            if (a < b){
-                return -1
-            }if(a > b ){
-                return 1
-            }else{
-                return 0
-            }
-        }
     //function de trie de donné par rapport au titre (ordre alphabetique)
     
     
    
 
     //function de trie de donné par rapport au titre (ordre alphabetique)
-    function sortByDate () {
-        const dates = [];
-        photographMedia.forEach(media => {
-            const date = media.date;
-            dates.push(date)
-        })
-
-        const result = dates.sort();
-        console.log(result)
-    }
-     
-    let box = document.querySelectorAll(".media_box")
-    const dates = document.querySelectorAll(".media_item-price")
-    const titles = document.querySelectorAll(".media_item-title")
-    const containerArticle = document.querySelector(".container_article")
-    function modifcontainerArticle () {
-        console.log(containerArticle)
-    }
-    modifcontainerArticle()
-    optionControler.addEventListener("click", (e) => {
-        options.forEach( option => {
-            option.addEventListener("click", () =>{
-               if (option.innerHTML == "Popularité"){
-                   
-                   
-               } else if(option.innerHTML == "Titre"){
-                    
-               }else{
-                   
-               }
-            })
-        })
-    },{once : true})
+ 
 
 

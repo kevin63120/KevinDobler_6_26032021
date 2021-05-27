@@ -1,35 +1,6 @@
    
 
 
-export function likes(photographer , medias){
-    let counterBtns = document.querySelectorAll("img .counter-btn");
-    let countHearts = document.querySelectorAll(".counter")
-    
-    let heartCount = medias.Likes;
-    console.log(medias.id)
-    
-    let testMedia = (photographer , media)=>{
-        if(photographer.Id === media.photographerId){
-            console.log(media)
-        }
-    }
-    
-        counterBtns.forEach(button=>{
-            console.log(button)
-       button.addEventListener('click',(e)=>{
-        
-        countHearts.forEach(heart=>{
-            heart.innerHTML=heartCount;
-        })
-    
-    }); 
-    })
-
-    medias.forEach(media=>{
-        testMedia(photographer, media)
-    })
-}
-
 export function totalHeart () {
     let countHearts = document.querySelectorAll(".counter");
     let totalHeartPrint = document.querySelector(".total-heart-number")
@@ -38,10 +9,9 @@ export function totalHeart () {
     const arrayAllLikes = countHearts;
     arrayAllLikes.forEach(like =>{
         let intLike = parseInt(like.innerHTML);
-        console.log(intLike);
         let curentResult;
-        curentResult =+ intLike;
-        
+
+        curentResult =+ intLike;  
         result = curentResult + result ;
         totalHeartPrint.innerHTML=(result);  
     })
@@ -49,6 +19,20 @@ export function totalHeart () {
     
  
    
+}
+export function likeModifier () {
+    let countHearts = document.querySelectorAll(".counter");
+
+    countHearts.forEach( heart =>{
+        let intHeart = parseInt(heart.innerHTML)
+        heart.nextElementSibling.addEventListener("click", (e) =>{
+            e.stopPropagation()
+          heart.innerHTML=(++intHeart); 
+          totalHeart()
+        })
+    })
+
+
 }
 
 

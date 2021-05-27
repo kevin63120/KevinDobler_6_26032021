@@ -1,7 +1,10 @@
+export function activeLightbox(){
 //DOM Elements
+const article = document.querySelectorAll(".media_box")
 const lightbox = document.querySelector(".lightbox");
 const pictures = document.querySelectorAll(".media_item");
 const closeButton = document.querySelector(".lightbox_button_close")
+
 //function open or close lightbox if click to pictures nodes
 
 const OpenOrCloseLightbox =() => {
@@ -21,3 +24,17 @@ pictures.forEach(picture => picture.addEventListener("click", OpenOrCloseLightbo
 // event to close lightbox if click to button close
 closeButton.addEventListener("click",CloseLightboxWithButton);
 
+/*************************************************************/
+
+/*
+    au click sur une photo on recupère l'addresse de la photo
+    on utilise l'adresse de la photo dans une lighbox preconfiguré
+
+*/
+
+
+    
+    pictures.forEach(picture => {
+    console.log(picture.children)
+})
+}

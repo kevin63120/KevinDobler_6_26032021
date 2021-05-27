@@ -6,9 +6,10 @@ import './pagesJs/pageProfils';
 import './scriptCounterHeart';
 import './modal';
 import './lightBox';
+import {activeLightbox} from "./lightBox";
 import {checkedDataTag} from "./tags-selected";
 import './filterPictureOnPage';
-import { likes } from "./scriptCounterHeart";
+import { likeModifier } from "./scriptCounterHeart";
 import { totalHeart } from "./scriptCounterHeart";
 import {optionSelected} from "./filterPictureOnPage";
 import { modal } from "./modal";
@@ -124,22 +125,24 @@ async function displayPhotographerPage(photographerId) {
           let defaultSort = sortPicture(photographerMedia, sortByLikes)
            
             let sortSelectButton = document.querySelector(".option-active");
-            console.log(sortSelectButton.innerHTML)
             sortSelectButton.addEventListener("click" , () =>{
-                console.log(sortSelectButton.innerHTML)
-
                 let options = document.querySelectorAll(".option-filter");
-
                 options.forEach(option => {
                     option.addEventListener('click',()=>{
                          let optionSelect = option.innerHTML;
 
                         if(optionSelect== "Popularité"){
                             sortPicture(photographerMedia, sortByLikes)
+                            likeModifier()
+                            activeLightbox()
                         }if(optionSelect == "Date"){
                             sortPicture(photographerMedia , sortByDates)
+                            likeModifier()
+                            activeLightbox()
                         }if (optionSelect == "Titre"){
                             sortPicture(photographerMedia, sortbyTitles)
+                            likeModifier()
+                            activeLightbox()
                         }
                         })
                     })
@@ -154,10 +157,10 @@ async function displayPhotographerPage(photographerId) {
         }
 
         selectedSort()
-
         modal(photographer)
         totalHeart()
-
+        likeModifier()
+        activeLightbox()
 
         
 
