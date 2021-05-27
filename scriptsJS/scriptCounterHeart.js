@@ -1,4 +1,4 @@
-
+   
 
 
 export function likes(photographer , medias){
@@ -29,3 +29,27 @@ export function likes(photographer , medias){
         testMedia(photographer, media)
     })
 }
+
+export function totalHeart () {
+    let countHearts = document.querySelectorAll(".counter");
+    let totalHeartPrint = document.querySelector(".total-heart-number")
+    let result = 0;
+  
+    const arrayAllLikes = countHearts;
+    arrayAllLikes.forEach(like =>{
+        let intLike = parseInt(like.innerHTML);
+        console.log(intLike);
+        let curentResult;
+        curentResult =+ intLike;
+        
+        result = curentResult + result ;
+        totalHeartPrint.innerHTML=(result);  
+    })
+    
+    
+ 
+   
+}
+
+
+

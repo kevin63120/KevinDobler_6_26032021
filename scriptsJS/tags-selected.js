@@ -1,6 +1,13 @@
 import {UserIndexProfils} from "./script";
 
 
+
+
+
+
+
+
+
 export  function checkedDataTag()  {
     let previousValue;
     const listSelectorTag = document.querySelectorAll(".nav-item");

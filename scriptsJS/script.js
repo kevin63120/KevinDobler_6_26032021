@@ -9,7 +9,8 @@ import './lightBox';
 import {checkedDataTag} from "./tags-selected";
 import './filterPictureOnPage';
 import { likes } from "./scriptCounterHeart";
-import {sortPicture} from "./filterPictureOnPage"
+import { totalHeart } from "./scriptCounterHeart";
+import {optionSelected} from "./filterPictureOnPage";
 import { modal } from "./modal";
 
 
@@ -81,12 +82,83 @@ async function displayPhotographerPage(photographerId) {
 
         const photographerPage = new PhotographPage(photographer)
         photographerPage.personalPageHeader(container)
-        photographerPage.createContainerPicture(picturesContainer ,photographerMedia)
+        
         
         console.log({photographer})
-        sortPicture(photographerMedia)
-        modal(photographer)
+        //******************************************************* */
         
+        optionSelected()
+        function sortByLikes( a, b ) {
+            if(a.likes < b.likes) {
+                return -1;
+            } if(a.likes > b.likes) {
+                return 1;
+            }
+            return 0;
+        }
+        function sortbyTitles( a, b ) {
+            if(a.title < b.title) {
+                return -1;
+            } if(a.title > b.title) {
+                return 1;
+            }
+            return 0;
+        }
+        function sortByDates( a, b ) {
+            if(a.date < b.date) {
+                return -1;
+            } if(a.date > b.date) {
+                return 1;
+            }
+            return 0;
+        }
+        function sortPicture(media, typeSort){
+            const sortedMedia = [...media].sort(typeSort);
+            ;
+            photographerPage.createContainerPicture(picturesContainer ,sortedMedia)
+        
+           
+            
+        }             
+        function selectedSort (){
+          let defaultSort = sortPicture(photographerMedia, sortByLikes)
+           
+            let sortSelectButton = document.querySelector(".option-active");
+            console.log(sortSelectButton.innerHTML)
+            sortSelectButton.addEventListener("click" , () =>{
+                console.log(sortSelectButton.innerHTML)
+
+                let options = document.querySelectorAll(".option-filter");
+
+                options.forEach(option => {
+                    option.addEventListener('click',()=>{
+                         let optionSelect = option.innerHTML;
+
+                        if(optionSelect== "Popularité"){
+                            sortPicture(photographerMedia, sortByLikes)
+                        }if(optionSelect == "Date"){
+                            sortPicture(photographerMedia , sortByDates)
+                        }if (optionSelect == "Titre"){
+                            sortPicture(photographerMedia, sortbyTitles)
+                        }
+                        })
+                    })
+            })
+           
+
+            if(sortSelectButton.innerHTML === "Popularité"){
+                return defaultSort
+            }
+
+            
+        }
+
+        selectedSort()
+
+        modal(photographer)
+        totalHeart()
+
+
         
 
 

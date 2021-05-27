@@ -29,21 +29,7 @@
         </nav>       
     </header>
     <main id="root" class="main_index">
-       <!-- <h1 class="title_index">Nos photographes</h1>
-        <a class="link_photographer-page"href="assets\photographers_public_page\243.html">
-            <img class="profil_picture" src="./Sample Photos/Marcel/Architecture_Corner_Room.jpg" alt="photo de profil">
-            <h2 class="name">${this.name}</h2>
-        </a>
-        <div class="photograph_description">
-            <p class="photograph_location">${this.city}${this.country?  ', ' + this.country : '' }</p>
-            <p class="photograph_description-text">${this.tagline}</p> 
-            <p class="photograph_pricePerDay">${this.price}</p>  
-        </div>
-        <footer class="photograph_tag">
-            <ul aria-label="photograph_tag-list" class="photograph_tag-list">
-              ${tags.join('')}
-            </ul>
-        </footer>-->
+       
     <div class="article-container">
 
     </div>  
@@ -62,25 +48,6 @@
         <div class="logo"><a href="/" class="link-homepage"><img src="/assets/Sample Photos/imageOfModel/Grouplogo.svg" alt="lien page d'Accueil" role="navigation"></a></div>
     
         <section class="section_photograph_profil_container">
-           <!-- <article class="photograph_profil_container">
-                <div class="photograph_profil-reference">
-                    <h1 class="name" id="name_personal_page">name name</h1>
-                    <p class="photograph_location" id="location_personal_page">location</p>
-                    <p class="photograph_description-text" id="description_personal_page">description</p>
-                </div>
-                <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
-                <img src="/assets/Sample Photos/Photographers ID Photos/EllieRoseWilkens.jpg" alt="" class="profil_picture">
-                <div class="container_photograph_tag-list">
-                
-                    <ul class="photograph_tag-list" role="">
-                        <li class="photograph_tag-item ">#portrait</li>
-                        <li class="photograph_tag-item ">#portrait</li>
-                        <li class="photograph_tag-item ">#portrait</li>
-                        <li class="photograph_tag-item ">#animals</li>
-                    </ul> 
-                </div>
-           </article>-->
-            
         </section>
         <div class="container_media">
             <header class="header_media">
@@ -111,6 +78,7 @@
                                     id="selectorPopularity"
                                     role="menu-item"
                                     href="#"
+                                    value = "Popularité"
                                     aria-label="Popularité">Popularité</a>
                                 <li> 
                                     <a   
@@ -118,7 +86,7 @@
                                         class="option-filter" 
                                         id="selectorDate"       
                                         role="menu-item" 
-                                        value="header_media-select" 
+                                        value="Date" 
                                         aria-label="Date">Date</a>
                                 </li>
                                 <li>
@@ -127,7 +95,7 @@
                                         class="option-filter"
                                         id="selectorTitle"
                                         role="menu-item"
-                                        value="header_media-select"
+                                        value="Titre"
                                         aria-label="Titre">Titre</a>
                                 </li>  
                             </ul>
@@ -137,34 +105,11 @@
                 </div>   
             </header>
             <div id="container_article" class="container_article">
-             <!--   <article class="media_box">
-                    <div class="media_item">
-                        <img src="./assets/Sample Photos/Marcel Nikolic/Architecture_Corner_Room.jpg" alt="image exemple">
-                    </div>
-                    <footer class="media_item-descripton">
-                        <p class="media_item-title">arc-en-ciel</p>
-                        <p class="media_item-price">70$</p>
-                        <div class="media_item_likes_container">
-                            <p class="counter"></p>
-                            <img src="./Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
-                        </div>
-                    </footer>
-                </article>
-            
-            </div>
-                <footer class="media_item-descripton">
-                    <p class="media_item-title">arc-en-ciel</p>
-                    <p class="media_item-price">70$</p>
-                    <div class="media_item_likes_container">
-                        <p class="counter"></p>
-                        <img src="/assets/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
-                    </div>
-                </footer>
-            -->
+             
             </div>
     <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me">Contactez-moi</button></div>
     <div class="container_reputation">
-        <p id="total-heart">total de coeur<img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>
+        <p id="total-heart"><span class="total-heart-number"></span><img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>
         
         <p class="photograph_pricePerDay">330/jour</p>
     </div>
@@ -187,7 +132,7 @@
            <header class="form_header">
                <label>Contactez-moi</label>
                <button type="button" class="close-modal" aria-label="close-modal"><img src="/Sample Photos/imageOfModel/close.svg"></button>
-               <h1 id="photographer-name">test test</h1>
+               <h1 id="photographer-name"></h1>
            </header>
             <div class="form_item">
                 <label for="name" aria-labelledby="name">Prénom</label>
