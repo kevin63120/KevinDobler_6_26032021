@@ -25,9 +25,14 @@ export function likeModifier () {
 
     countHearts.forEach( heart =>{
         let intHeart = parseInt(heart.innerHTML)
+        let curentResult ; 
+        if(curentResult > 0 || curentResult != undefined){
+            intHeart = curentResult;
+        }
         heart.nextElementSibling.addEventListener("click", (e) =>{
             e.stopPropagation()
-          heart.innerHTML=(++intHeart); 
+          heart.innerHTML=(++intHeart);
+          curentResult = parseInt(heart.innerHTML);
           totalHeart()
         })
     })

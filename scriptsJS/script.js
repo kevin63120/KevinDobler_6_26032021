@@ -2,11 +2,13 @@ import { Profil } from "./class/profil";
 import './tags-selected';
 import {PhotographPage} from "./class/photographerProfilPage";
 import './pagesJs/HomePage';
-import './pagesJs/pageProfils';
+
 import './scriptCounterHeart';
 import './modal';
 import './lightBox';
+import {getPictureLightbox} from "./lightBox";
 import {activeLightbox} from "./lightBox";
+import {getURL} from "./lightBox";
 import {checkedDataTag} from "./tags-selected";
 import './filterPictureOnPage';
 import { likeModifier } from "./scriptCounterHeart";
@@ -128,7 +130,10 @@ async function displayPhotographerPage(photographerId) {
             sortSelectButton.addEventListener("click" , () =>{
                 let options = document.querySelectorAll(".option-filter");
                 options.forEach(option => {
-                    option.addEventListener('click',()=>{
+                    option.addEventListener('click',(e)=>{
+                        e.preventDefault()
+                        e.stopPropagation()
+
                          let optionSelect = option.innerHTML;
 
                         if(optionSelect== "Popularité"){
@@ -157,11 +162,18 @@ async function displayPhotographerPage(photographerId) {
         }
 
         selectedSort()
+        /********************************************** */
         modal(photographer)
+        /************************************** */
         totalHeart()
         likeModifier()
-        activeLightbox()
+        /************************************************** */
 
+
+        activeLightbox()
+        getPictureLightbox(media, photographer)
+        getURL(media, photographer)
+  
         
 
 

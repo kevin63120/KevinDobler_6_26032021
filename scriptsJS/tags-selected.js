@@ -47,3 +47,8 @@ export  function checkedDataTag()  {
     });    
 }
 
+function checkedDataPictureTag (photographers) {
+    let tag = photographers.tag
+
+
+}

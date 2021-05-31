@@ -1,7 +1,7 @@
 //creation de function de creation de profil
 
 export class Profil{
-    constructor  (photographer, picture){
+    constructor  (photographer){
         this.name = photographer.name;
         this.id = photographer.id;
         this.city = photographer.city;
@@ -18,6 +18,7 @@ export class Profil{
         this.likes   =  photographer.likes;
         this.date    =  photographer.date;
         this.price   =  photographer.price;
+        
     
         
     } 
@@ -27,14 +28,14 @@ export class Profil{
     const article = rootElement.appendChild(document.createElement("article"));
     //tags array chang for return new array on desktop list 
     const tags = this.tags.map(tag=>{
-        return `<li class="photograph_tag-item personal">#${tag}</li>`
+        return `<li class="photograph_tag-item personal><span><a href="#">#${tag}</a></span></li>`
     })
 
     // url for picture profil photographer
     const rootPhoto ='Sample Photos/Photographers ID Photos/';
     
     const card = `
-        <a class="link_photographer-page"href="/photographers/${this.id}">
+        <a class="link_photographer-page"href="/photographers/${this.id}" role="nav">
             <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
             <h2 class="name">${this.name}</h2>
         </a>
@@ -72,6 +73,7 @@ export class ProfilMedia extends Profil{
         this.date    =  media.date;
         this.price   =  media.price;
         this.title   =  media.title;
+        
     }
 
     

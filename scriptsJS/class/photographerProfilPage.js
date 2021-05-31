@@ -22,6 +22,7 @@ export class PhotographPage  {
         this.likes   =  photographer.likes;
         this.date    =  photographer.date;
         this.price   =  photographer.price;
+        
     }
 
         
