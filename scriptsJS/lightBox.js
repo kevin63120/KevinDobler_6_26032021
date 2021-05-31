@@ -1,6 +1,5 @@
 export function activeLightbox(){
 //DOM Elements
-const article = document.querySelectorAll(".media_box")
 const lightbox = document.querySelector(".lightbox");
 const pictures = document.querySelectorAll(".media_item");
 const closeButton = document.querySelector(".lightbox_button_close")
@@ -30,89 +29,5 @@ closeButton.addEventListener("click",CloseLightboxWithButton);
     au click sur une photo on recupère l'addresse de la photo
     on utilise l'adresse de la photo dans une lighbox preconfiguré
 
-*/
-
-
-    
-  
+*/  
 }
-
-export function getPictureLightbox(media , photographer){
-    let medias = media;
-    let photograph = photographer;
-    medias.forEach(mediaValid => {
-        if(mediaValid.photographerId === photograph.id){
-            console.log(mediaValid.video)
-            
-        }
-            console.log()
-        
-    })
-    console.log(photograph.id)
-    
-    
-
-} 
- export function getURL(mediaSource , photographer){
-        
-        let UrlMedia ;
-         const medias = document.querySelectorAll('.media_item');
-         medias.forEach(media =>{
-           media.addEventListener("click",(e)=>{
-               UrlMedia = `./Sample Photos/${photographer.name}/${mediaSource.image} `;
-               e.stopPropagation();
-               console.log(UrlMedia)
-
-           })
-            
-
-         })
-        }
-         
-
- class Lightbox{
-     displayMedia(){
-         const containerImage = document.querySelector('.lightbox_container_image');
-         console.log("rien");
-     }
-     
-}
-
-class video extends Lightbox {
-    displayMedia(){
-        const containerMedia = document.querySelector('.lightbox_container_image');
-        const videoLightBox = document.createElement("video");
-        videoLightBox.className=("lightbox_picture-active");
-        containerMedia.appendChild(videoLightBox);
-        console.log(videoLightBox );
-
-    }
-    
-    
-}
-
-class image extends Lightbox{
-    displayMedia(){
-        const containerImage = document.querySelector('.lightbox_container_image');
-        const imageLightBox = document.createElement("img");
-        imageLightBox.setAttribute("data-la", "ici la photo")
-         
-        containerImage.appendChild(imageLightBox)
-        
-
-    }
-}
-
-function factory (type){
-    switch (type){
-        case "image" :
-            return new image()
-
-        case "video" : 
-            return new video()
-    }
-}
-
-const photoDeMariage = factory("image");
-const videoDeMariage =  factory("video");
-

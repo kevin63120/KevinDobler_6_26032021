@@ -1,12 +1,12 @@
 import { Profil } from "./class/profil";
 import './tags-selected';
 import {PhotographPage} from "./class/photographerProfilPage";
+import {Lightbox} from "./class/photographerProfilPage";
 import './pagesJs/HomePage';
 
 import './scriptCounterHeart';
 import './modal';
 import './lightBox';
-import {getPictureLightbox} from "./lightBox";
 import {activeLightbox} from "./lightBox";
 import {getURL} from "./lightBox";
 import {checkedDataTag} from "./tags-selected";
@@ -141,6 +141,7 @@ async function displayPhotographerPage(photographerId) {
                             likeModifier()
                             activeLightbox()
                             
+                            
                         }if(optionSelect == "Date"){
                             sortPicture(photographerMedia , sortByDates)
                             likeModifier()
@@ -171,21 +172,11 @@ async function displayPhotographerPage(photographerId) {
         totalHeart()
         likeModifier()
         /************************************************** */
-
-        
-
+        new Lightbox().inititalize ()
         activeLightbox()
-        getPictureLightbox(media, photographer)
-
-        media.map(media => {
-            getURL(media,photographer)
-        })
         
-       
+        
   
-        
-
-
      }catch(err){
         console.log(err)
          }

@@ -66,22 +66,18 @@ export class PhotographPage  {
 
       
         createContainerPicture (rootElement, media) {
-            const getMediaSource = (media) =>{
-                return media.image
-                ? `<img src="/Sample Photos/${this.name}/${media.image}" alt="like" class="counter-btn" aria-pressed="true">`
-                : `<video><source src="/Sample Photos/${this.name}/${media.video}"><video>`
-
+            const mediaFactory = new lightBoxMediaFactory(this.name);
+            
+            function getMediaUrl( name , media){
+                return media.image ?`/Sample Photos/${name}/${media.image}` :`/Sample Photos/${name}/${media.video}` ;
             }
         
-            
-        
-            
             const article = media.map(singleMedia => {    
-                
+                const url = getMediaUrl(this.name , singleMedia)
                return   `
-                        <article class="media_box">
+                        <article class="media_box" data-url = "${url}">
                             <div class="media_item">
-                            ${getMediaSource(singleMedia)}
+                            ${mediaFactory.getDOMELementFromMedia(singleMedia)}
                             </div>
                             <footer class="media_item-descripton">
                                 <p class="media_item-title">${singleMedia.title}</p>
@@ -99,6 +95,45 @@ export class PhotographPage  {
             });
             rootElement.innerHTML= article.join('')      
            
+        }
+    }
+
+    class lightBoxMediaFactory {
+        constructor (name){
+           this.name = name ||''; 
+        }
+        getDOMELementFromMedia(media){
+            return  media.image
+            ? `<img src="/Sample Photos/${this.name}/${media.image}" alt="like" class="counter-btn" aria-pressed="true">`
+            : `<video><source src="/Sample Photos/${this.name}/${media.video}"><video>`
+        }
+        getDOMELementFromUrl(url){
+            
+            const mediaType = url.split('.')[1]
+            return mediaType === 'jpg'
+            ? `<img src="${url}" alt="like" class="counter-btn" aria-pressed="true">`
+            : `<video><source src="${url}"><video>`
+        }
+        displayMedia(media){
+                   const containerImage = document.querySelector('.lightbox_container_image');
+                   containerImage.innerHTML= media;
+               }
+        
+    }  
+
+export class Lightbox {
+        inititalize () {
+            const mediaElement = document.querySelectorAll('.media_box');
+            const mediaFactory = new lightBoxMediaFactory();
+
+            [...mediaElement].forEach(singleMedia => {
+                singleMedia.addEventListener('click', (e)=>{ 
+                    const url = singleMedia.getAttribute("data-url")
+                    const mediaElement = mediaFactory.getDOMELementFromUrl(url);
+                    mediaFactory.displayMedia(mediaElement);
+                })
+            })
+
         }
     }
 
