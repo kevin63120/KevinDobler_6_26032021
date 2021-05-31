@@ -54,17 +54,20 @@ export function getPictureLightbox(media , photographer){
 
 } 
  export function getURL(mediaSource , photographer){
-        const UrlMedia = `./Sample Photos/${photographer.name}/${mediaSource.image} `;
         
+        let UrlMedia ;
          const medias = document.querySelectorAll('.media_item');
-         const mediasArray =[];
          medias.forEach(media =>{
-            mediasArray.push(media.children)
+           media.addEventListener("click",(e)=>{
+               UrlMedia = `./Sample Photos/${photographer.name}/${mediaSource.image} `;
+               e.stopPropagation();
+               console.log(UrlMedia)
+
+           })
             
-            console.log(UrlMedia)
 
          })
-         console.log(mediasArray)}
+        }
          
 
  class Lightbox{

@@ -40,7 +40,7 @@ export class PhotographPage  {
             rootElement.appendChild(header);
              //tags array chang for return new array on desktop list 
             const tags = this.tags.map(tag=>{
-            return `<li class="photograph_tag-item personal">#${tag}</li>`
+            return `<li class="photograph_tag-item personal nav-item">#${tag}</li>`
             })
     
             // url for picture profil photographer

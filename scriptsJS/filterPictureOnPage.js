@@ -42,19 +42,6 @@ export function optionSelected () {
 
 });}
 
-
-
-
-
-   
-    // je récupère toute les image et video , je les place dans un tableau , je verifie les valeur quelle contienent et je les test par rappport a ma demande
-   
-    //function de trie de donné par rapport au titre (ordre alphabetique)
-    
-    
-   
-
-    //function de trie de donné par rapport au titre (ordre alphabetique)
  
 
 

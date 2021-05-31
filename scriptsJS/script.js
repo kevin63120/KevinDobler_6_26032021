@@ -140,14 +140,17 @@ async function displayPhotographerPage(photographerId) {
                             sortPicture(photographerMedia, sortByLikes)
                             likeModifier()
                             activeLightbox()
+                            
                         }if(optionSelect == "Date"){
                             sortPicture(photographerMedia , sortByDates)
                             likeModifier()
                             activeLightbox()
+                            
                         }if (optionSelect == "Titre"){
                             sortPicture(photographerMedia, sortbyTitles)
                             likeModifier()
                             activeLightbox()
+                            
                         }
                         })
                     })
@@ -169,10 +172,16 @@ async function displayPhotographerPage(photographerId) {
         likeModifier()
         /************************************************** */
 
+        
 
         activeLightbox()
         getPictureLightbox(media, photographer)
-        getURL(media, photographer)
+
+        media.map(media => {
+            getURL(media,photographer)
+        })
+        
+       
   
         
 
