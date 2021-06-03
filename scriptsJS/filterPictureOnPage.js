@@ -9,7 +9,7 @@ const optionActive = document.querySelector(".option-active")
 const optionControler = document.querySelector("#option_active_container")
 
 
- const dropDown = (e) => {
+const dropDown = (e) => {
     e.preventDefault();
     e.stopPropagation();
 
@@ -27,7 +27,7 @@ const optionControler = document.querySelector("#option_active_container")
 
 optionSelectionButton.addEventListener("click", dropDown)
 
-export function optionSelected () { 
+export function optionSelected() {
     options.forEach(option => {
         option.addEventListener("click", (e) => {
             e.preventDefault()
@@ -40,8 +40,17 @@ export function optionSelected () {
             return optionActive.innerHTML
         })
 
-});}
+    });
+}
 
- 
+let  chevronActive =  (e) =>{
+    if(optionSelectionList.classList.contains("visible-options")){
+        console.log("petit poids")
+       let chevron = document.querySelector('.chevron');
+    chevron.style.transform = "180deg"; 
+    }
+    
+}
 
+optionSelectionList.addEventListener('click',chevronActive)
 
