@@ -6,20 +6,23 @@ export function modal(photographer) {
     const buttonModalClose = document.querySelector(".close-modal");
     const modal = document.querySelector(".modal")
     const namePhotograher = document.querySelector("#photographer-name");
-
+    
     // function to open and close modal 
     const openModal = (e) => {
-        modal.classList.replace('modal', "modal-active");
         e.preventDefault()
         e.stopPropagation()
+        modal.classList.replace('modal', "modal-active");
+        modal.setAttribute('tabindex',"1");
         namePhotograher.innerHTML = photographer.name
 
     }
 
     const closeModal = (e) => {
-        modal.classList.remove('modal-active');
-        modal.classList.add('modal')
         e.preventDefault()
+        modal.classList.remove('modal-active');
+        modal.removeAttribute('tabindex')
+        modal.classList.add('modal')
+        
     };
 
     //event to opens every modals

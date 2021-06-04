@@ -87,7 +87,7 @@ export class PhotographPage {
                                 <p class="media_item-price">${singleMedia.price} $</p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
-                                    <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
+                                    <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true" tabindex="0">
                                 </div>
                             </footer>
                         </article>
@@ -106,8 +106,8 @@ class lightBoxMediaFactory {
     }
     getDOMELementFromMedia(media) {
         return media.image
-            ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" aria-pressed="true">`
-            : `<video controls width="250"> <source src="/Sample Photos/${this.name}/${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video" aria-pressed="true"></video>`
+            ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" aria-pressed="true" tabindex="0">`
+            : `<video controls width="250"> <source src="/Sample Photos/${this.name}/${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video" aria-pressed="true" tabindex="0"></video>`
     }
     getDOMELementFromUrl(url) {
 
@@ -150,31 +150,29 @@ export class Lightbox {
         function navigation(startElement) {
             const buttonNext = document.querySelector('.lightbox_button_next');
             const buttonPrev = document.querySelector('.lightbox_button_prev');
+            const lightboxContainer = document.querySelector('.lightbox-active')
             let curentElement = startElement;
             let nextElement;
             let newCurentElement;
             console.log(curentElement, mediaList)
 
-
-
-            buttonNext.addEventListener('click', (e) => {
+            const nextMediaInLightbox = (e) => {
 
                 if (nextElement == undefined) {
-                    e.stopPropagation()
                     console.log("va a l'element suivant")
                     curentElement = mediaList.indexOf(curentElement);
                     console.log(curentElement)
                     curentElement++
                     nextElement = curentElement;
                     console.log(nextElement + ' nextelement')
-                    
+
                     const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.dir(curentDisplayMedia)
                     return mediaFactory.displayMedia(curentDisplayMedia)
 
 
 
-                }if(nextElement == mediaList.length ) {
+                } if (nextElement == mediaList.length) {
                     nextElement = 0
                     console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
@@ -184,13 +182,12 @@ export class Lightbox {
                     newCurentElement = mediaList[nextElement];
                     console.log(newCurentElement + 'new')
                     console.log(nextElement)
-                    e.stopPropagation()
 
                     const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.log(url + 'media list url')
                     return mediaFactory.displayMedia(url)
                 }
-                 else {
+                else {
                     console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
                     console.log(newCurentElement)
@@ -199,7 +196,7 @@ export class Lightbox {
                     newCurentElement = mediaList[nextElement];
                     console.log(newCurentElement + 'new')
                     console.log(nextElement)
-                    e.stopPropagation()
+
 
                     const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.log(url + 'media list url')
@@ -208,26 +205,27 @@ export class Lightbox {
                 }
 
 
-            });
-            buttonPrev.addEventListener('click', (e) => {
-                e.stopPropagation()
+            }
+
+            const prevMediaInLightbox = (e) => {
+
                 console.log("va a l'element precedent");
                 if (nextElement == undefined) {
-                    e.stopPropagation()
+
                     console.log("va a l'element prev")
                     curentElement = mediaList.indexOf(curentElement);
                     console.log(curentElement)
                     curentElement--
                     nextElement = curentElement;
                     console.log(nextElement + ' prevelement')
-                    
+
                     const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.dir(curentDisplayMedia)
                     return mediaFactory.displayMedia(curentDisplayMedia)
 
 
 
-                }if(nextElement <= 0 ) {
+                } if (nextElement <= 0) {
                     nextElement = mediaList.length
                     console.log(nextElement + 'prevElemente')
                     newCurentElement = nextElement;
@@ -237,13 +235,13 @@ export class Lightbox {
                     newCurentElement = mediaList[nextElement];
                     console.log(newCurentElement + 'new')
                     console.log(nextElement)
-                    e.stopPropagation()
+
 
                     const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.log(url + 'media list url')
                     return mediaFactory.displayMedia(url)
                 }
-                 else {
+                else {
                     console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
                     console.log(newCurentElement)
@@ -252,14 +250,34 @@ export class Lightbox {
                     newCurentElement = mediaList[nextElement];
                     console.log(newCurentElement + 'new')
                     console.log(nextElement)
-                    e.stopPropagation()
+
 
                     const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
                     console.log(url + 'media list url')
                     return mediaFactory.displayMedia(url)
 
                 }
-            });
+            }
+
+            function navInLightboxByKeyboard() {
+                document.addEventListener("keyup", (e) => {
+                    if (e.key === "Escape") {
+                        lightboxContainer.classList.replace("lightbox-active", "lightbox");
+
+                    } else if (e.key === "ArrowRight") {
+                        nextMediaInLightbox()
+                    } else if (e.key === "ArrowLeft") {
+                        prevMediaInLightbox()
+                    }
+
+                })
+
+            }
+
+            buttonNext.addEventListener('click', nextMediaInLightbox);
+            buttonPrev.addEventListener('click', prevMediaInLightbox);
+            navInLightboxByKeyboard()
+
         }
 
     }
