@@ -19,13 +19,25 @@ body{
 .return_main{
     display: none;
 }
-.return_main + .active{
-    z-index: 2;
+.return_main-active{
+    display: block;
     width: 100%;
     position: fixed;
+    left: 50%;
+    margin: auto;
+    z-index: 2;
+    margin-top: 0.2em;
+    
+    
+
     #main_return{
-        background-color: $color_primary;
+        background-color: $color_secondary;
         position: fixed ;
+        padding: 0.2em;
+        text-decoration: none;
+        color: black;
+        font-weight: 700;
+        border-radius: 10px;
     }
 }
 

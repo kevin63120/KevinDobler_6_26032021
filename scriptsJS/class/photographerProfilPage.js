@@ -87,7 +87,7 @@ export class PhotographPage {
                                 <p class="media_item-price">${singleMedia.price} $</p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
-                                    <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true" tabindex="0">
+                                    <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like button" class="counter-btn" aria-pressed="true" tabindex="0">
                                 </div>
                             </footer>
                         </article>
@@ -107,14 +107,14 @@ class lightBoxMediaFactory {
     getDOMELementFromMedia(media) {
         return media.image
             ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" aria-pressed="true" tabindex="0">`
-            : `<video controls width="250"> <source src="/Sample Photos/${this.name}/${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video" aria-pressed="true" tabindex="0"></video>`
+            : `<video controls width="250" class="video-controls"> <source src="/Sample Photos/${this.name}/${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video" aria-pressed="true" tabindex="0"></video>`
     }
     getDOMELementFromUrl(url) {
 
         const mediaType = url.split('.')[1]
         return mediaType === 'jpg'
             ? `<img src="${url}" class="lightbox-img" aria-pressed="true">`
-            : `<video controls width="250"> <source src="${url}"   class="lightbox-video" type="video/mp4" aria-roledescription="video" aria-pressed="true"><video>`
+            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" type="video/mp4" aria-roledescription="video" aria-pressed="true"><video>`
     }
     displayMedia(media) {
         const containerImage = document.querySelector('.lightbox_container_image');

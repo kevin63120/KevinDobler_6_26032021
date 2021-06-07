@@ -62,42 +62,19 @@ export class Profil {
 
 
 
-export class ProfilMedia extends Profil {
-    constructor(media) {
-        super();
-        this.idPhoto = media.id;
-        this.idPhotographer = media.photographerId;
-        this.image = media.image;
-        this.tags = media.tags;
-        this.likes = media.likes;
-        this.date = media.date;
-        this.price = media.price;
-        this.title = media.title;
-
-    }
-
-
-
-   // personalPageMedia(containerArticles) {
-   //     const containerMedia = document.createElement("div");
-   //     containerMedia.classList.add("media_item");
-   //     containerArticles.appendChild(containerMedia);
-   //     const mediabox = `
-   //         <article class="media_box">
-   //             <div class="media_item">
-   //                 <img src="/Sample Photos/${this.name}/${this.image}" alt="photographie de ${this.title}">
-   //             </div>
-   //             <footer class="media_item-descripton">
-   //                 <p class="media_item-title">${this.tags}</p>
-   //                 <p class="media_item-price">${this.price}</p>
-   //                 <div class="media_item_likes_container">
-   //                     <p class="counter">${this.likes}</p>
-   //                     <img src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like" class="counter-btn" aria-pressed="true">
-   //                 </div>
-   //             </footer>
-   //         </article>`;
-   //     console.log(mediabox)
-   //     containerMedia.innerHTML = mediabox;
-   // }
-
-}
+//export class ProfilMedia extends Profil {
+//    constructor(media) {
+//        super();
+//        this.idPhoto = media.id;
+//        this.idPhotographer = media.photographerId;
+//        this.image = media.image;
+//        this.tags = media.tags;
+//        this.likes = media.likes;
+//        this.date = media.date;
+//        this.price = media.price;
+//        this.title = media.title;
+//
+//    }
+//
+//
+//}

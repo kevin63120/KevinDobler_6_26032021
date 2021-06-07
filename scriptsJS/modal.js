@@ -33,6 +33,11 @@ export function modal(photographer) {
 
 
     //Event to close modal 
-    const close = buttonModalClose.addEventListener("click", closeModal);
+    buttonModalClose.addEventListener("click", closeModal);
+    modal.addEventListener("keyup",(e)=>{
+        e.stopPropagation()
+        console.log(e)
+        closeModal()
+    })
 
 }
