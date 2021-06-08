@@ -37,20 +37,11 @@ export function optionSelected() {
             optionActive.innerHTML = option.innerHTML;
             optionSelectionList.classList.replace("visible-options", "hidden-options")
             optionControler.setAttribute("aria-expanded", false)
-            return optionActive.innerHTML
+            
         })
 
     });
 }
 
-let  chevronActive =  (e) =>{
-    if(optionSelectionList.classList.contains("visible-options")){
-        console.log("petit poids")
-       let chevron = document.querySelector('.chevron');
-    chevron.style.transform = "180deg"; 
-    }
-    
-}
 
-optionSelectionList.addEventListener('click',chevronActive)
 

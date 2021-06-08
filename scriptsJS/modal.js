@@ -18,7 +18,7 @@ export function modal(photographer) {
     }
 
     const closeModal = (e) => {
-        e.preventDefault()
+        
         modal.classList.remove('modal-active');
         modal.removeAttribute('tabindex')
         modal.classList.add('modal')
@@ -35,9 +35,14 @@ export function modal(photographer) {
     //Event to close modal 
     buttonModalClose.addEventListener("click", closeModal);
     modal.addEventListener("keyup",(e)=>{
-        e.stopPropagation()
-        console.log(e)
-        closeModal()
+        if(e.key === "Escape"){
+            console.log(e)
+            closeModal()
+        }if(modal.className="modal-active"){
+            modal.children.focus(false)
+        }
+
+       
     })
 
 }

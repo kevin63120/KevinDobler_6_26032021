@@ -20,17 +20,14 @@ export function checkedDataTag() {
                 })
                 return;
             }
-
             previousValue = value;
             console.log(value)
             cartPhotographer.forEach(article => {
                 if (article.classList.contains(value)) {
-
                     article.removeAttribute("style")
                     console.log(article)
                 }
                 else {
-
                     article.style.display = "none"
                 }
             })

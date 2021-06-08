@@ -197,16 +197,17 @@
   justify-content: center;
   
   @media screen and(min-width:1120px) {
-    width: 350px;
-    margin: 2% 5%;
+    width: 30%;
+    margin: 2% 0;
   }
   .media_item {
-    width: 300px;
+    width: 100%;
     height: 350px;
+    margin-bottom: 20px;
 
     img {
-      width: 350px;
-      height: 300px;
+      width: 100%;
+      height: 350px;
       object-fit: cover;
     }
   }

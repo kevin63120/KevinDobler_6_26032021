@@ -34,17 +34,8 @@ export function activeLightbox() {
     // event to close lightbox if click to button close
     closeButton.addEventListener("click", CloseLightboxWithButton);
 
-    
-    
-    
-       
-    
 
-    /*************************************************************/
 
-    /*
-        au click sur une photo on recupère l'addresse de la photo
-        on utilise l'adresse de la photo dans une lighbox preconfiguré
-    
-    */
+
+
 }
