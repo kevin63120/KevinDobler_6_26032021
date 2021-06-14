@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="./sass/main.scss" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f80ec18dc5.js" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body>
+  
+<main class="individual_body-close">
+   
+  <div class="display-default">    
+      <div class="logo"><a href="/index.html" class="link-homepage"><img src="/assets/Sample Photos/imageOfModel/Grouplogo.svg" alt="lien page d'Accueil" role="navigation"></a></div>
+  
+      <section class="section_photograph_profil_container">
+      </section>
+      <div class="container_media">
+          <header class="header_media">
+              <p class="header_media-txt">Trier par</p>
+              <div class="dropdown-filter">
+                  <ul 
+                      aria-label="selection de photo"
+                      class="header_media_container-selected "
+                      role="MenuBar"
+                      id="header_media_container-selected">
+                      
+                          <a    
+                                  aria-controls="option-filter-active"
+                                  aria-haspopup="true"
+                                  aria-expanded="false"
+                                  id="option_active_container"
+                                  role="button"
+                                  tabindex="0"
+                                  href="#"
+                                  aria-label="Popularité">
+                                  <span class="option-active">Popularité</span>
+                                  <div><img src="./assets/image-utils/chevron.svg" class="chevron" alt=""></div>
+                          </a>
+                          <ul id="list-option" class="hidden-options">
+                              <li>
+                                  <a  
+                                  class="option-filter"  
+                                  id="selectorPopularity"
+                                  role="menu-item"
+                                  href="#"
+                                  value = "Popularité"
+                                  aria-label="Popularité">Popularité</a>
+                              <li> 
+                                  <a   
+                                      href="#"
+                                      class="option-filter" 
+                                      id="selectorDate"       
+                                      role="menu-item" 
+                                      value="Date" 
+                                      aria-label="Date">Date</a>
+                              </li>
+                              <li>
+                                  <a 
+                                      href="#"
+                                      class="option-filter"
+                                      id="selectorTitle"
+                                      role="menu-item"
+                                      value="Titre"
+                                      aria-label="Titre">Titre</a>
+                              </li>  
+                          </ul>
+                       
+                  
+                  </ul>
+              </div>   
+          </header>
+          <div id="container_article" class="container_article">
+           
+          </div>
+      <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me">Contactez-moi</button></div>
+      <div class="container_reputation">
+          <p id="total-heart"><span class="total-heart-number"></span><img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>
+      
+          <p class="photograph_pricePerDay">330/jour</p>
+      </div>
+      </div>
+  </div>  
+
+  <!--lightbox -->
+<div class="lightbox-container">
+    
+</div>
+ <!-- modal  -->
+ <div class="container-modal" role="dialog" aria-hidden="true" aria-labelledby="document de contact" tabindex="-1">
+  <div class="modal" role="document">
+      <form action="" method="POST" class="form">
+         <header class="form_header">
+             <label>Contactez-moi</label>
+             <button type="button" class="close-modal" aria-label="close-modal" title="Fermer la modal de contact"><img src="/Sample Photos/imageOfModel/close.svg"></button>
+             <h1 id="photographer-name"></h1>
+         </header>
+          <div class="form_item">
+              <label for="name" >Prénom</label>
+              <input type="text" aria-labelledby="name" name="name" id="name" required="">
+          </div>
+          <div class="form_item">
+              <label for="lastName" >nom</label>
+              <input type="text" aria-labelledby="lastName" name="lastName" id="lastName" required="">
+          </div>
+          <div class="form_item">
+              <label for="email" >email</label>
+              <input type="email" aria-labelledby="email" name="email" id="email">
+          </div>
+          <div class="form_item">
+              <label for="message"  >Votre message</label>
+             <input type="text"aria-labelledby="message" name="message" id="message">
+          </div>
+          <input id="submit" type="submit" value="Envoyer">
+
+      </form>
+
+      </div>
+  </div>
+
+</main>  
+<script src="/scriptsJS/scriptPhotographer.js"></script>     
+</body>
+</html>

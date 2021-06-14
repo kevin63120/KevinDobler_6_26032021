@@ -1,4 +1,4 @@
-
+import { createLightbox } from "../lightBox";
 export class PhotographPage {
 
     constructor(photographer) {
@@ -114,7 +114,7 @@ class lightBoxMediaFactory {
         return mediaType === 'jpg'
             ? `<img src="${url}" alt="${altText}"class="lightbox-img" >
                 <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
-            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" type="video/mp4" alt="${altText}" aria-roledescription="video" $><video>
+            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" tabindex = "0" type="video/mp4" alt="${altText}" aria-roledescription="video" tabindex = "0"><video>
             <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
     }
     displayMedia(media) {
@@ -123,11 +123,14 @@ class lightBoxMediaFactory {
     }
 
 }
-
 export class Lightbox {
     inititalize() {
         const mediaElement = document.querySelectorAll('.media_box');
         const mediaFactory = new lightBoxMediaFactory();
+        let active = false;
+        
+        
+
         let curentMedia;
         let mediaList = [];
         let titleList = [];
@@ -138,13 +141,34 @@ export class Lightbox {
             
         });
         [...mediaElement].forEach(singleMedia => {
+            singleMedia.addEventListener('keydown', (e)=>{
+                if(e.key === "Enter" && active === false){
+                    createLightbox();
+                    active = true;
+                    const title = singleMedia.getAttribute('data-title');
+                const url = singleMedia.getAttribute("data-url");
+                const mediaElement = mediaFactory.getDOMELementFromUrl(url, title);
+                mediaFactory.displayMedia(mediaElement);
+                console.log(titleList)    
+                curentMedia = url;
+                
+                navigation(curentMedia , titleList)
+                }
+                
+            })
+            
             singleMedia.addEventListener('click', (e) => {
+               if(active === false){
+                    createLightbox()
+                active = true ;
                 const title = singleMedia.getAttribute('data-title')
                 const url = singleMedia.getAttribute("data-url");
                 const mediaElement = mediaFactory.getDOMELementFromUrl(url, title);
-                mediaFactory.displayMedia(mediaElement);    
+                mediaFactory.displayMedia(mediaElement);
+                console.log(titleList)    
                 curentMedia = url;
                 navigation(curentMedia , titleList)
+               }
             })
 
         })
@@ -235,10 +259,20 @@ export class Lightbox {
                     return mediaFactory.displayMedia(url)
                 }
             }
-            function navInLightboxByKeyboard() {
+            function navWithMouse(){
+                const closeBtn = document.querySelector(".lightbox_button_close")
+                closeBtn.addEventListener("click",()=>{
+                    lightboxContainer.remove();
+                    active = false;
+                })
+            }
+            function navWithLightboxByKeyboard() {
+            
                 document.addEventListener("keyup", (e) => {
                     if (e.key === "Escape") {
-                        lightboxContainer.classList.replace("lightbox-active", "lightbox");
+                      lightboxContainer.remove()
+                      active = false;
+                      
 
                     } else if (e.key === "ArrowRight") {
                         nextMediaInLightbox()
@@ -247,9 +281,12 @@ export class Lightbox {
                     }
                 })
             }
+            
             buttonNext.addEventListener('click', nextMediaInLightbox);
             buttonPrev.addEventListener('click', prevMediaInLightbox);
-            navInLightboxByKeyboard()
+            navWithLightboxByKeyboard()
+            navWithMouse()
+          
         }
     }
 }
