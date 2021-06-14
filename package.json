@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "start": "parcel index.html",
+    "start": "parcel index.html ",
     "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
     "lint": "eslint"
   },

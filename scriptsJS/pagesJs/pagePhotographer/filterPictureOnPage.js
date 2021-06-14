@@ -1,13 +1,12 @@
 import { likes } from "./scriptCounterHeart";
-import './script';
-import { retrieveData } from "./script";
+import '../../script';
+import { retrieveData } from "../../script";
 
 const optionSelectionButton = document.querySelector("#header_media_container-selected");
 const optionSelectionList = document.querySelector("#list-option")
 const options = document.querySelectorAll(".option-filter")
 const optionActive = document.querySelector(".option-active")
 const optionControler = document.querySelector("#option_active_container")
-
 
 const dropDown = (e) => {
     e.preventDefault();

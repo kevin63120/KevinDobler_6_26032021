@@ -13,7 +13,7 @@
   
   z-index: 1;
   @media screen and(min-width:700px) {
-   padding: 2em 10% 0 10%;
+   padding: 2%;
   }
 }
 
@@ -22,6 +22,25 @@
     margin-top: 5em;
     background: aliceblue;
     padding: 2em;
+  }
+
+  .photograph_profil-reference header{
+    display: flex;
+    width:100%;
+
+    h1{
+      flex: 1 0 75%;
+      width:75%;
+
+    }
+    button{
+      flex: 1 0 auto;
+      width: 25%
+    }
+
+  }
+  #first-part-header{
+    width : 70%;
   }
 
   #name_personal_page {
@@ -97,14 +116,16 @@
   flex-wrap: wrap;
 
   video {
-    width: 350px;
-    height: 300px;
+    width:100%;
+    height: 350px;
+    border-radius: 20px;
     object-fit: cover;
   }
 }
 .header_media {
   display: none;
 }
+
 
 @media screen and(min-width:700px) {
   .header_media {
@@ -113,8 +134,9 @@
     width: 100%;
 
     a {
+      width: 100;
       border: none;
-      border-bottom: oldlace 1px;
+      border-bottom: oldlace 2px solid;
       color: white;
       text-decoration: none;
       transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
@@ -196,7 +218,7 @@
   margin-top: 2em;
   justify-content: center;
   
-  @media screen and(min-width:1120px) {
+  @media screen and(min-width:700px) {
     width: 30%;
     margin: 2% 0;
   }
@@ -208,16 +230,25 @@
     img {
       width: 100%;
       height: 350px;
+      border-radius: 20px;
       object-fit: cover;
     }
   }
-  
+  .lightbox_title_img{
+    display: none;
+  }
   .media_item-descripton {
     display: flex;
     width: 100%;
     justify-content: space-between;
     font-size: 1.2em;
     color: $color_primary;
+    @media screen and(min-width:1000px) {
+      font-size: 1em;
+      .media_item-price{
+        min-width: 25%;
+      }
+    }
     .media_item-title{
       margin-right: 0.2em;
     }

@@ -11,23 +11,13 @@
     <title>Accueil</title>
 </head>
 <body>
-
-    <div class="return_main" ><a  href="#main" id="main_return" aria-label="lien de retour au contenut" role="navigation-secondary">retour au contenu</a></div>
+    
+    <div class="return_main" ><a  href="#photographer-up-page" id="main_return" aria-label="lien de retour au contenut" role="navigation-secondary">retour au contenu</a></div>
     <header class="header_page-index" role="banner">
         <div class="logo"><a href="/" class="logo-txt" alt="Fisheye home page"><img src="Sample Photos/imageOfModel/Grouplogo.svg" alt="²"></a></div> 
-        <nav aria-label="photograpers_tags">
-            <div class="nav-list " >
-                <span><a href="#" class="nav-item " >#portrait</a></span>
-                <span><a href="#" class="nav-item " >#art</a></span>
-                <span><a href="#" class="nav-item " >#fashion</a></span>
-                <span><a href="#" class="nav-item " >#architecture</a></span>
-                <span><a href="#" class="nav-item " >#travel</a></span>
-                <span><a href="#" class="nav-item " >#sports</a></span>
-                <span><a href="#" class="nav-item " >#animals</a></span>
-                <span><a href="#" class="nav-item " >#events</a></span>
-            </div>
+        <nav class="photographers_tags" aria-label="photographers_tags">
         </nav>  
-        <h1>nos photographes</h1>     
+        <h1 id="photographer-up-page">nos photographes</h1>     
     </header>
     <main id="root" class="main_index">
        
@@ -39,6 +29,7 @@
     <footer>
 
     </footer>
+    
 
 <!-- FIN  DE PAGE INDEX -->
 
@@ -46,6 +37,7 @@
 
 
 <div class="individual_body-close">
+   
     <div class="display-default">    
         <div class="logo"><a href="/" class="link-homepage"><img src="/assets/Sample Photos/imageOfModel/Grouplogo.svg" alt="lien page d'Accueil" role="navigation"></a></div>
     
@@ -119,39 +111,40 @@
     </div>  
 
     <!--lightbox -->
-    <div class="lightbox">
-        <button class="lightbox_button_prev" aria-controls="lightbox_container_image" aria-label="précedent" tabindex="2">précedent</button>
-        <button class="lightbox_button_close" aria-controls="lightbox_container_image" aria-label="fermer" tabindex="3">fermer</button>
-        <button class="lightbox_button_next"  aria-controls="lightbox_container_image" aria-label="suivant" tabindex="1">suivant</button>
+    <div class="lightbox" type="dialog">
+        <button class="lightbox_button_prev lightbox-btn" aria-controls="lightbox_container_image" aria-label="précedent" tabindex="2">précedent</button>
+        <button class="lightbox_button_close lightbox-btn" aria-controls="lightbox_container_image" aria-label="fermer" tabindex="3">fermer</button>
+        <button class="lightbox_button_next lightbox-btn"  aria-controls="lightbox_container_image" aria-label="suivant" tabindex="1">suivant</button>
         <div class="lightbox_container_image">
             <img id="lightbox_picture-active" src="/assets/Sample Photos/Nabeel Brandford/Portrait_AfternoonBreak.jpg" alt="">
+           
         </div>
-        <p class="lightbox_title_img" aria-label="titre d'image">titre de l'image</p>
+        
     </div>
    <!-- modal  -->
-   <div class="container-modal">
-    <div class="modal">
-        <form action="" method="post" class="form">
+   <div class="container-modal" role="dialog" aria-hidden="true" aria-labelledby="document de contact" tabindex="-1">
+    <div class="modal" role="document">
+        <form action="" method="POST" class="form">
            <header class="form_header">
                <label>Contactez-moi</label>
-               <button type="button" class="close-modal" aria-label="close-modal"><img src="/Sample Photos/imageOfModel/close.svg"></button>
+               <button type="button" class="close-modal" aria-label="close-modal" title="Fermer la modal de contact"><img src="/Sample Photos/imageOfModel/close.svg"></button>
                <h1 id="photographer-name"></h1>
            </header>
             <div class="form_item">
-                <label for="name" aria-labelledby="name">Prénom</label>
-                <input type="text" name="name" id="name" required="">
+                <label for="name" >Prénom</label>
+                <input type="text" aria-labelledby="name" name="name" id="name" required="">
             </div>
             <div class="form_item">
-                <label for="lastName" aria-labelledby="lastName">nom</label>
-                <input type="text" aria-label="nom de famille" name="lastName" id="lastName" required="">
+                <label for="lastName" >nom</label>
+                <input type="text" aria-labelledby="lastName" name="lastName" id="lastName" required="">
             </div>
             <div class="form_item">
-                <label for="email" aria-labelledby="email">email</label>
-                <input type="email" aria-label="email" name="email" id="email">
+                <label for="email" >email</label>
+                <input type="email" aria-labelledby="email" name="email" id="email">
             </div>
             <div class="form_item">
-                <label for="message" aria-labelledby="message">Votre message</label>
-               <input type="text" aria-label="votre message" name="message" id="message">
+                <label for="message"  >Votre message</label>
+               <input type="text"aria-labelledby="message" name="message" id="message">
             </div>
             <input id="submit" type="submit" value="Envoyer">
 

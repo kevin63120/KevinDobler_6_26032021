@@ -1,41 +1,39 @@
-import { Profil } from "./class/profil";
-import './tags-selected';
-import { PhotographPage } from "./class/photographerProfilPage";
-import { Lightbox } from "./class/photographerProfilPage";
-import './pagesJs/HomePage';
-
-import './scriptCounterHeart';
-import './modal';
-import './lightBox';
-import { activeLightbox } from "./lightBox";
-import { getURL } from "./lightBox";
-import { checkedDataTag } from "./tags-selected";
-import './filterPictureOnPage';
-import { likeModifier } from "./scriptCounterHeart";
-import { totalHeart } from "./scriptCounterHeart";
-import { optionSelected } from "./filterPictureOnPage";
-import { modal } from "./modal";
-
+import { Profil } from "./pagesJs/homePage/class/profil";
+import './pagesJs/allPages/tags-selected';
+import { PhotographPage } from "./pagesJs/pagePhotographer/class/photographerProfilPage";
+import { Lightbox } from "./pagesJs/pagePhotographer/class/photographerProfilPage";
+import './pagesJs/HomePage/HomePage';
+import {checkPersonalDataTag} from "./pagesJs/allPages/tags-selected";
+import {createHeaderTagSearch} from "./pagesJs/allPages/tags-selected";
+import './pagesJs/pagePhotographer/scriptCounterHeart';
+import './pagesJs/pagePhotographer/modal';
+import './pagesJs/pagePhotographer/lightBox';
+import { activeLightbox } from "./pagesJs/pagePhotographer/lightBox";
+import { getURL } from "./pagesJs/pagePhotographer/lightBox";
+import { checkedDataTag } from "./pagesJs/allPages/tags-selected";
+import './pagesJs/pagePhotographer/filterPictureOnPage';
+import { likeModifier } from "./pagesJs/pagePhotographer/scriptCounterHeart";
+import { totalHeart } from "./pagesJs/pagePhotographer/scriptCounterHeart";
+import { optionSelected } from "./pagesJs/pagePhotographer/filterPictureOnPage";
+import { modal } from "./pagesJs/pagePhotographer/modal";
+import { displayButtonReturnMain } from "./pagesJs/HomePage/HomePage";
 
 // retrieved an items in the DOM for photograph card
 const containerArticle = document.querySelector(".article-container");
 
 
 //view profil function 
-
-
-
 //récuperation des données des photographes dans le fichier json et traitement pour les affichées dans le Html
 
 if (window.location.pathname === '/') {
     UserIndexProfils()
+    
 } else {
     // /photographers/243
     const photographerId = window.location.pathname.split("/")[2];
     console.log({ photographerId })
     displayPhotographerPage(Number(photographerId))
 }
-
 
 export async function retrieveData() {
     try {
@@ -50,23 +48,21 @@ export async function retrieveData() {
 }
 
 // profil photographe de la page d'acceuil (recupération et affichage)
-
-
 async function UserIndexProfils() {
     try {
         const data = await retrieveData()
         let photographers = data.photographers;
 
         photographers.forEach(photographer => {
-            new Profil(photographer).createProfilStructure(containerArticle, data);
-
+            new Profil(photographer).createProfilStructure(containerArticle, data);         
         })
+        createHeaderTagSearch()
         checkedDataTag()
+        displayButtonReturnMain()
     } catch (err) {
         console.log(err)
     }
 }
-
 
 async function displayPhotographerPage(photographerId) {
     try {
@@ -86,10 +82,8 @@ async function displayPhotographerPage(photographerId) {
         const photographerPage = new PhotographPage(photographer)
         photographerPage.personalPageHeader(container)
 
-
         console.log({ photographer })
         //******************************************************* */
-
         optionSelected()
         function sortByLikes(a, b) {
             if (a.likes < b.likes) {
@@ -119,9 +113,6 @@ async function displayPhotographerPage(photographerId) {
             const sortedMedia = [...media].sort(typeSort);
             ;
             photographerPage.createContainerPicture(picturesContainer, sortedMedia)
-
-
-
         }
         function selectedSort() {
             let defaultSort = sortPicture(photographerMedia, sortByLikes)
@@ -140,38 +131,31 @@ async function displayPhotographerPage(photographerId) {
                             sortPicture(photographerMedia, sortByLikes)
                             likeModifier()
                             activeLightbox()
+                            checkPersonalDataTag()
                             new Lightbox().inititalize()
-        
-        
-
-
                         } if (optionSelect == "Date") {
                             sortPicture(photographerMedia, sortByDates)
                             likeModifier()
-                            
+                            checkPersonalDataTag()
                             activeLightbox()
                             new Lightbox().inititalize()
-
                         } if (optionSelect == "Titre") {
                             sortPicture(photographerMedia, sortbyTitles)
                             likeModifier()
                             activeLightbox()
+                            checkPersonalDataTag()
                             new Lightbox().inititalize()
-
                         }
                     })
                 })
             })
-
-
             if (sortSelectButton.innerHTML === "Popularité") {
                 return defaultSort
             }
-
-
         }
 
         selectedSort()
+        checkPersonalDataTag()
         /********************************************** */
         modal(photographer)
         /************************************** */
@@ -181,13 +165,9 @@ async function displayPhotographerPage(photographerId) {
         new Lightbox().inititalize()
         
         activeLightbox()
-
-
-
     } catch (err) {
         console.log(err)
     }
-
 }
 
 

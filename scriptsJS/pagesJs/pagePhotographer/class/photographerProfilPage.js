@@ -1,7 +1,3 @@
-import "./profil";
-import { Profil } from "./profil";
-
-
 
 export class PhotographPage {
 
@@ -22,15 +18,12 @@ export class PhotographPage {
         this.likes = photographer.likes;
         this.date = photographer.date;
         this.price = photographer.price;
+        this.title = photographer.title;
 
     }
 
-
-
-
     createDetailPage(rootElement) {
         this.personalPageHeader(rootElement)
-
     }
 
     personalPageHeader(rootElement) {
@@ -39,30 +32,34 @@ export class PhotographPage {
         rootElement.appendChild(header);
         //tags array chang for return new array on desktop list 
         const tags = this.tags.map(tag => {
-            return `<li class="photograph_tag-item personal nav-item">#${tag}</li>`
+            return `<li class="photograph_tag-item personal nav-item" tabindex="0   ">#${tag}</li>`
         })
 
         // url for picture profil photographer
         const rootPhoto = '/Sample Photos/Photographers ID Photos/';
 
         const headerProfil = `
+        <div id=first-part-header>
                 <div class="photograph_profil-reference">
-                    <h1 class="name" id="name_personal_page">${this.name}</h1>
+                    <header>
+                     <h1 class="name" id="name_personal_page">${this.name}</h1>
+                     <button class="btn-contact btn-contact-1" type="button" aria-haspopup="dialog" aria-controls="dialog">Contactez-moi</button>
+                    </header>
                     <p class="photograph_location" id="location_personal_page">${this.city}${this.country ? ', ' + this.country : ''}</p>
                     <p class="photograph_description-text" id="description_personal_page">${this.tagline}</p>
                 </div>
-                <button class="btn-contact btn-contact-1" aria-label="contact-me">Contactez-moi</button>
-                <img src="${rootPhoto + this.portrait}" alt="" class="profil_picture">
                 <div class="container_photograph_tag-list">
                     <ul class="photograph_tag-list" role="">
                         ${tags.join('')}
                     </ul> 
-                </div>    
+                </div>
+        </div>
+        <div>
+            <img src="${rootPhoto + this.portrait}" alt="${this.name}" class="profil_picture">
+        </div>
                 `
-
         header.innerHTML = (headerProfil)
     }
-
 
     createContainerPicture(rootElement, media) {
         const mediaFactory = new lightBoxMediaFactory(this.name);
@@ -72,12 +69,13 @@ export class PhotographPage {
                 ? `/Sample Photos/${name}/${media.image}`
                 : `/Sample Photos/${name}/${media.video}`;
         }
-
+        function getMediaTitle(media){
+            return media.title        
+        }
         const article = media.map(singleMedia => {
             const url = getMediaUrl(this.name, singleMedia)
-
             return `
-                        <article class="media_box" data-url = "${url}">
+                        <article class="media_box ${singleMedia.tags}" data-url = "${url}" data-title ="${singleMedia.title}">
                             <div class="media_item">
                             ${mediaFactory.getDOMELementFromMedia(singleMedia)}
                             </div>
@@ -106,15 +104,18 @@ class lightBoxMediaFactory {
     }
     getDOMELementFromMedia(media) {
         return media.image
-            ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" aria-pressed="true" tabindex="0">`
-            : `<video controls width="250" class="video-controls"> <source src="/Sample Photos/${this.name}/${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video" aria-pressed="true" tabindex="0"></video>`
+            ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" alt="${media.title}" tabindex="0"> 
+            <p class="lightbox_title_img" aria-label="titre d'image">${media.title}</p>`
+            : `<video controls width="250" class="video-controls"> <source src="/Sample Photos/${this.name}/${media.video}" alt="${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video"  tabindex="0"></video> 
+            <p class="lightbox_title_img" aria-label="titre d'image">${media.title}</p>`
     }
-    getDOMELementFromUrl(url) {
-
-        const mediaType = url.split('.')[1]
+    getDOMELementFromUrl(url, altText) {
+        const mediaType = url.split('.')[1];       
         return mediaType === 'jpg'
-            ? `<img src="${url}" class="lightbox-img" aria-pressed="true">`
-            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" type="video/mp4" aria-roledescription="video" aria-pressed="true"><video>`
+            ? `<img src="${url}" alt="${altText}"class="lightbox-img" >
+                <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
+            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" type="video/mp4" alt="${altText}" aria-roledescription="video" $><video>
+            <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
     }
     displayMedia(media) {
         const containerImage = document.querySelector('.lightbox_container_image');
@@ -129,136 +130,111 @@ export class Lightbox {
         const mediaFactory = new lightBoxMediaFactory();
         let curentMedia;
         let mediaList = [];
+        let titleList = [];
 
         mediaElement.forEach(media => {
-            mediaList.push(media.getAttribute("data-url"))
-
+            mediaList.push(media.getAttribute("data-url"));
+            titleList.push(media.getAttribute("data-title"));
+            
         });
-
         [...mediaElement].forEach(singleMedia => {
             singleMedia.addEventListener('click', (e) => {
-                const url = singleMedia.getAttribute("data-url")
-                const mediaElement = mediaFactory.getDOMELementFromUrl(url);
-                mediaFactory.displayMedia(mediaElement);
+                const title = singleMedia.getAttribute('data-title')
+                const url = singleMedia.getAttribute("data-url");
+                const mediaElement = mediaFactory.getDOMELementFromUrl(url, title);
+                mediaFactory.displayMedia(mediaElement);    
                 curentMedia = url;
-                console.log(url + ' url dans la creation')
-                navigation(curentMedia)
+                navigation(curentMedia , titleList)
             })
 
         })
 
-        function navigation(startElement) {
+        function navigation(startElement , titleElement) {
             const buttonNext = document.querySelector('.lightbox_button_next');
             const buttonPrev = document.querySelector('.lightbox_button_prev');
             const lightboxContainer = document.querySelector('.lightbox-active')
+            const lightboxTitle =document.querySelector('.lightbox_title_img')
             let curentElement = startElement;
             let nextElement;
             let newCurentElement;
-            console.log(curentElement, mediaList)
 
             const nextMediaInLightbox = (e) => {
-
                 if (nextElement == undefined) {
-                    console.log("va a l'element suivant")
-                    curentElement = mediaList.indexOf(curentElement);
-                    console.log(curentElement)
+                    curentElement = mediaList.indexOf(curentElement); 
                     curentElement++
                     nextElement = curentElement;
-                    console.log(nextElement + ' nextelement')
+                    if(nextElement == curentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
 
-                    const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
-                    console.dir(curentDisplayMedia)
+                    }
+                    const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement],titleList[nextElement])
                     return mediaFactory.displayMedia(curentDisplayMedia)
-
-
-
                 } if (nextElement == mediaList.length) {
                     nextElement = 0
-                    console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
-                    console.log(newCurentElement)
                     newCurentElement++
                     nextElement = newCurentElement;
                     newCurentElement = mediaList[nextElement];
-                    console.log(newCurentElement + 'new')
-                    console.log(nextElement)
-
-                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
-                    console.log(url + 'media list url')
+                    if(nextElement == newCurentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
+                    }
+                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement], titleList[nextElement])   
                     return mediaFactory.displayMedia(url)
                 }
                 else {
-                    console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
-                    console.log(newCurentElement)
                     newCurentElement++
                     nextElement = newCurentElement;
                     newCurentElement = mediaList[nextElement];
-                    console.log(newCurentElement + 'new')
-                    console.log(nextElement)
-
-
-                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
-                    console.log(url + 'media list url')
+                    if(nextElement == newCurentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
+                        console.log(lightboxTitle)
+                    }
+                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement], titleList[nextElement])
                     return mediaFactory.displayMedia(url)
-
                 }
-
-
             }
 
-            const prevMediaInLightbox = (e) => {
-
-                console.log("va a l'element precedent");
+            const prevMediaInLightbox = (e) => {               
                 if (nextElement == undefined) {
-
-                    console.log("va a l'element prev")
                     curentElement = mediaList.indexOf(curentElement);
-                    console.log(curentElement)
                     curentElement--
                     nextElement = curentElement;
-                    console.log(nextElement + ' prevelement')
-
-                    const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
+                    
+                    if(nextElement == curentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
+                    }
+                    const curentDisplayMedia = mediaFactory.getDOMELementFromUrl(mediaList[nextElement],titleList[nextElement])
                     console.dir(curentDisplayMedia)
                     return mediaFactory.displayMedia(curentDisplayMedia)
 
-
-
                 } if (nextElement <= 0) {
-                    nextElement = mediaList.length
-                    console.log(nextElement + 'prevElemente')
+                    nextElement = mediaList.length               
                     newCurentElement = nextElement;
-                    console.log(newCurentElement)
                     newCurentElement--
                     nextElement = newCurentElement;
                     newCurentElement = mediaList[nextElement];
-                    console.log(newCurentElement + 'new')
-                    console.log(nextElement)
-
-
-                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
-                    console.log(url + 'media list url')
+                    
+                    if(nextElement == newCurentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
+                        console.log(lightboxTitle)
+                    }
+                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement],titleList[nextElement])
                     return mediaFactory.displayMedia(url)
                 }
                 else {
-                    console.log(nextElement + 'nextelement')
                     newCurentElement = nextElement;
-                    console.log(newCurentElement)
                     newCurentElement--
                     nextElement = newCurentElement;
                     newCurentElement = mediaList[nextElement];
-                    console.log(newCurentElement + 'new')
-                    console.log(nextElement)
-
-
-                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement])
-                    console.log(url + 'media list url')
+        
+                    if(nextElement == newCurentElement){
+                        lightboxTitle.innerHTML=(titleElement[nextElement])
+                    }
+                    const url = mediaFactory.getDOMELementFromUrl(mediaList[nextElement],titleList[nextElement])
                     return mediaFactory.displayMedia(url)
-
                 }
             }
-
             function navInLightboxByKeyboard() {
                 document.addEventListener("keyup", (e) => {
                     if (e.key === "Escape") {
@@ -269,19 +245,13 @@ export class Lightbox {
                     } else if (e.key === "ArrowLeft") {
                         prevMediaInLightbox()
                     }
-
                 })
-
             }
-
             buttonNext.addEventListener('click', nextMediaInLightbox);
             buttonPrev.addEventListener('click', prevMediaInLightbox);
             navInLightboxByKeyboard()
-
         }
-
     }
-
 }
 
 

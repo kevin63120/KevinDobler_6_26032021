@@ -18,11 +18,8 @@ export class Profil {
         this.likes = photographer.likes;
         this.date = photographer.date;
         this.price = photographer.price;
-
-
-
     }
-
+  
     createProfilStructure(rootElement) {
 
         const article = rootElement.appendChild(document.createElement("article"));
@@ -30,7 +27,6 @@ export class Profil {
         const tags = this.tags.map(tag => {
             return `<li class="photograph_tag-item personal><span><a href="#">#${tag}</a></span></li>`
         })
-
         // url for picture profil photographer
         const rootPhoto = 'Sample Photos/Photographers ID Photos/';
 
@@ -50,31 +46,11 @@ export class Profil {
             </ul>
         </footer>`
 
-
         article.classList.add("container_photographs_profils", ...this.tags);
         article.innerHTML = (card);
 
     }
-
     //method for create a personal page for photographers
-
 }
 
 
-
-//export class ProfilMedia extends Profil {
-//    constructor(media) {
-//        super();
-//        this.idPhoto = media.id;
-//        this.idPhotographer = media.photographerId;
-//        this.image = media.image;
-//        this.tags = media.tags;
-//        this.likes = media.likes;
-//        this.date = media.date;
-//        this.price = media.price;
-//        this.title = media.title;
-//
-//    }
-//
-//
-//}

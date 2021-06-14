@@ -5,21 +5,17 @@ export function totalHeart() {
     let countHearts = document.querySelectorAll(".counter");
     let totalHeartPrint = document.querySelector(".total-heart-number")
     let result = 0;
-
     const arrayAllLikes = countHearts;
+
     arrayAllLikes.forEach(like => {
         let intLike = parseInt(like.innerHTML);
         let curentResult;
-
         curentResult = + intLike;
         result = curentResult + result;
         totalHeartPrint.innerHTML = (result);
     })
-
-
-
-
 }
+
 export function likeModifier() {
     let countHearts = document.querySelectorAll(".counter");
 
@@ -37,14 +33,12 @@ export function likeModifier() {
             } if (like === false) {
                 e.stopPropagation()
                 heart.innerHTML = (++intHeart);
+                heart.nextElementSibling.style.color='red';
                 totalHeart()
                 return like = true;
             }
-
         })
     })
-
-
 }
 
 
