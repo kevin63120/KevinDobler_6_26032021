@@ -1,16 +1,16 @@
 import './pagesJs/pagePhotographer/filterPictureOnPage';
 import './pagesJs/pagePhotographer/scriptCounterHeart';
 import './pagesJs/pagePhotographer/modal';
-import './pagesJs/pagePhotographer/lightBox';
+import './pagesJs/pagePhotographer/class/lightBox';
 import { retrieveData } from "./pagesJs/allPages/retrieveData";
-import { activeLightbox } from "./pagesJs/pagePhotographer/lightBox";
+import { activeLightbox } from "./pagesJs/pagePhotographer/class/lightBox";
 import { likeModifier } from "./pagesJs/pagePhotographer/scriptCounterHeart";
 import { totalHeart } from "./pagesJs/pagePhotographer/scriptCounterHeart";
 import { optionSelected } from "./pagesJs/pagePhotographer/filterPictureOnPage";
 import { modal } from "./pagesJs/pagePhotographer/modal";
 import {checkPersonalDataTag} from "./pagesJs/allPages/tags-selected";
 import { PhotographPage } from "./pagesJs/pagePhotographer/class/photographerProfilPage";
-import { Lightbox } from "./pagesJs/pagePhotographer/class/photographerProfilPage";
+import { Lightbox } from "./pagesJs/pagePhotographer/class/lightBox";
 
 const searchParams = new URLSearchParams(window.location.search)
 
