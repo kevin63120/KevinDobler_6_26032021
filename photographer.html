@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,7 +35,6 @@
                                   aria-expanded="false"
                                   id="option_active_container"
                                   role="button"
-                                  tabindex="0"
                                   href="#"
                                   aria-label="Popularité">
                                   <span class="option-active">Popularité</span>
@@ -48,15 +47,17 @@
                                   id="selectorPopularity"
                                   role="menu-item"
                                   href="#"
+                                  tabindex="0"
                                   value = "Popularité"
                                   aria-label="Popularité">Popularité</a>
-                              <li> 
+                              <li id="date-container"> 
                                   <a   
                                       href="#"
                                       class="option-filter" 
                                       id="selectorDate"       
                                       role="menu-item" 
                                       value="Date" 
+                                      tabindex="0"
                                       aria-label="Date">Date</a>
                               </li>
                               <li>
@@ -66,6 +67,7 @@
                                       id="selectorTitle"
                                       role="menu-item"
                                       value="Titre"
+                                      tabindex="0"
                                       aria-label="Titre">Titre</a>
                               </li>  
                           </ul>
@@ -91,8 +93,8 @@
     
 </div>
  <!-- modal  -->
- <div class="container-modal" role="dialog" aria-hidden="true" aria-labelledby="document de contact" tabindex="-1">
-  <div class="modal" role="document">
+ <div class="container-modal" role="dialog" aria-hidden="true" >
+  <div class="modal" role="document" aria-labelledby="dialog-titl">
       <form action="" method="POST" class="form">
          <header class="form_header">
              <label>Contactez-moi</label>
@@ -101,7 +103,7 @@
          </header>
           <div class="form_item">
               <label for="name" >Prénom</label>
-              <input type="text" aria-labelledby="name" name="name" id="name" required="">
+              <input type="text" aria-label="name" name="name" id="name" required="">
           </div>
           <div class="form_item">
               <label for="lastName" >nom</label>
@@ -116,7 +118,7 @@
              <input type="text"aria-labelledby="message" name="message" id="message">
           </div>
           <input id="submit" type="submit" value="Envoyer">
-
+          <div class="form-return" tabindex="0"></div>
       </form>
 
       </div>

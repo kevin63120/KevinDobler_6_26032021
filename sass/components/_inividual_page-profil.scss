@@ -97,10 +97,9 @@
 }
 .container_btn-2 {
   position: fixed;
-  bottom: 15px;
-  width: 80%;
-  display: flex;
-  justify-content: center;
+    bottom: 15px;
+    right: 25%;
+    left: 35%;
 }
 .btn-contact-2 {
   height: 23px;
@@ -128,15 +127,22 @@
 
 
 @media screen and(min-width:700px) {
+  #list-option li {
+    height: 2em;
+    display: flex;
+    align-items: center;
+  }
   .header_media {
     display: flex;
     margin-top: 2em;
     width: 100%;
-
+    #date-container{
+      border-bottom: 1px white solid;
+      border-top: 1px white solid;
+    }
     a {
       width: 100;
       border: none;
-      border-bottom: oldlace 2px solid;
       color: white;
       text-decoration: none;
       transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
@@ -147,6 +153,7 @@
         transform:rotate(180deg);
       }
     }
+    
     a:focus {
       text-decoration: underline;
     }

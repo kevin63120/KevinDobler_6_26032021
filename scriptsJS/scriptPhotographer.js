@@ -68,53 +68,59 @@ async function displayPhotographerPage(photographerId) {
           ;
           photographerPage.createContainerPicture(picturesContainer, sortedMedia)
       }
-      function selectedSort() {
+
+      function selectedSort(typeEvent) {
           let defaultSort = sortPicture(photographerMedia, sortByLikes)
 
           let sortSelectButton = document.querySelector(".option-active");
-          sortSelectButton.addEventListener("click", () => {
+          sortSelectButton.addEventListener(typeEvent, () => {
               let options = document.querySelectorAll(".option-filter");
               options.forEach(option => {
-                  option.addEventListener('click', (e) => {
+                  option.addEventListener(typeEvent, (e) => {
                       e.preventDefault()
-                      e.stopPropagation()
-
+                      
                       let optionSelect = option.innerHTML;
 
                       if (optionSelect == "Popularité") {
                           sortPicture(photographerMedia, sortByLikes)
-                          likeModifier()
+                          likeModifier("click")
+                          likeModifier("keydown")
                           activeLightbox()
                           checkPersonalDataTag()
                           new Lightbox().inititalize()
                       } if (optionSelect == "Date") {
                           sortPicture(photographerMedia, sortByDates)
-                          likeModifier()
+                          likeModifier("keydown")
+                          likeModifier("click")
                           checkPersonalDataTag()
                           activeLightbox()
                           new Lightbox().inititalize()
                       } if (optionSelect == "Titre") {
                           sortPicture(photographerMedia, sortbyTitles)
-                          likeModifier()
+                          likeModifier("keydown")
+                          likeModifier("click")
                           activeLightbox()
                           checkPersonalDataTag()
                           new Lightbox().inititalize()
-                      }
+                      }  
                   })
               })
+             
           })
           if (sortSelectButton.innerHTML === "Popularité") {
               return defaultSort
           }
       }
 
-      selectedSort()
+      selectedSort("click");
+      selectedSort("keydown");
       checkPersonalDataTag()
       /********************************************** */
       modal(photographer)
       /************************************** */
       totalHeart()
-      likeModifier()
+      likeModifier("click")
+      likeModifier("keydown")
       /************************************************** */
       new Lightbox().inititalize()
       

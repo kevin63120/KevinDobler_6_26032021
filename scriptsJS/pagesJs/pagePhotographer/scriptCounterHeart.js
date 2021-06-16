@@ -16,14 +16,14 @@ export function totalHeart() {
     })
 }
 
-export function likeModifier() {
+export function likeModifier(typeEvent) {
     let countHearts = document.querySelectorAll(".counter");
 
     countHearts.forEach(heart => {
         let intHeart = parseInt(heart.innerHTML)
         let like = false;
 
-        heart.nextElementSibling.addEventListener("click", (e) => {
+        heart.nextElementSibling.addEventListener(typeEvent, (e) => {
             if (like === true) {
                 e.stopPropagation()
                 heart.innerHTML = (--intHeart);

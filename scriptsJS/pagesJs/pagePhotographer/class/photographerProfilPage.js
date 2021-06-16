@@ -32,7 +32,7 @@ export class PhotographPage {
         rootElement.appendChild(header);
         //tags array chang for return new array on desktop list 
         const tags = this.tags.map(tag => {
-            return `<li class="photograph_tag-item personal nav-item" tabindex="0   ">#${tag}</li>`
+            return `<li><a href="#" class="photograph_tag-item personal nav-item">#${tag}</a></li>`
         })
 
         // url for picture profil photographer
@@ -69,9 +69,6 @@ export class PhotographPage {
                 ? `/Sample Photos/${name}/${media.image}`
                 : `/Sample Photos/${name}/${media.video}`;
         }
-        function getMediaTitle(media){
-            return media.title        
-        }
         const article = media.map(singleMedia => {
             const url = getMediaUrl(this.name, singleMedia)
             return `
@@ -106,7 +103,7 @@ class lightBoxMediaFactory {
         return media.image
             ? `<img src="/Sample Photos/${this.name}/${media.image}"  class="lightbox-img" aria-roledescription="image" alt="${media.title}" tabindex="0"> 
             <p class="lightbox_title_img" aria-label="titre d'image">${media.title}</p>`
-            : `<video controls width="250" class="video-controls"> <source src="/Sample Photos/${this.name}/${media.video}" alt="${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video"  tabindex="0"></video> 
+            : `<video controls width="250"  class="video-controls" tabindex="-1" > <source src="/Sample Photos/${this.name}/${media.video}" alt="${media.video}" type="video/mp4" class="lightbox-video" aria-roledescription="video"  tabindex="0"></video> 
             <p class="lightbox_title_img" aria-label="titre d'image">${media.title}</p>`
     }
     getDOMELementFromUrl(url, altText) {
@@ -114,7 +111,7 @@ class lightBoxMediaFactory {
         return mediaType === 'jpg'
             ? `<img src="${url}" alt="${altText}"class="lightbox-img" >
                 <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
-            : `<video controls width="250"  class="video-controls"> <source src="${url}"   class="lightbox-video" tabindex = "0" type="video/mp4" alt="${altText}" aria-roledescription="video" tabindex = "0"><video>
+            : `<video controls width="250"  class="video-controls" tabindex="0"> <source src="${url}"   class="lightbox-video" tabindex = "0" type="video/mp4" alt="${altText}" aria-roledescription="video" tabindex = "0"></video>
             <p class="lightbox_title_img" aria-label="titre d'image">${altText}</p>`
     }
     displayMedia(media) {
@@ -218,6 +215,7 @@ export class Lightbox {
                     return mediaFactory.displayMedia(url)
                 }
             }
+            
 
             const prevMediaInLightbox = (e) => {               
                 if (nextElement == undefined) {
