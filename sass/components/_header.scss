@@ -16,18 +16,29 @@
         }
         @media screen and (max-width: 700px) {
             
-            bottom: 150px;
-            left: 10%;
-             font-size: 1em;
+            bottom: 161px;
+            left: 37%;
+            font-size: 1em;
         }
-         @media screen and (max-width: 340px) {
+        @media screen and (max-width: 459px) {
+            bottom: 185px;
+            left: 31%;
+        }
+         @media screen and (max-width: 359px) {
             bottom: 163px;
             left: 80px;
         }
-    
+        @media screen and (max-width: 349px) {
+            bottom: 178px;
+            left: 24%;
+        }
+        @media screen and (max-width: 339px) {
+            bottom: 208px;
+            left: 26%;
+        }
     }
     a img{
-        @media screen  and (max-width: 340px){
+        @media screen  and (max-width: 359px){
             width : 8rem ;
         }   
         

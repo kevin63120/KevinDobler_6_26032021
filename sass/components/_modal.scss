@@ -32,6 +32,7 @@
     height: 100%;
     display: flex;
     padding: 1em;
+    overflow-y: scroll;
     background-color: rgba(219,136,118,1) ;
     @media screen and(min-width:700px) {
         width:600px ;
@@ -39,6 +40,7 @@
         left: 0;
         right: 0;
         margin: auto;  
+        
     }
 
     

@@ -147,30 +147,26 @@
       text-decoration: none;
       transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
       .chevron {
-        transform: rotate(0deg);
+        transform: rotate(180deg);
       }
-      .chevron:active{
-        transform:rotate(180deg);
-      }
+      
     }
-    
+    a:hover{
+        .chevron{
+          transform:rotate(0deg);
+        }
+        
+      }
     a:focus {
       text-decoration: underline;
     }
-    a:focus + .chevron {
-      transform: rotate(180deg);
-    }
-
+    
     #option_active_container {
       display: flex;
       justify-content: space-between;
     }
     .hidden-options {
       display: none;
-    }
-    .chevron::after {
-      contain: "";
-      transform: rotate(50%);
     }
     .header_media-txt {
       margin-right: 1rem;
