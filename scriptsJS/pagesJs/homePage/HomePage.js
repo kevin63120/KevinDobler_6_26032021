@@ -19,17 +19,17 @@ linkPhotographerPage.forEach(openProfil);
 // function backMain 
 
 const returnButton = document.querySelector('.return_main');
-const navlist = document.querySelector('.nav-list');
 export function displayButtonReturnMain () {
     window.addEventListener('scroll',(e)=>{
         console.log(scrollY)
-        if(scrollY >= 161){
-            returnButton.classList.remove();
+        if(scrollY > 161){
             returnButton.classList.add('return_main-active')
+            console.log('activé')
         }
-        if(scrollY < 161){
-            returnButton.classList.remove();
-            returnButton.classList.add('return_main')
+        else{
+            
+            returnButton.classList.replace('return_main-active','return_main')
+            console.log('desactivé')
         }
     })
 }
