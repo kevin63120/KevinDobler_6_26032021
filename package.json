@@ -6,7 +6,7 @@
   "scripts": {
     "start": "parcel index.html photographer.html",
     "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
-    "lint": "eslint"
+    "lint": "eslint ./scriptsJS/**/*.js"
   },
   "author": "",
   "license": "ISC",

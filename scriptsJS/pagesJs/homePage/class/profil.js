@@ -31,14 +31,14 @@ export class Profil {
         const rootPhoto = 'Sample Photos/Photographers ID Photos/';
 
         const card = `
-        <a class="link_photographer-page"href="/photographer.html?id=${this.id}" role="nav">
-            <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="photo de profil">
+        <a class="link_photographer-page"href="/photographer.html?id=${this.id}" >
+            <img class="profil_picture" src="${rootPhoto + this.portrait}" alt="">
             <h2 class="name">${this.name}</h2>
         </a>
         <div class="photograph_description">
             <p class="photograph_location">${this.city}${this.country ? ', ' + this.country : ''}</p>
             <p class="photograph_description-text">${this.tagline}</p> 
-            <p class="photograph_pricePerDay">${this.price}</p>  
+            <p class="photograph_pricePerDay">${this.price}€/jour</p>  
         </div>
         <footer class="photograph_tag">
             <ul aria-label="photograph_tag-list" class="photograph_tag-list">

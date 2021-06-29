@@ -16,11 +16,8 @@ export function modal(photographer) {
 
     ]
     const focusableElements = document.querySelectorAll(focusableElementsForm);
-    console.log(focusableElements)
     const lastFocusableElement = focusableElements[7];
-
     const firstFocusableElement = focusableElements[3];
-
 
     // function to open and close modal
 
@@ -39,16 +36,16 @@ export function modal(photographer) {
         namePhotograher.innerHTML = photographer.name
     }
 
-    const closeModal = (e) => {
+    const closeModal = () => {
         modal.classList.remove('modal-active');
         modal.getAttribute('aria-hidden', 'true');
         containerGlobal.forEach(el => {
             el.getAttribute('aria-hidden', 'false');
         });
         modal.classList.add('modal');
-        if(focusableElements[1]){
+        if (focusableElements[1]) {
             focusableElements[1].focus();
-        }else{
+        } else {
             focusableElements[0].focus();
         }
     };

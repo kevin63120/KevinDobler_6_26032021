@@ -8,7 +8,7 @@ nav{
     display: flex;
     flex-wrap: wrap;
     justify-content:center;
-    padding: 2em;
+    padding-top: 2em;
 
 }
 .nav-item{
@@ -22,4 +22,9 @@ nav{
     padding: 0 0.2em;
     line-height: 1.85em;
     padding: 0 0.5em;
+    transform: all 500ms;
 }
+ .active{
+    background-color: #901c1c;
+    color: white;
+} 

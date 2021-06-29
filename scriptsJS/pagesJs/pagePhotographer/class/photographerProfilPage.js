@@ -1,7 +1,5 @@
 
 import { lightBoxMediaFactory } from "./lightBox";
-
-
 export class PhotographPage {
 
     constructor(photographer) {
@@ -22,7 +20,6 @@ export class PhotographPage {
         this.date = photographer.date;
         this.price = photographer.price;
         this.title = photographer.title;
-
     }
 
     createDetailPage(rootElement) {
@@ -44,22 +41,25 @@ export class PhotographPage {
         const headerProfil = `
         <div id=first-part-header>
                 <div class="photograph_profil-reference">
-                    <header>
-                     <h1 class="name" id="name_personal_page">${this.name}</h1>
-                     <button class="btn-contact btn-contact-1" type="button" aria-haspopup="dialog" aria-controls="dialog">Contactez-moi</button>
-                    </header>
-                    <p class="photograph_location" id="location_personal_page">${this.city}${this.country ? ', ' + this.country : ''}</p>
-                    <p class="photograph_description-text" id="description_personal_page">${this.tagline}</p>
+                    <div class="container-header">
+                        <header>
+                         <h1 class="name" id="name_personal_page">${this.name}</h1>
+                         <button class="btn-contact btn-contact-1" type="button" aria-haspopup="dialog" >Contactez-moi</button>
+                        </header>
+                        <p class="photograph_location" id="location_personal_page">${this.city}${this.country ? ', ' + this.country : ''}</p>
+                        <p class="photograph_description-text" id="description_personal_page">${this.tagline}</p>                       
+                    </div>
+                    <div>
+                        <img src="${rootPhoto + this.portrait}" alt="${this.name}" class="profil_picture">
+                    </div>
                 </div>
                 <div class="container_photograph_tag-list">
-                    <ul class="photograph_tag-list" role="">
+                    <ul class="photograph_tag-list">
                         ${tags.join('')}
                     </ul> 
                 </div>
         </div>
-        <div>
-            <img src="${rootPhoto + this.portrait}" alt="${this.name}" class="profil_picture">
-        </div>
+        
                 `
         header.innerHTML = (headerProfil)
     }
@@ -81,8 +81,7 @@ export class PhotographPage {
                             </div>
                             <footer class="media_item-descripton">
                                 <p class="media_item-title">${singleMedia.title}</p>
-                                
-                                <p class="media_item-price">${singleMedia.price} $</p>
+                                <p class="media_item-price"></p>
                                 <div class="media_item_likes_container">
                                     <p class="counter">${singleMedia.likes}</p>
                                     <img role="button"src="/Sample Photos/imageOfModel/Vectorheart.svg" alt="like button" class="counter-btn" aria-pressed="true" tabindex="0">

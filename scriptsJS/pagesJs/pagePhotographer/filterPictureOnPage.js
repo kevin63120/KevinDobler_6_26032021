@@ -1,6 +1,5 @@
-import { likes } from "./scriptCounterHeart";
+
 import '../../script';
-import { retrieveData } from "../../script";
 
 const optionSelectionButton = document.querySelector("#header_media_container-selected");
 const optionSelectionList = document.querySelector("#list-option")
@@ -36,7 +35,7 @@ export function optionSelected() {
             optionActive.innerHTML = option.innerHTML;
             optionSelectionList.classList.replace("visible-options", "hidden-options")
             optionControler.setAttribute("aria-expanded", false)
-            
+
         })
 
     });

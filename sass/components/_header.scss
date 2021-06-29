@@ -8,6 +8,7 @@
     width: 100%;
     h1{
         color: #901c1c;
+        margin-right: 10px;
         @media screen and (max-width: 900px) {
             position: relative;
             bottom: 0;
@@ -16,24 +17,24 @@
         }
         @media screen and (max-width: 700px) {
             
-            bottom: 161px;
-            left: 37%;
+            bottom: 129px;
+            left: 30%;
             font-size: 1em;
         }
         @media screen and (max-width: 459px) {
-            bottom: 185px;
-            left: 31%;
+            bottom: 130px;
+            left: 120px;
         }
-         @media screen and (max-width: 359px) {
-            bottom: 163px;
-            left: 80px;
+         @media screen and (max-width: 390px) {
+            bottom: 156px;
+            left: 113px;
         }
         @media screen and (max-width: 349px) {
-            bottom: 178px;
-            left: 24%;
+            bottom: 151px;
+            left: 26%;
         }
         @media screen and (max-width: 339px) {
-            bottom: 208px;
+            bottom: 151px;
             left: 26%;
         }
     }

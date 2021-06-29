@@ -35,7 +35,7 @@
     color:#901c1c;
     font-weight: 400;
     font-size: 0.81em;
-    margin: 0.1rem 0;
+    margin: 0.8rem 0;
 }
 .photograph_description-text{
     color: #000000;
@@ -78,7 +78,10 @@
 .name{
     color: #d3573c;
     font-weight: 500;
-    font-size: 1.25em;
+    font-size: 2em;
+    @media screen and(min-width:700px) {
+        font-size: 1.25em;
+    }
 }
 .article-container{
     display: flex;

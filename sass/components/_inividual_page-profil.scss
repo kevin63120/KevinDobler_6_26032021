@@ -1,6 +1,16 @@
 :focus {
   border: 1px black solid;
 }
+.photograph_profil-reference{
+  display: flex;
+  justify-content: space-between;
+}
+@media screen and(min-width:700px){
+  .photograph_profil-reference{
+    font-size: 1.2em;
+
+  }
+}
 .individual_body-close {
   display: none;
 }
@@ -27,6 +37,7 @@
   .photograph_profil-reference header{
     display: flex;
     width:100%;
+    align-items: center;
 
     h1{
       flex: 1 0 75%;
@@ -35,12 +46,12 @@
     }
     button{
       flex: 1 0 auto;
-      width: 25%
+      
     }
 
   }
   #first-part-header{
-    width : 70%;
+    width : 100%;
   }
 
   #name_personal_page {
@@ -84,6 +95,7 @@
   font-weight: 700;
   background: $color_primary;
   color: azure;
+  border: none;
 }
 .btn-contact-1 {
   width: 170px;
@@ -141,17 +153,19 @@
       border-top: 1px white solid;
     }
     a {
-      width: 100;
       border: none;
-      color: white;
-      text-decoration: none;
-      transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+    color: white;
+    text-decoration: none;
+    transition: text-decoration cubic-bezier(0.075, 0.82, 0.165, 1) 500ms;
+    height: 40px;
+    display: flex;
+    align-items: center;
       .chevron {
         transform: rotate(180deg);
       }
       
     }
-    a:hover{
+    a:focus-within{
         .chevron{
           transform:rotate(0deg);
         }

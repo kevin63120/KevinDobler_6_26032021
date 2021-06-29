@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="./sass/main.scss" rel="stylesheet">
     <script src="https://kit.fontawesome.com/f80ec18dc5.js" crossorigin="anonymous"></script>
-  <title>Document</title>
+  <title>Page de photographe</title>
 </head>
 <body>
   
 <main class="individual_body-close">
    
   <div class="display-default">    
-      <div class="logo"><a href="/index.html" class="link-homepage"><img src="/assets/Sample Photos/imageOfModel/Grouplogo.svg" alt="lien page d'Accueil" role="navigation"></a></div>
+      <div class="logo"><a href="/index.html" class="link-homepage"><img src="/assets/Sample Photos/imageOfModel/Grouplogo.svg" alt="lien page d'Accueil" ></a></div>
   
       <section class="section_photograph_profil_container">
       </section>
@@ -26,12 +26,11 @@
                   <ul 
                       aria-label="selection de photo"
                       class="header_media_container-selected "
-                      role="MenuBar"
                       id="header_media_container-selected">
-                      
+                        <li>
                           <a    
                                   aria-controls="option-filter-active"
-                                  aria-haspopup="true"
+                                  aria-haspopup="listbox"
                                   aria-expanded="false"
                                   id="option_active_container"
                                   role="button"
@@ -40,8 +39,9 @@
                                   <span class="option-active">Popularité</span>
                                   <div><img src="./assets/image-utils/chevron.svg" class="chevron" alt=""></div>
                           </a>
-                          <ul id="list-option" class="hidden-options">
-                              <li>
+                        </li>
+                          <ul id="list-option" role="listbox" class="hidden-options">
+                              <li >
                                   <a  
                                   class="option-filter"  
                                   id="selectorPopularity"
@@ -50,7 +50,7 @@
                                   tabindex="0"
                                   value = "Popularité"
                                   aria-label="Popularité">Popularité</a>
-                              <li id="date-container"> 
+                              <li id="date-container" > 
                                   <a   
                                       href="#"
                                       class="option-filter" 
@@ -60,7 +60,7 @@
                                       tabindex="0"
                                       aria-label="Date">Date</a>
                               </li>
-                              <li>
+                              <li >
                                   <a 
                                       href="#"
                                       class="option-filter"
@@ -81,7 +81,7 @@
           </div>
       <div class="container_btn-2"><button class="btn-contact btn-contact-2" aria-label="Contact Me">Contactez-moi</button></div>
       <div class="container_reputation">
-          <p id="total-heart"><span class="total-heart-number"></span><img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" aria-pressed="true"></p>
+          <p id="total-heart"><span class="total-heart-number"></span><img src="/Sample Photos/imageOfModel/Vectorheart.svg"  alt="like" class="counter-btn" id="counter-all" ></p>
       
           <p class="photograph_pricePerDay">330/jour</p>
       </div>
@@ -94,11 +94,11 @@
 </div>
  <!-- modal  -->
  <div class="container-modal" role="dialog" aria-hidden="true" >
-  <div class="modal" role="document" aria-labelledby="dialog-titl">
+  <div class="modal" role="document" aria-labelledby="dialog-title">
       <form action="" method="POST" class="form">
          <header class="form_header">
              <label>Contactez-moi</label>
-             <button type="button" class="close-modal" aria-label="close-modal" title="Fermer la modal de contact"><img src="/Sample Photos/imageOfModel/close.svg"></button>
+             <button type="button" class="close-modal" aria-label="boutton fermeture" title="Fermer la modal de contact"><img src="/Sample Photos/imageOfModel/close.svg" alt=""></button>
              <h1 id="photographer-name"></h1>
          </header>
           <div class="form_item">
@@ -117,7 +117,7 @@
               <label for="message"  >Votre message</label>
              <input type="text"aria-labelledby="message" name="message" id="message">
           </div>
-          <input id="submit" type="submit" value="Envoyer">
+          <input id="submit" type="submit" aria-label="Envoyer" value="Envoyer">
           <div class="form-return" tabindex="0"></div>
       </form>
 
