@@ -3,7 +3,7 @@ import './pagesJs/pagePhotographer/scriptCounterHeart';
 import './pagesJs/pagePhotographer/modal';
 import './pagesJs/pagePhotographer/class/lightBox';
 import { retrieveData } from "./pagesJs/allPages/retrieveData";
-import { activeLightbox } from "./pagesJs/pagePhotographer/class/lightBox";
+
 import { likeModifier } from "./pagesJs/pagePhotographer/scriptCounterHeart";
 import { totalHeart } from "./pagesJs/pagePhotographer/scriptCounterHeart";
 import { optionSelected } from "./pagesJs/pagePhotographer/filterPictureOnPage";
@@ -107,7 +107,8 @@ async function displayPhotographerPage(photographerId) {
         photographerPage.personalPageHeader(container)
 
         console.log({ photographer })
-        optionSelected()
+        optionSelected("click")
+        optionSelected("keydown")
         selectedSort("click", photographerMedia, photographerPage);
         selectedSort("keydown", photographerMedia, photographerPage);
         checkPersonalDataTag()
@@ -116,7 +117,7 @@ async function displayPhotographerPage(photographerId) {
         likeModifier("click")
         likeModifier("keydown")
         new Lightbox().inititalize()
-        activeLightbox()
+        
     } catch (err) {
         console.log(err)
     }

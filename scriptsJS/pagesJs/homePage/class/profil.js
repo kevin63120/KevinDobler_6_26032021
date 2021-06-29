@@ -18,6 +18,7 @@ export class Profil {
         this.likes = photographer.likes;
         this.date = photographer.date;
         this.price = photographer.price;
+        
     }
   
     createProfilStructure(rootElement) {
@@ -50,7 +51,6 @@ export class Profil {
         article.innerHTML = (card);
 
     }
-    //method for create a personal page for photographers
 }
 
 

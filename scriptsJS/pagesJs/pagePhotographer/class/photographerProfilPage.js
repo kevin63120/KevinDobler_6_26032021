@@ -20,7 +20,9 @@ export class PhotographPage {
         this.date = photographer.date;
         this.price = photographer.price;
         this.title = photographer.title;
+        this.altText = photographer.description;
     }
+
 
     createDetailPage(rootElement) {
         this.personalPageHeader(rootElement)
@@ -73,7 +75,7 @@ export class PhotographPage {
                 : `/Sample Photos/${name}/${media.video}`;
         }
         const article = media.map(singleMedia => {
-            const url = getMediaUrl(this.name, singleMedia)
+            const url = getMediaUrl(this.name, singleMedia )
             return `
                         <article class="media_box ${singleMedia.tags}" data-url = "${url}" data-title ="${singleMedia.title}">
                             <div class="media_item">

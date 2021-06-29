@@ -24,17 +24,20 @@ const dropDown = (e) => {
 }
 
 optionSelectionButton.addEventListener("click", dropDown)
+optionSelectionButton.addEventListener("keydown",dropDown)
 
-export function optionSelected() {
+export function optionSelected(typeEvent) {
     options.forEach(option => {
-        option.addEventListener("click", (e) => {
-            e.preventDefault()
-            e.stopPropagation()
-
-            option.classList.add("active")
-            optionActive.innerHTML = option.innerHTML;
-            optionSelectionList.classList.replace("visible-options", "hidden-options")
+        option.addEventListener(typeEvent, (e) => {
+            if(e.key == "Enter" || typeEvent == "click"){
+                e.preventDefault()
+                e.stopPropagation()
+                option.classList.add("active")
+                optionActive.innerHTML = option.innerHTML;
+                optionSelectionList.classList.replace("visible-options", "hidden-options")
             optionControler.setAttribute("aria-expanded", false)
+            }
+            
 
         })
 
